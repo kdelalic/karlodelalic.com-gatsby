@@ -12,15 +12,15 @@ import Footer from "./footer"
 import "./layout.scss"
 
 const Layout = ({ children }) => (
-    <>
-    <Header/>
-    <div
-        className="content"
-    >
-        <main>{children}</main>
-    </div>
-    <Footer/>
-    </>
+    <React.Fragment>
+        <Header/>
+        <div
+            className="content"
+        >
+            <main>{children}</main>
+        </div>
+        <Footer/>
+    </React.Fragment>
 )
 
 

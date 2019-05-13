@@ -19,7 +19,14 @@ module.exports = {
           path: `${__dirname}/src/assets/markdown-pages`,
           name: "markdown-pages",
         },
-      },
+    },
+    {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          path: `${__dirname}/src/pages`,
+          name: "pages",
+        },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
