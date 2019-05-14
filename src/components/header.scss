@@ -1,0 +1,19 @@
+@import "base";
+
+nav {
+    box-shadow: 0 2px 0 0 #f5f5f5;
+    display: flex;
+    flex: 1;
+    list-style: none;
+    margin: 0;
+
+    .navbar-item {
+        padding: 10px 20px;
+        text-decoration: none;
+        color: black;
+    }
+    
+    .navbar-item:hover {
+        border-bottom: 1px solid rebeccapurple;
+    }
+}
