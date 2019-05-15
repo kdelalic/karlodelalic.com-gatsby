@@ -27,17 +27,14 @@ const Header = () => (
                     }}
                 >
                     <nav>
+                        <Link to={"/"} className="navbar-item">Home</Link>
                         {data.allFile.edges
                             .filter(edge => {
-                                return edge.node.name !== "404" 
+                                return edge.node.name !== "404"  && edge.node.name !== "index"
                             })
                             .map(edge => {
-                                let link = "/";
-                                let name = "Home"
-                                if (edge.node.name !== "index") {
-                                    link += edge.node.name;
-                                    name = edge.node.name.charAt(0).toUpperCase() + edge.node.name.slice(1);
-                                }
+                                const link = `/${edge.node.name}`;
+                                const name = edge.node.name.charAt(0).toUpperCase() + edge.node.name.slice(1)
                                 return (
                                     <Link key={edge.node.id} to={link} className="navbar-item">{name}</Link>
                                 )
