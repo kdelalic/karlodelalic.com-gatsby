@@ -34,7 +34,7 @@ const Header = () => (
                             })
                             .map(edge => {
                                 const link = `/${edge.node.name}`;
-                                const name = edge.node.name.charAt(0).toUpperCase() + edge.node.name.slice(1)
+                                const name = edge.node.name.charAt(0).toUpperCase() + edge.node.name.slice(1);
                                 return (
                                     <Link key={edge.node.id} to={link} className="navbar-item">{name}</Link>
                                 )
