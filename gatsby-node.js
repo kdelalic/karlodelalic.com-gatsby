@@ -16,7 +16,7 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             frontmatter {
               path
-              posttype
+              type
             }
           }
         }
@@ -28,13 +28,13 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        if (node.frontmatter.posttype === "project") {
+        if (node.frontmatter.type === "project") {
             createPage({
                 path: node.frontmatter.path,
                 component: projectTemplate,
                 context: {}, // additional data can be passed via context
             })
-        } else if (node.frontmatter.posttype === "blog") {
+        } else if (node.frontmatter.type === "blog") {
             createPage({
                 path: node.frontmatter.path,
                 component: blogPostTemplate,
