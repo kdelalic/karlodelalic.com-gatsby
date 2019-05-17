@@ -10,10 +10,12 @@ $width-large: 960px;
         text-decoration: none;
         display: flex;
         font-size: 1.25em;
-        padding: 10px 20px;
+        padding: 0.8rem;
+        border-radius: 4px;
+        margin-right: 1rem;
 
         .link-button-icon {
-            margin-right: 5px;
+            margin-right: 7px;
         }
     }
     
