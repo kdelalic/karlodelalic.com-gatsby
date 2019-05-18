@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -12,9 +12,23 @@ const ProjectsPage = ({
   <Layout>
     <SEO title="Projects" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
     {
-        edges.map(edge => {
-            return (<div key={edge.node.id}>{edge.node.frontmatter.title}</div>)
-        })
+        <ul className="posts">
+            {edges.map(edge => {
+                return (
+                    <li className="post" key={edge.node.id}>
+                        <h2>
+                            <Link 
+                                className="post-link"
+                                to={edge.node.frontmatter.path}
+                            >
+                                {edge.node.frontmatter.title}
+                            </Link>
+                        </h2>
+                        <h3>{edge.node.frontmatter.date} - {edge.node.timeToRead} min read</h3>
+                    </li>
+                )
+            })}
+        </ul>
     }
   </Layout>
 )
@@ -36,6 +50,7 @@ export const pageQuery = graphql`
             path
             title
           }
+          timeToRead
         }
       }
     }

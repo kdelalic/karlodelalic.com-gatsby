@@ -1,5 +1,28 @@
 $width-large: 960px;
 
+.posts {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 30rem;
+
+    li {
+        text-align: left;
+        list-style: none;
+    }
+
+    h2 {
+        text-decoration: none;
+        color: #3d588f;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+    
+    h2:hover {
+        text-decoration: underline;
+    }
+}
+
 .links {
     display: flex;
     justify-content: center;
