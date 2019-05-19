@@ -25,6 +25,7 @@ const BlogPage = ({
                             </Link>
                         </h2>
                         <h3>{edge.node.frontmatter.date} - {edge.node.timeToRead} min read</h3>
+                        <p>{edge.node.excerpt}</p>
                     </li>
                 )
             })}
@@ -50,6 +51,7 @@ export const pageQuery = graphql`
             path
             title
           }
+          timeToRead
         }
       }
     }

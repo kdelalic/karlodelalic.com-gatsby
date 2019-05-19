@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 
 const ProjectsPage = ({
     data: {
-      allMarkdownRemark: { edges },
+      allMarkdownRemark: { edges }
     },
   }) => (
   <Layout>
@@ -44,7 +44,6 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          excerpt(pruneLength: 250)
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             path
