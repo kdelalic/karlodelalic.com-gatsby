@@ -17,8 +17,8 @@ export default function Template({
                 <h1>{frontmatter.title}</h1>
                 <h2>{frontmatter.date}</h2>
                 <div
-                className="project-content"
-                dangerouslySetInnerHTML={{ __html: html }}
+                    className="project-content"
+                    dangerouslySetInnerHTML={{ __html: html }}
                 />
             </div>
         </div>
