@@ -2,5 +2,6 @@
 
 .content {
     text-align: center;
-    margin-top: 50px;
+    max-width: $width-large;
+    margin: 50px auto 0;
 }
