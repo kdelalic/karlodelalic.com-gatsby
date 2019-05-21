@@ -33,7 +33,7 @@ const ProjectsPage = ({
                                         {edge.node.frontmatter.title}
                                     </Link>
                                 </h2>
-                                <h3>{edge.node.frontmatter.date} - {edge.node.timeToRead} min read</h3>
+                                <h3>{edge.node.timeToRead} min read</h3>
                                 <Link to={edge.node.frontmatter.path}>
                                     <Img className="preview-image" fluid={previewImages[edge.node.frontmatter.path]} />
                                 </Link>
@@ -58,7 +58,6 @@ export const pageQuery = graphql`
         node {
           id
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
             path
             title
           }
