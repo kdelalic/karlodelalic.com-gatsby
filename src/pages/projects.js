@@ -34,7 +34,9 @@ const ProjectsPage = ({
                                     </Link>
                                 </h2>
                                 <h3>{edge.node.frontmatter.date} - {edge.node.timeToRead} min read</h3>
-                                <Img className="preview-image" fluid={previewImages[edge.node.frontmatter.path]} />
+                                <Link to={edge.node.frontmatter.path}>
+                                    <Img className="preview-image" fluid={previewImages[edge.node.frontmatter.path]} />
+                                </Link>
                             </li>
                         )
                     )}
