@@ -9,7 +9,7 @@ const BlogPage = ({
       allMarkdownRemark: { edges },
     },
   }) => (
-  <Layout>
+  <Layout title="Blog">
     <SEO title="Blog" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`, `blog`]} />
     {
         <ul className="posts">
@@ -24,7 +24,7 @@ const BlogPage = ({
                                 {edge.node.frontmatter.title}
                             </Link>
                         </h2>
-                        <h3>{edge.node.frontmatter.date} - {edge.node.timeToRead} min read</h3>
+                        <h3>{edge.node.frontmatter.date} • {edge.node.timeToRead} min read</h3>
                         <p>{edge.node.excerpt}</p>
                     </li>
                 )
