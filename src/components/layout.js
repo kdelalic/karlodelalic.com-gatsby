@@ -10,13 +10,14 @@ import React from "react"
 import Header from "./header"
 import "./layout.scss"
 
-const Layout = ({ children }) => (
+const Layout = (props) => (
     <React.Fragment>
         <Header/>
         <div
             className="content"
         >
-            <main>{children}</main>
+            {props.title && <h1 className="title">{props.title}</h1>}
+            <main>{props.children}</main>
         </div>
     </React.Fragment>
 )

@@ -19,7 +19,7 @@ const ProjectsPage = ({
     })
 
       return (
-        <Layout>
+        <Layout title="Projects">
             <SEO title="Projects" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
             {
                 <ul className="posts">

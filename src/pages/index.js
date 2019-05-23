@@ -14,7 +14,7 @@ const IndexPage = () => (
     </div>
     <h1 style={{color: `#363636`}}>Karlo Delalic</h1>
     <h2 style={{marginTop: `5px`}}>Fullstack Software Engineer</h2>
-    <p style={{marginTop: `25px`}}>I like to make cool things.</p>
+    <p style={{marginTop: `15px`}}>I like to make cool things.</p>
     <div className="links">
         <Link className="link-button" to="/blog">
             <FaPencilAlt className="link-button-icon"/> Writings
