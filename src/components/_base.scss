@@ -2,8 +2,9 @@ $width-large: 960px;
 
 .posts {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: auto;
+    flex-wrap: wrap;
 
     li {
         text-align: left;
@@ -14,20 +15,19 @@ $width-large: 960px;
         color: #3d588f;
         font-weight: 700;
         font-size: 1.5rem;
-
-        .post-link {
-            text-decoration: none;
-        }
-
-        .post-link:hover {
-            text-decoration: underline;
-        }
     }
-    
-    
+
+    .post-link {
+        text-decoration: none;
+    }
 
     .post {
-        margin-bottom: 50px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        border-radius: 2px;
+        padding: 15px;
+        margin: 10px;
+        text-align: left;
 
         h2 {
             margin-bottom: 5px;
@@ -42,7 +42,7 @@ $width-large: 960px;
         }
 
         .preview-image {
-            width: 450px;
+            width: 300px;
         }
     }
 }

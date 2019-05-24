@@ -22,25 +22,21 @@ const ProjectsPage = ({
         <Layout title="Projects">
             <SEO title="Projects" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
             {
-                <ul className="posts">
+                <div className="posts">
                     {postEdges.map(edge => (
-                            <li className="post" key={edge.node.id}>
-                                <h2>
-                                    <Link 
-                                        className="post-link"
-                                        to={edge.node.frontmatter.path}
-                                    >
-                                        {edge.node.frontmatter.title}
-                                    </Link>
-                                </h2>
+                        <div className="post box" key={edge.node.id}>
+                            <Link 
+                                className="post-link"
+                                to={edge.node.frontmatter.path}
+                            >
+                                <h2>{edge.node.frontmatter.title}</h2>
                                 <h3>{edge.node.timeToRead} min read</h3>
-                                <Link to={edge.node.frontmatter.path}>
-                                    <Img className="preview-image" fluid={previewImages[edge.node.frontmatter.path]} />
-                                </Link>
-                            </li>
+                                <Img className="preview-image" fluid={previewImages[edge.node.frontmatter.path]} />
+                            </Link>
+                        </div>
                         )
                     )}
-                </ul>
+                </div>
             }
         </Layout>
       )
