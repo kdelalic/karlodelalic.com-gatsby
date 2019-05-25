@@ -3,10 +3,51 @@
 .content {
   text-align: center;
   margin: 50px auto 0;
-  width: 40rem;
 }
 
 .title {
   text-align: left;
   margin-bottom: 25px;
+}
+
+@media all and (min-width: $width-max) {
+  .content {
+    max-width: $width-max - 50px;
+    width: $width-max - 50px;
+  }
+}
+
+@media all and (min-width: $width-xlarge) and (max-width: $width-max - 1px) {
+  .content {
+    max-width: $width-xlarge - 50px;
+    width: $width-xlarge - 50px;
+  }
+}
+
+@media all and (min-width: $width-large) and (max-width: $width-xlarge - 1px) {
+  .content {
+    max-width: $width-large - 50px;
+    width: $width-large - 50px;
+  }
+}
+
+@media all and (min-width: $width-medium) and (max-width: $width-large - 1px) {
+  .content {
+    max-width: $width-medium - 50px;
+    width: $width-medium - 50px;
+  }
+}
+
+@media all and (max-width: $width-small) {
+  .content {
+    max-width: $width-small - 50px;
+    width: $width-small - 50px;
+  }
+}
+
+@media all and (max-width: $width-xsmall) {
+  .content {
+    max-width: $width-xsmall - 50px;
+    width: $width-xsmall - 50px;
+  }
 }

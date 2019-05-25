@@ -24,14 +24,16 @@ const ProjectsPage = ({
       {
         <div className="posts">
           {postEdges.map(edge => (
-            <div className="post box" key={edge.node.id}>
+            <div className="post" key={edge.node.id}>
               <Link
                 className="post-link"
                 to={edge.node.frontmatter.path}
               >
-                <h2>{edge.node.frontmatter.title}</h2>
-                <h3>{edge.node.timeToRead} min read</h3>
-                <Img className="preview-image" fluid={previewImages[edge.node.frontmatter.path]} />
+                <div className="paper">
+                  <h2>{edge.node.frontmatter.title}</h2>
+                  <h3>{edge.node.timeToRead} min read</h3>
+                  <Img className="preview-image" fluid={previewImages[edge.node.frontmatter.path]} />
+                </div>
               </Link>
             </div>
           )
