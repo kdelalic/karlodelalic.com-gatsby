@@ -12,10 +12,10 @@ const BlogPage = ({
     <Layout title="Blog">
       <SEO title="Blog" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`, `blog`]} />
       {
-        <ul className="posts">
+        <div className="posts">
           {edges.map(edge => {
             return (
-              <li className="post" key={edge.node.id}>
+              <div className="post" key={edge.node.id}>
                 <h2>
                   <Link
                     className="post-link"
@@ -24,12 +24,12 @@ const BlogPage = ({
                     {edge.node.frontmatter.title}
                   </Link>
                 </h2>
-                <h3>{edge.node.frontmatter.date} • {edge.node.timeToRead} min read</h3>
+                <h3>{edge.node.frontmatter.date} — {edge.node.timeToRead} min read</h3>
                 <p>{edge.node.excerpt}</p>
-              </li>
+              </div>
             )
           })}
-        </ul>
+        </div>
       }
     </Layout>
   )
