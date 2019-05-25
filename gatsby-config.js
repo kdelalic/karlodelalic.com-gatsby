@@ -14,18 +14,18 @@ module.exports = {
       },
     },
     {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          path: `${__dirname}/src/assets/markdown-pages`,
-          name: "markdown-pages",
-        },
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/assets/markdown-pages`,
+        name: "markdown-pages",
+      },
     },
     {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          path: `${__dirname}/src/pages`,
-          name: "pages",
-        },
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: "pages",
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -44,19 +44,19 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-offline`,
     {
-        resolve: `gatsby-transformer-remark`,
-        options: {
-          commonmark: true,
-          footnotes: true,
-          pedantic: true,
-          gfm: true,
-        },
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        commonmark: true,
+        footnotes: true,
+        pedantic: true,
+        gfm: true,
+      },
     },
     {
-        resolve: `gatsby-plugin-typography`,
-        options: {
+      resolve: `gatsby-plugin-typography`,
+      options: {
         pathToConfigModule: `src/utils/typography`,
-        }
+      }
     },
   ],
 }

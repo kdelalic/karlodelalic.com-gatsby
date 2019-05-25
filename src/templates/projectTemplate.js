@@ -11,16 +11,16 @@ export default function Template({
   const { frontmatter, html } = markdownRemark
   return (
     <Layout>
-        <SEO title="frontmatter.title" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
-        <div className="project-container">
-            <div className="project">
-                <h1>{frontmatter.title}</h1>
-                <div
-                    className="project-content"
-                    dangerouslySetInnerHTML={{ __html: html }}
-                />
-            </div>
+      <SEO title="frontmatter.title" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
+      <div className="project-container">
+        <div className="project">
+          <h1>{frontmatter.title}</h1>
+          <div
+            className="project-content"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         </div>
+      </div>
     </Layout>
   )
 }
