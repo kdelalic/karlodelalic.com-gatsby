@@ -5,34 +5,34 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const BlogPage = ({
-    data: {
-      allMarkdownRemark: { edges },
-    },
-  }) => (
-  <Layout title="Blog">
-    <SEO title="Blog" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`, `blog`]} />
-    {
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}) => (
+    <Layout title="Blog">
+      <SEO title="Blog" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`, `blog`]} />
+      {
         <ul className="posts">
-            {edges.map(edge => {
-                return (
-                    <li className="post" key={edge.node.id}>
-                        <h2>
-                            <Link 
-                                className="post-link"
-                                to={edge.node.frontmatter.path}
-                            >
-                                {edge.node.frontmatter.title}
-                            </Link>
-                        </h2>
-                        <h3>{edge.node.frontmatter.date} • {edge.node.timeToRead} min read</h3>
-                        <p>{edge.node.excerpt}</p>
-                    </li>
-                )
-            })}
+          {edges.map(edge => {
+            return (
+              <li className="post" key={edge.node.id}>
+                <h2>
+                  <Link
+                    className="post-link"
+                    to={edge.node.frontmatter.path}
+                  >
+                    {edge.node.frontmatter.title}
+                  </Link>
+                </h2>
+                <h3>{edge.node.frontmatter.date} • {edge.node.timeToRead} min read</h3>
+                <p>{edge.node.excerpt}</p>
+              </li>
+            )
+          })}
         </ul>
-    }
-  </Layout>
-)
+      }
+    </Layout>
+  )
 
 export default BlogPage
 

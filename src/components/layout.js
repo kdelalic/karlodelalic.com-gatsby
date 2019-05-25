@@ -11,15 +11,15 @@ import Header from "./header"
 import "./layout.scss"
 
 const Layout = (props) => (
-    <React.Fragment>
-        <Header/>
-        <div
-            className="content"
-        >
-            {props.title && <h1 className="title">{props.title}</h1>}
-            <main>{props.children}</main>
-        </div>
-    </React.Fragment>
+  <React.Fragment>
+    <Header />
+    <div
+      className="content"
+    >
+      {props.title && <h1 className="title">{props.title}</h1>}
+      <main>{props.children}</main>
+    </div>
+  </React.Fragment>
 )
 
 
