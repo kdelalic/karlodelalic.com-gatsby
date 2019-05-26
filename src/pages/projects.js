@@ -36,9 +36,9 @@ const ProjectsPage = ({
                   <Link className="link-button" to={edge.node.frontmatter.path}>
                     Read more
                   </Link>
-                  <Link className="link-button outline" to="/blog">
+                  <a className="link-button outline" href={edge.node.frontmatter.demo} target="_blank" rel="noopener noreferrer">
                     Demo
-                  </Link>
+                  </a>
                 </div>
                 <img className="project__icon" alt="Project icon" src={projectIcons[edge.node.frontmatter.path]} />
               </div>
@@ -66,6 +66,7 @@ export const pageQuery = graphql`
             path
             title
             description
+            demo
           }
           timeToRead
         }
