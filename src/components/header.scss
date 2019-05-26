@@ -11,12 +11,12 @@ nav {
   .navbar-item {
     padding: 10px 20px;
     text-decoration: none;
-    color: black;
+    color: $primary-color;
     border-bottom: 1px solid transparent;
   }
 
   .navbar-item:hover {
-    border-bottom: 1px solid rebeccapurple;
+    border-bottom: 1px solid $primary-color__hover;
   }
 
   @media all and (min-width: $width-medium) and (max-width: $width-large - 1px) {

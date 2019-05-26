@@ -12,19 +12,19 @@ const BlogPage = ({
     <Layout title="Blog">
       <SEO title="Blog" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`, `blog`]} />
       {
-        <div className="posts">
+        <div className="blog">
           {edges.map(edge => {
             return (
-              <div className="post" key={edge.node.id}>
-                <h2>
+              <div className="blog__post" key={edge.node.id}>
+                <h2 className="blog__post__title">
                   <Link
-                    className="post__link"
+                    className="blog__post__link"
                     to={edge.node.frontmatter.path}
                   >
                     {edge.node.frontmatter.title}
                   </Link>
                 </h2>
-                <h3>{edge.node.frontmatter.date} — {edge.node.timeToRead} min read</h3>
+                <h3 className="read-time">{edge.node.frontmatter.date} — {edge.node.timeToRead} min read</h3>
                 <p>{edge.node.excerpt}</p>
               </div>
             )

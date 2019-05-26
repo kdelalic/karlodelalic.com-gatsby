@@ -10,16 +10,13 @@ export default function Template({
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
   return (
-    <Layout>
-      <SEO title="frontmatter.title" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
+    <Layout title={frontmatter.title}>
+      <SEO title={frontmatter.title} keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
       <div className="project-container">
-        <div className="project">
-          <h1>{frontmatter.title}</h1>
-          <div
-            className="project-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </div>
+        <div
+          className="project-content"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </div>
     </Layout>
   )
