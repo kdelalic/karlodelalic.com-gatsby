@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { FaLink, FaPencilAlt } from "react-icons/fa";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -24,24 +25,23 @@ const ProjectsPage = ({
         <div className="posts">
           {postEdges.map(edge => (
             <div className="post project" key={edge.node.id}>
-              <Link
-                className="post__link"
-                to={edge.node.frontmatter.path}
-              >
-                <div className="project__content paper">
-                  <div className="project__head">
-                    <h2>{edge.node.frontmatter.title}</h2>
-                    <h3> — {edge.node.timeToRead} min read</h3>
-                  </div>
-                  <div className="project__body">
-                    <p>{edge.node.frontmatter.description}</p>
-                  </div>
-                  <div className="project__body__buttons">
-
-                  </div>
-                  <img className="project__icon" alt="Project icon" src={projectIcons[edge.node.frontmatter.path]} />
+              <div className="project__content paper">
+                <h2 className="project__title">
+                  {edge.node.frontmatter.title}
+                </h2>
+                <div className="project__body">
+                  <p className="project__body__description">{edge.node.frontmatter.description}</p>
                 </div>
-              </Link>
+                <div className="project__body__buttons">
+                  <Link className="link-button" to={edge.node.frontmatter.path}>
+                    Read more
+                  </Link>
+                  <Link className="link-button outline" to="/blog">
+                    Demo
+                  </Link>
+                </div>
+                <img className="project__icon" alt="Project icon" src={projectIcons[edge.node.frontmatter.path]} />
+              </div>
             </div>
           )
           )}

@@ -15,15 +15,15 @@ const IndexPage = () => (
     <h1 style={{ color: `#363636` }}>Karlo Delalic</h1>
     <h2 style={{ marginTop: `5px` }}>Fullstack Software Engineer</h2>
     <p style={{ marginTop: `15px` }}>I like to make cool things.</p>
-    <div className="links">
-      <Link className="link" to="/blog">
-        <FaPencilAlt className="link__icon" /> Writings
+    <div className="social-buttons">
+      <Link className="link-button ghost" to="/blog">
+        <FaPencilAlt className="link-button__icon" /> Writings
       </Link>
-      <a className="link" href="https://github.com/kdelalic" target="_blank" rel="noopener noreferrer">
-        <FaGithub className="link__icon" /> Github
+      <a className="link-button ghost" href="https://github.com/kdelalic" target="_blank" rel="noopener noreferrer">
+        <FaGithub className="link-button__icon" /> Github
       </a>
-      <a className="link" href="https://twitter.com/karlodelalic" target="_blank" rel="noopener noreferrer">
-        <FaTwitter className="link__icon" /> Twitter
+      <a className="link-button ghost" href="https://twitter.com/karlodelalic" target="_blank" rel="noopener noreferrer">
+        <FaTwitter className="link-button__icon" /> Twitter
       </a>
     </div>
   </Layout>

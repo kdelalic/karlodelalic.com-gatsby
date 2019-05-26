@@ -3,6 +3,8 @@ path: "/projects/cryptofolio"
 title: "Cryptofolio"
 description: "Crypto-currency investment tracker portfolio"
 type: "project"
+demo: "https://cryptofolio-demo.netlify.com"
+github: "https://github.com/kdelalic/cryptofolio"
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam aliquam sem et tortor consequat id porta. Amet porttitor eget dolor morbi non. Diam maecenas ultricies mi eget mauris pharetra. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien. Et pharetra pharetra massa massa. Eu non diam phasellus vestibulum lorem sed. Nec ultrices dui sapien eget mi proin. Mi eget mauris pharetra et ultrices neque ornare aenean. Massa tincidunt nunc pulvinar sapien et. Dui vivamus arcu felis bibendum ut tristique. Dignissim diam quis enim lobortis scelerisque fermentum. Commodo ullamcorper a lacus vestibulum sed.
 

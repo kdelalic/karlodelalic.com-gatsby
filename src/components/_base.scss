@@ -4,7 +4,11 @@ $width-large: 768px;
 $width-medium: 480px;
 $width-small: 599px;
 $width-xsmall: 479px;
+
 $border-radius: 4px;
+
+$primary-color: #6772e5;
+$primary-color__hover: #7795f8;
 
 body {
   background-color: #f6f9fc;
@@ -17,31 +21,49 @@ body {
   background-color: white;
   overflow: hidden;
   position: relative;
-  height: 300px;
   padding: 15px;
 
-  &:hover {
+  &:hover svg path {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    fill: #8898aa;
   }
+}
+
+.read-time {
+  color: lightgray;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .project {
   width: 50%;
 
   &__content {
-    padding: 15px 30px 15px 150px;
+    padding: 40px 40px 40px 150px;
   }
 
-  &__head {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
+  &__title {
+    text-transform: uppercase;
+  }
+
+  &__body {
+    &__buttons {
+      display: flex;
+      margin-left: -10px;
+      margin-right: -10px;
+
+      .link-button {
+        text-transform: uppercase;
+      }
+    }
   }
 
   &__icon {
     max-width: 150px;
     position: absolute;
     left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -55,7 +77,7 @@ body {
   margin-right: -15px;
 
   h2 {
-    color: #6772e5;
+    color: $primary-color;
     font-weight: 700;
   }
 
@@ -74,35 +96,67 @@ body {
     h3 {
       margin-bottom: 10px;
     }
-
-    p {
-      margin-top: 25px;
-    }
   }
 }
 
-.links {
+.link-button,
+.link-button:visited {
+  background-color: $primary-color;
+  color: white;
+  text-decoration: none;
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  border-radius: $border-radius;
+  font-size: 15px;
+  font-weight: 600;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  margin: 10px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.15s ease;
 
-  .link {
+  &:hover {
+    background-color: $primary-color__hover;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+  }
+
+  &.outline {
+    background-color: transparent;
+    color: $primary-color;
+
+    &:hover {
+      color: $primary-color__hover;
+    }
+  }
+
+  &.ghost {
+    background-color: transparent;
     color: black;
-    text-decoration: none;
-    display: flex;
-    font-size: 1.25em;
-    padding: 0.8rem;
-    border-radius: $border-radius;
-    margin-right: 1rem;
-    line-height: normal;
+    box-shadow: none;
+    transform: none;
 
     &:hover {
       background-color: #f1f1f1;
     }
+  }
 
-    &__icon {
-      margin-right: 7px;
-    }
+  &__icon {
+    margin-right: 7px;
+  }
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  .link-button {
+    font-size: 1.25em;
+    font-weight: 300;
+    padding: 0.8rem;
+    margin-right: 1rem;
+    line-height: normal;
   }
 }
 
