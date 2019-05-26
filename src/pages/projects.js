@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { FaLink, FaPencilAlt } from "react-icons/fa";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -22,7 +21,7 @@ const ProjectsPage = ({
     <Layout title="Projects">
       <SEO title="Projects" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
       {
-        <div className="posts">
+        <div className="projects">
           {postEdges.map(edge => (
             <div className="post project" key={edge.node.id}>
               <div className="project__content paper">
@@ -36,11 +35,11 @@ const ProjectsPage = ({
                   <Link className="link-button" to={edge.node.frontmatter.path}>
                     Read more
                   </Link>
-                  <a className="link-button outline" href={edge.node.frontmatter.demo} target="_blank" rel="noopener noreferrer">
+                  <a className="link-button secondary" href={edge.node.frontmatter.demo} target="_blank" rel="noopener noreferrer">
                     Demo
                   </a>
                 </div>
-                <img className="project__icon" alt="Project icon" src={projectIcons[edge.node.frontmatter.path]} />
+                <img className="project__logo" alt="Project logo" src={projectIcons[edge.node.frontmatter.path]} />
               </div>
             </div>
           )
