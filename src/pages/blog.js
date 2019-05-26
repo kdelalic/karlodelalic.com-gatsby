@@ -18,7 +18,7 @@ const BlogPage = ({
               <div className="post" key={edge.node.id}>
                 <h2>
                   <Link
-                    className="post-link"
+                    className="post__link"
                     to={edge.node.frontmatter.path}
                   >
                     {edge.node.frontmatter.title}

@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,14 +7,14 @@ import SEO from "../components/seo"
 const ProjectsPage = ({
   data: {
     allMarkdownRemark: { edges: postEdges },
-    previewImages: { edges: previewImageEdges }
+    projectIcons: { edges: projectIconEdges }
   },
 }) => {
 
-  const previewImages = {};
+  const projectIcons = {};
 
-  previewImageEdges.forEach(edge => {
-    previewImages["/" + edge.node.relativeDirectory] = edge.node.childImageSharp.fluid;
+  projectIconEdges.forEach(edge => {
+    projectIcons["/" + edge.node.relativeDirectory] = edge.node.publicURL;
   })
 
   return (
@@ -24,15 +23,23 @@ const ProjectsPage = ({
       {
         <div className="posts">
           {postEdges.map(edge => (
-            <div className="post" key={edge.node.id}>
+            <div className="post project" key={edge.node.id}>
               <Link
-                className="post-link"
+                className="post__link"
                 to={edge.node.frontmatter.path}
               >
-                <div className="paper">
-                  <h2>{edge.node.frontmatter.title}</h2>
-                  <h3>{edge.node.timeToRead} min read</h3>
-                  <Img className="preview-image" fluid={previewImages[edge.node.frontmatter.path]} />
+                <div className="project__content paper">
+                  <div className="project__head">
+                    <h2>{edge.node.frontmatter.title}</h2>
+                    <h3> — {edge.node.timeToRead} min read</h3>
+                  </div>
+                  <div className="project__body">
+                    <p>{edge.node.frontmatter.description}</p>
+                  </div>
+                  <div className="project__body__buttons">
+
+                  </div>
+                  <img className="project__icon" alt="Project icon" src={projectIcons[edge.node.frontmatter.path]} />
                 </div>
               </Link>
             </div>
@@ -58,28 +65,25 @@ export const pageQuery = graphql`
           frontmatter {
             path
             title
+            description
           }
           timeToRead
         }
       }
     }
-    previewImages: allFile(
+    projectIcons: allFile(
         filter: { 
             absolutePath: {
             regex: "/projects/"
           },
           extension:{
-            regex:"/png/"
+            regex:"/svg/"
           }
         }
       ) {
         edges {
           node {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+              publicURL
               relativeDirectory
           }
         }
