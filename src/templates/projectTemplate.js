@@ -12,9 +12,9 @@ export default function Template({
   return (
     <Layout title={frontmatter.title}>
       <SEO title={frontmatter.title} keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
-      <div className="project-container">
+      <div className="post">
         <div
-          className="project-content"
+          className="post__content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
