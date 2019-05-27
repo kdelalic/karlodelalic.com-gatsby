@@ -3,20 +3,19 @@
 .blog {
   text-align: left;
 
-  a:visited {
-    color: $primary-color;
-  }
-
   &__post {
     max-width: $width-large;
 
     &__title {
-      &:hover {
-        color: $primary-color__hover;
-      }
-
       margin-bottom: 5px;
-      color: $primary-color;
+
+      &__link {
+        color: $primary-color;
+
+        &:hover {
+          color: $primary-color__hover;
+        }
+      }
     }
 
     h3 {
