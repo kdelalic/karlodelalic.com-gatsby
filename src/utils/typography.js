@@ -2,7 +2,6 @@ import Typography from "typography"
 
 const typography = new Typography({
   baseFontSize: "18px",
-  baseLineHeight: 1.25,
   headerWeight: 600,
   bodyWeight: 400,
   boldWeight: 700,
@@ -15,7 +14,15 @@ const typography = new Typography({
     "Arial",
     "sans-serif",
   ],
-  bodyFontFamily: ["Lato", "sans-serif"],
+  bodyFontFamily: [
+    "Lato",
+    "Avenir Next",
+    "Helvetica Neue",
+    "Segoe UI",
+    "Helvetica",
+    "Arial",
+    "sans-serif",
+  ],
   googleFonts: [
     {
       name: "Open Sans",
