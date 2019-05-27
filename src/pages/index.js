@@ -19,7 +19,7 @@ const IndexPage = () => (
     <p className="description">I like to make cool things.</p>
     <div className="social-buttons">
       <Link className="link-button secondary" to="/blog">
-        <FaPencilAlt className="link-button__icon" /> Writings
+        <FaPencilAlt className="link-button__icon" /> Blog
       </Link>
       <a className="link-button secondary" href="https://github.com/kdelalic" target="_blank" rel="noopener noreferrer">
         <FaGithub className="link-button__icon" /> Github

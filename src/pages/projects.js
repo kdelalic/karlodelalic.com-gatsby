@@ -9,14 +9,14 @@ import "./projects.scss"
 const ProjectsPage = ({
   data: {
     allMarkdownRemark: { edges: postEdges },
-    projectIcons: { edges: projectIconEdges }
+    projectLogos: { edges: projectLogoEdges }
   },
 }) => {
 
-  const projectIcons = {};
+  const projectLogos = {};
 
-  projectIconEdges.forEach(edge => {
-    projectIcons["/" + edge.node.relativeDirectory] = edge.node.publicURL;
+  projectLogoEdges.forEach(edge => {
+    projectLogos["/" + edge.node.relativeDirectory] = edge.node.publicURL;
   })
 
   return (
@@ -41,7 +41,7 @@ const ProjectsPage = ({
                     Demo
                   </a>
                 </div>
-                <img className="project__logo" alt="Project logo" src={projectIcons[edge.node.frontmatter.path]} />
+                <img className="project__logo" alt="Project logo" src={projectLogos[edge.node.frontmatter.path]} />
               </div>
             </div>
           )
@@ -73,7 +73,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    projectIcons: allFile(
+    projectLogos: allFile(
         filter: { 
             absolutePath: {
             regex: "/projects/"
