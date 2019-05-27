@@ -16,6 +16,10 @@ body {
   background-color: white;
 }
 
+.post {
+  text-align: left;
+}
+
 .paper {
   box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
     0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
@@ -25,11 +29,6 @@ body {
   overflow: hidden;
   position: relative;
   padding: 15px;
-
-  &:hover svg path {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    fill: #8898aa;
-  }
 }
 
 .read-time {
@@ -44,10 +43,6 @@ body {
   &::after {
     content: "\00B7";
   }
-}
-
-.dot-divider::after {
-  content: "\00B7";
 }
 
 .link-button {
@@ -78,6 +73,7 @@ body {
   &.secondary {
     background-color: white;
     color: $primary-color;
+
     &:visited {
       color: $primary-color;
     }
