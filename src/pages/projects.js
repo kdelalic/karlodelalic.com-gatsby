@@ -4,6 +4,8 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import "./projects.scss"
+
 const ProjectsPage = ({
   data: {
     allMarkdownRemark: { edges: postEdges },
@@ -32,7 +34,7 @@ const ProjectsPage = ({
                   <p className="project__body__description">{edge.node.frontmatter.description}</p>
                 </div>
                 <div className="project__body__buttons">
-                  <Link className="link-button" to={edge.node.frontmatter.path}>
+                  <Link to={edge.node.frontmatter.path} className="link-button">
                     Read more
                   </Link>
                   <a className="link-button secondary" href={edge.node.frontmatter.demo} target="_blank" rel="noopener noreferrer">

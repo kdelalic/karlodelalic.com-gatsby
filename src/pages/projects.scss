@@ -1,0 +1,43 @@
+@import "../globals/base";
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: auto;
+  justify-content: space-around;
+  margin-left: -15px;
+  margin-right: -15px;
+
+  .project {
+    width: 50%;
+    padding: 15px;
+    text-align: left;
+
+    &__content {
+      padding: 40px 40px 40px 150px;
+    }
+
+    &__title {
+      text-transform: uppercase;
+      color: $primary-color;
+      margin-bottom: 10px;
+    }
+
+    &__body {
+      &__buttons {
+        display: flex;
+        margin-left: -10px;
+        margin-right: -10px;
+      }
+    }
+
+    &__logo {
+      max-width: 150px;
+      position: absolute;
+      left: -50px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

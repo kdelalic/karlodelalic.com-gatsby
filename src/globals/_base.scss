@@ -10,6 +10,8 @@ $border-radius: 4px;
 $primary-color: #6772e5;
 $primary-color__hover: #7795f8;
 
+$secondary-color: #2ebf91;
+
 body {
   background-color: #f6f9fc;
 }
@@ -32,69 +34,6 @@ body {
 .read-time {
   font-weight: 600;
   font-size: 15px;
-}
-
-.blog {
-  text-align: left;
-
-  &__post {
-    max-width: $width-large;
-
-    &__title {
-      &:hover {
-        color: $primary-color__hover;
-      }
-
-      margin-bottom: 5px;
-      color: $primary-color;
-    }
-
-    h3 {
-      margin-bottom: 10px;
-    }
-  }
-}
-
-.projects {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin: auto;
-  justify-content: space-around;
-  margin-left: -15px;
-  margin-right: -15px;
-
-  .project {
-    width: 50%;
-    padding: 15px;
-    text-align: left;
-
-    &__content {
-      padding: 40px 40px 40px 150px;
-    }
-
-    &__title {
-      text-transform: uppercase;
-      color: $primary-color;
-      margin-bottom: 10px;
-    }
-
-    &__body {
-      &__buttons {
-        display: flex;
-        margin-left: -10px;
-        margin-right: -10px;
-      }
-    }
-
-    &__logo {
-      max-width: 150px;
-      position: absolute;
-      left: -50px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
 }
 
 .link-button {
@@ -152,18 +91,8 @@ body {
   }
 }
 
-.social-buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
 a {
   text-decoration: none;
-}
-
-a:visited {
-  color: unset;
 }
 
 html,
