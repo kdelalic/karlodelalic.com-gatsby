@@ -5,6 +5,7 @@
 
   &__post {
     max-width: $width-large;
+    margin-bottom: 50px;
 
     &__title {
       margin-bottom: 5px;
@@ -18,8 +19,14 @@
       }
     }
 
-    h3 {
-      margin-bottom: 10px;
+    &__excerpt {
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    &__info {
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.54);
     }
   }
 }

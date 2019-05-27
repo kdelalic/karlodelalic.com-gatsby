@@ -26,8 +26,12 @@ const BlogPage = ({
                     {edge.node.frontmatter.title}
                   </Link>
                 </h2>
-                <h3 className="read-time">{edge.node.frontmatter.date} — {edge.node.timeToRead} min read</h3>
-                <p>{edge.node.excerpt}</p>
+                <p className="blog__post__excerpt">{edge.node.excerpt}</p>
+                <h5 className="blog__post__info">
+                  {edge.node.frontmatter.date}
+                  <span className="dot-divider"></span>
+                  {edge.node.timeToRead} min read
+                </h5>
               </div>
             )
           })}
