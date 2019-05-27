@@ -1,0 +1,26 @@
+@import "../globals/base";
+
+.blog {
+  text-align: left;
+
+  a:visited {
+    color: unset;
+  }
+
+  &__post {
+    max-width: $width-large;
+
+    &__title {
+      &:hover {
+        color: $primary-color__hover;
+      }
+
+      margin-bottom: 5px;
+      color: $primary-color;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+    }
+  }
+}

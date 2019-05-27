@@ -6,15 +6,17 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
+import "./index.scss"
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
     <div style={{ maxWidth: `175px`, margin: `0 auto 1.45rem auto` }}>
       <Image />
     </div>
-    <h1 style={{ color: `#363636`, marginBottom: `10px`, fontWeight: `600` }}>Karlo Delalic</h1>
-    <h2 style={{ fontWeight: `300` }}>Fullstack Software Engineer</h2>
-    <p>I like to make cool things.</p>
+    <h1 className="fullname">Karlo Delalic</h1>
+    <h2 className="occupation">Fullstack Software Engineer</h2>
+    <p className="description">I like to make cool things.</p>
     <div className="social-buttons">
       <Link className="link-button secondary" to="/blog">
         <FaPencilAlt className="link-button__icon" /> Writings

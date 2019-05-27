@@ -1,0 +1,22 @@
+@import "../globals/base";
+
+.fullname {
+  color: #363636;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.occupation {
+  font-weight: 300;
+  color: #4a4a4a;
+}
+
+.description {
+  color: #4a4a4a;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
