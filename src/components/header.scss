@@ -1,7 +1,6 @@
 @import "../globals/base";
 
 header {
-  max-width: $width-max;
   margin: 0 auto;
   display: flex;
   box-shadow: 0 2px 0 0 #f5f5f5;
@@ -9,6 +8,7 @@ header {
   .brand {
     display: flex;
     align-items: center;
+    margin-left: 15px;
 
     $logo-dimension: 24px;
 
@@ -31,45 +31,39 @@ header {
     }
   }
 
-  @media all and (min-width: $width-medium) and (max-width: $width-large - 1px) {
-    header {
-      max-width: $width-medium;
-      width: $width-medium;
+  .navbar {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+
+    &__item {
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #7a7a7a;
+      border-bottom: 1px solid transparent;
+
+      &:hover {
+        border-bottom: 1px solid $primary-color__hover;
+      }
+    }
+
+    .active {
+      color: $primary-color;
     }
   }
 
-  @media all and (max-width: $width-small) {
-    header {
-      max-width: $width-small;
-      width: $width-small;
-    }
+  @media all and (min-width: $width-max) {
+    max-width: $width-max - 50px;
+    width: $width-max - 50px;
   }
 
-  @media all and (max-width: $width-xsmall) {
-    header {
-      max-width: $width-xsmall;
-      width: $width-xsmall;
-    }
-  }
-}
-
-.navbar {
-  display: flex;
-  flex: 1;
-  justify-content: flex-end;
-
-  &__item {
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #7a7a7a;
-    border-bottom: 1px solid transparent;
-
-    &:hover {
-      border-bottom: 1px solid $primary-color__hover;
-    }
+  @media all and (min-width: $width-xlarge) and (max-width: $width-max - 1px) {
+    max-width: $width-xlarge - 50px;
+    width: $width-xlarge - 50px;
   }
 
-  .active {
-    color: $primary-color;
+  @media all and (max-width: $width-xlarge - 1px) {
+    max-width: 100%;
+    width: 100%;
   }
 }
