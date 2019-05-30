@@ -18,13 +18,13 @@ const IndexPage = () => (
     <h2 className="occupation">Fullstack Software Engineer</h2>
     <p className="description">I like to make cool things.</p>
     <div className="social-buttons">
-      <Link className="link-button secondary" to="/blog">
-        <FaPencilAlt className="link-button__icon" /> Blog
+      <Link className="link-button ghost" to="/blog">
+        <FaPencilAlt className="link-button__icon" /> Writings
       </Link>
-      <a className="link-button secondary" href="https://github.com/kdelalic" target="_blank" rel="noopener noreferrer">
+      <a className="link-button ghost" href="https://github.com/kdelalic" target="_blank" rel="noopener noreferrer">
         <FaGithub className="link-button__icon" /> Github
       </a>
-      <a className="link-button secondary" href="https://twitter.com/karlodelalic" target="_blank" rel="noopener noreferrer">
+      <a className="link-button ghost" href="https://twitter.com/karlodelalic" target="_blank" rel="noopener noreferrer">
         <FaTwitter className="link-button__icon" /> Twitter
       </a>
     </div>
