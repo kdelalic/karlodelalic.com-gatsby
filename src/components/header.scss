@@ -1,6 +1,8 @@
 @import "../globals/base";
 
 header {
+  $header-height: 47px;
+
   margin: 0 auto;
   display: flex;
   box-shadow: 0 2px 0 0 #f5f5f5;
@@ -41,6 +43,7 @@ header {
       text-decoration: none;
       color: #7a7a7a;
       border-bottom: 1px solid transparent;
+      text-transform: capitalize;
 
       &:hover {
         border-bottom: 1px solid $primary-color__hover;
@@ -57,13 +60,98 @@ header {
     width: $width-max - 50px;
   }
 
-  @media all and (min-width: $width-xlarge) and (max-width: $width-max - 1px) {
-    max-width: $width-xlarge - 50px;
-    width: $width-xlarge - 50px;
-  }
-
-  @media all and (max-width: $width-xlarge - 1px) {
+  @media all and (max-width: $width-max - 1px) {
     max-width: 100%;
     width: 100%;
+
+    .navbar {
+      display: none;
+
+      &__item {
+        border-bottom: none;
+        color: white;
+        text-transform: uppercase;
+
+        &:hover {
+          color: $primary-color;
+          border-bottom: none;
+        }
+      }
+
+      &.open {
+        display: flex;
+        position: fixed;
+        width: 100%;
+        left: 0;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0.92);
+        height: 100%;
+        text-align: center;
+        top: 0;
+        justify-content: center;
+        flex-direction: column;
+      }
+    }
+
+    .navbar-burger {
+      z-index: 2;
+      cursor: pointer;
+      display: block;
+      height: $header-height;
+      position: relative;
+      width: $header-height;
+      margin-left: auto;
+
+      &:hover {
+        background-color: #f1f1f1;
+      }
+
+      span {
+        background-color: $primary-color;
+        display: block;
+        height: 1px;
+        left: calc(50% - 8px);
+        position: absolute;
+        transform-origin: center;
+        transition-duration: 86ms;
+        transition-property: background-color, opacity, transform;
+        transition-timing-function: ease-out;
+        width: 16px;
+
+        &:nth-child(1) {
+          top: calc(50% - 6px);
+        }
+
+        &:nth-child(2) {
+          top: calc(50% - 1px);
+        }
+
+        &:nth-child(3) {
+          top: calc(50% + 4px);
+        }
+      }
+
+      &.open {
+        &:hover {
+          background-color: transparent;
+        }
+
+        span {
+          background-color: white;
+
+          &:nth-child(1) {
+            transform: translateY(5px) rotate(45deg);
+          }
+
+          &:nth-child(2) {
+            opacity: 0;
+          }
+
+          &:nth-child(3) {
+            transform: translateY(-5px) rotate(-45deg);
+          }
+        }
+      }
+    }
   }
 }
