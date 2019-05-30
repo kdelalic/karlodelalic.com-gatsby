@@ -40,7 +40,7 @@ const Header = () => {
             <span></span>
             <span></span>
           </div>
-          <nav className={`navbar${isNavbarOpen ? " open" : ""}`}>
+          <nav onClick={() => setNavbarOpen(false)} className={`navbar${isNavbarOpen ? " open" : ""}`}>
             <Link to={"/"} className="navbar__item" activeClassName="active">Home</Link>
             {data.allFile.edges
               .filter(edge => {
