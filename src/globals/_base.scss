@@ -51,11 +51,11 @@ body {
   text-decoration: none;
   display: flex;
   border-radius: $border-radius;
-  font-size: 15px;
+  font-size: 18px;
   height: 40px;
   line-height: 40px;
   padding: 0 15px;
-  margin: 10px;
+  margin: 5px 10px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   transition: all 0.15s ease;
   text-transform: uppercase;
@@ -95,7 +95,7 @@ body {
   }
 
   &__icon {
-    margin-right: 5px;
+    margin-right: 8px;
     display: inline-flex;
     align-self: center;
   }
