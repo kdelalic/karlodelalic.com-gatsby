@@ -2,8 +2,8 @@
 
 .content {
   text-align: center;
-  margin: 50px auto 0;
   max-width: $width-max;
+  padding: 50px 25px;
 }
 
 .title {
@@ -25,30 +25,8 @@
   }
 }
 
-@media all and (min-width: $width-large) and (max-width: $width-xlarge - 1px) {
+@media all and (min-width: $width-xlarge) {
   .content {
-    max-width: $width-large - 50px;
-    width: $width-large - 50px;
-  }
-}
-
-@media all and (min-width: $width-medium) and (max-width: $width-large - 1px) {
-  .content {
-    max-width: $width-medium - 50px;
-    width: $width-medium - 50px;
-  }
-}
-
-@media all and (max-width: $width-small) {
-  .content {
-    max-width: $width-small - 50px;
-    width: $width-small - 50px;
-  }
-}
-
-@media all and (max-width: $width-xsmall) {
-  .content {
-    max-width: $width-xsmall - 50px;
-    width: $width-xsmall - 50px;
+    margin: auto;
   }
 }
