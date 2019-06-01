@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { FaGithub } from "react-icons/fa";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -55,6 +56,9 @@ const ProjectsPage = ({
                   <a className="link-button secondary" href={edge.node.frontmatter.demo} target="_blank" rel="noopener noreferrer">
                     Demo
                   </a>
+                  <a className="link-button circle" href={edge.node.frontmatter.github} target="_blank" rel="noopener noreferrer">
+                    <FaGithub className="link-button__icon" />
+                  </a>
                 </div>
                 <img className="project__logo" alt="Project logo" src={projectLogos[edge.node.frontmatter.path]} />
               </div>
@@ -83,6 +87,7 @@ export const pageQuery = graphql`
             title
             description
             demo
+            github
             tech
           }
           timeToRead
