@@ -27,6 +27,13 @@ module.exports = {
         name: "pages",
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/assets/tech-logos`,
+        name: "tech-logo",
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
