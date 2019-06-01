@@ -19,7 +19,9 @@
     }
 
     &__content {
-      padding: 40px 40px 40px 150px;
+      @media all and (min-width: $width-small + 1) {
+        padding-left: 150px;
+      }
     }
 
     &__title {
@@ -63,6 +65,10 @@
       left: -50px;
       top: 50%;
       transform: translateY(-50%);
+
+      @media all and (max-width: $width-small) {
+        display: none;
+      }
     }
   }
 }
