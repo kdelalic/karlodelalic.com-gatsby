@@ -41,7 +41,10 @@ const ProjectsPage = ({
                   <p className="project__body__description">{edge.node.frontmatter.description}</p>
                   <div className="project__body__tech-logos">
                     {edge.node.frontmatter.tech.split(",").map(tech => {
-                      return <img key={tech} alt={`${tech} Logo`} src={techLogos[tech.toLowerCase()]} />
+                      return (<div className="project__body__tech-logos__logo">
+                        <span class="tooltip">{tech}</span>
+                        <img key={tech} alt={`${tech} Logo`} src={techLogos[tech.toLowerCase()]} />
+                      </div>)
                     })}
                   </div>
                 </div>
