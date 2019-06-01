@@ -33,10 +33,21 @@
         margin-bottom: 10px;
       }
 
-      &__tech-logos img {
-        width: 30px;
-        height: 30px;
-        margin: 5px;
+      &__tech-logos {
+        display: flex;
+        img {
+          width: 30px;
+          height: 30px;
+          margin: 5px;
+        }
+
+        &__logo {
+          position: relative;
+
+          &:hover .tooltip {
+            visibility: visible;
+          }
+        }
       }
 
       &__buttons {
