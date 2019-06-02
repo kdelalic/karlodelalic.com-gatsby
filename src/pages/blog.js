@@ -17,7 +17,7 @@ const BlogPage = ({
         <div className="blog">
           {edges.map(edge => {
             return (
-              <div className="blog__post paper" key={edge.node.id}>
+              <div className="blog__post" key={edge.node.id}>
                 <h2 className="blog__post__title">
                   <Link
                     className="blog__post__title__link"

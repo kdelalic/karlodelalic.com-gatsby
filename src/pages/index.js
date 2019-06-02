@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import { FaGithub, FaPencilAlt, FaTwitter } from "react-icons/fa";
 
 import Layout from "../components/layout"
@@ -28,6 +28,40 @@ const IndexPage = () => (
         <FaTwitter className="link-button__icon" /> Twitter
       </a>
     </div>
+    <StaticQuery
+      query={graphql`
+          query {
+            blogPosts: allMarkdownRemark(
+              sort: { order: DESC, fields: [frontmatter___date] }
+              filter: {frontmatter: {type: {eq: "blog"}}}
+          ) {
+              edges {
+                node {
+                  excerpt(pruneLength: 175)
+                  frontmatter {
+                    path
+                    title
+                  }
+                }
+              }
+            }
+          }
+        `}
+      render={data =>
+        <div className="latest-post">
+          <h3 className="latest-post__title">
+            <Link
+              className="latest-post__title__link"
+              to={data.blogPosts.edges[0].node.frontmatter.path}
+            >
+              {data.blogPosts.edges[0].node.frontmatter.title}
+            </Link>
+            <div className="tag">Latest writing</div>
+          </h3>
+          <p className="latest-post__excerpt">{data.blogPosts.edges[0].node.excerpt}</p>
+        </div>
+      }
+    />
   </Layout>
 )
 
