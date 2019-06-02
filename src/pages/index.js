@@ -56,7 +56,7 @@ const IndexPage = () => (
             >
               {data.blogPosts.edges[0].node.frontmatter.title}
             </Link>
-            <div className="tag">Latest writing</div>
+            <span className="tag">Latest writing</span>
           </h3>
           <p className="latest-post__excerpt">{data.blogPosts.edges[0].node.excerpt}</p>
         </div>

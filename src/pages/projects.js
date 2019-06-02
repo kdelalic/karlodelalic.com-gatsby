@@ -42,23 +42,22 @@ const ProjectsPage = ({
                   <p className="project__body__description">{edge.node.frontmatter.description}</p>
                   <div className="project__body__tech-logos">
                     {edge.node.frontmatter.tech.split(",").map(tech => {
-                      return (<div className="project__body__tech-logos__logo">
-                        <span class="tooltip">{tech}</span>
-                        <img key={tech} alt={`${tech} Logo`} src={techLogos[tech.toLowerCase()]} />
-                      </div>)
+                      return (
+                        <div key={tech} className="project__body__tech-logos__logo">
+                          <span className="tooltip">{tech}</span>
+                          <img alt={`${tech} Logo`} src={techLogos[tech.toLowerCase()]} />
+                        </div>
+                      )
                     })}
                   </div>
-                </div>
-                <div className="project__body__buttons">
-                  <Link to={edge.node.frontmatter.path} className="link-button">
-                    Read more
-                  </Link>
-                  <a className="link-button secondary" href={edge.node.frontmatter.demo} target="_blank" rel="noopener noreferrer">
-                    Demo
-                  </a>
-                  <a className="link-button circle" href={edge.node.frontmatter.github} target="_blank" rel="noopener noreferrer">
-                    <FaGithub className="link-button__icon" />
-                  </a>
+                  <div className="project__body__buttons">
+                    <Link to={edge.node.frontmatter.path} className="link-button">
+                      Read more
+                    </Link>
+                    <a className="link-button secondary" href={edge.node.frontmatter.demo} target="_blank" rel="noopener noreferrer">
+                      Demo
+                    </a>
+                  </div>
                 </div>
                 <img className="project__logo" alt="Project logo" src={projectLogos[edge.node.frontmatter.path]} />
               </div>
