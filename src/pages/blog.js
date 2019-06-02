@@ -13,30 +13,28 @@ const BlogPage = ({
 }) => (
     <Layout title="Blog">
       <SEO title="Blog" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`, `blog`]} />
-      {
-        <div className="blog">
-          {edges.map(edge => {
-            return (
-              <div className="blog__post" key={edge.node.id}>
-                <h2 className="blog__post__title">
-                  <Link
-                    className="blog__post__title__link"
-                    to={edge.node.frontmatter.path}
-                  >
-                    {edge.node.frontmatter.title}
-                  </Link>
-                </h2>
-                <p className="blog__post__excerpt">{edge.node.excerpt}</p>
-                <h5 className="blog__post__info">
-                  {edge.node.frontmatter.date}
-                  <span className="dot-divider"></span>
-                  {edge.node.timeToRead} min read
+      <div className="blog">
+        {edges.map(edge => {
+          return (
+            <div className="blog__post" key={edge.node.id}>
+              <h2 className="blog__post__title">
+                <Link
+                  className="blog__post__title__link"
+                  to={edge.node.frontmatter.path}
+                >
+                  {edge.node.frontmatter.title}
+                </Link>
+              </h2>
+              <p className="blog__post__excerpt">{edge.node.excerpt}</p>
+              <h5 className="blog__post__info">
+                {edge.node.frontmatter.date}
+                <span className="dot-divider"></span>
+                {edge.node.timeToRead} min read
                 </h5>
-              </div>
-            )
-          })}
-        </div>
-      }
+            </div>
+          )
+        })}
+      </div>
     </Layout>
   )
 
