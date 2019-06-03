@@ -21,7 +21,7 @@ body {
 }
 
 .centered {
-  min-height: calc(100vh - 97px);
+  min-height: calc(100vh - 47px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +31,7 @@ body {
   align-items: center;
   font-size: 10px;
   background-color: #f5f5f5;
-  border-radius: 4px;
+  border-radius: $border-radius;
   padding: 0 5px;
   color: #4a4a4a;
   display: inline-flex;
@@ -68,7 +68,7 @@ body {
   background-color: black;
   color: #fff;
   text-align: center;
-  border-radius: 6px;
+  border-radius: $border-radius;
   padding: 5px 10px;
   position: absolute;
   z-index: 1;
