@@ -20,7 +20,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 45px;
+  margin-bottom: 40px;
 
   .link-button {
     font-size: 18px;
@@ -29,7 +29,7 @@
 
 .latest-post {
   box-shadow: 0 -2px 0 0 #f5f5f5;
-  padding: 25px 0;
+  padding: 20px 0;
   max-width: $width-large;
   margin: 0 auto;
 
@@ -39,6 +39,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    line-height: 1.5;
 
     &__link {
       color: $primary-color;
