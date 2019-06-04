@@ -1,11 +1,14 @@
 @import "../globals/base";
 
 .blog {
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__post {
     max-width: $width-large;
     margin-bottom: 50px;
+    text-align: left;
 
     &__title {
       margin-bottom: 5px;
