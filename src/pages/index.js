@@ -19,13 +19,13 @@ const IndexPage = () => (
     <p className="description">I like to make cool things.</p>
     <div className="social-buttons">
       <Link className="link-button ghost" to="/blog">
-        <FaPencilAlt className="link-button__icon" /> Writings
+        <FaPencilAlt /> Writings
       </Link>
       <a className="link-button ghost" href="https://github.com/kdelalic" target="_blank" rel="noopener noreferrer">
-        <FaGithub className="link-button__icon" /> Github
+        <FaGithub /> Github
       </a>
       <a className="link-button ghost" href="https://twitter.com/karlodelalic" target="_blank" rel="noopener noreferrer">
-        <FaTwitter className="link-button__icon" /> Twitter
+        <FaTwitter /> Twitter
       </a>
     </div>
     <StaticQuery
