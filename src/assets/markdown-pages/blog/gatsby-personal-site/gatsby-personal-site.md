@@ -11,7 +11,7 @@ In order to ensure a smooth user and developer experience, it is essential for a
   2. __Design__ - The website must have a simple and intuitive design
   3. __Maintainability__ - Adding posts and editting the website must not be overbearing 
 
-GatsbyJS is the perfect framework that allows developers to seamlessly cover the these pillars.
+GatsbyJS is the perfect framework that allows developers to seamlessly cover these pillars.
 
 ## 1. Performance
 Being a developer, it is of utmost importance that your website loads quickly on each and every page. 
