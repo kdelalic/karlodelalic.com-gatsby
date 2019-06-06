@@ -18,6 +18,10 @@ body {
 
 .post {
   text-align: left;
+  
+  &__date {
+    text-align: center;
+  }
 }
 
 .centered {
