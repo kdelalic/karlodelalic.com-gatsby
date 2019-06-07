@@ -27,3 +27,6 @@ Gatsby also uses React, except it uses what you could call a type of server side
 
 This is a very simplified version of Gatsby's process but it is enough to give you an example of how the code is statically generated.
 
+Due to the fact that there is no extra overhead of libraries like jQuery or React re-rendering happening on the client side, the webpage is blazingly fast. 
+
+## 2. Design
