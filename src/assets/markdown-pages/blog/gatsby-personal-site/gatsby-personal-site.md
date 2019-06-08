@@ -4,7 +4,7 @@ date: "2019-06-05"
 title: "Building a statically generated personal website using GatsbyJS"
 type: "blog"
 ---
-A personal website is a great tool for showing the world exactly what you are about. It is akin to an online business card for developers who conduct most of their business on the internet. Having a personal website can be a great way of displaying your best projects, sharing your thoughts, as well as helping people connect with you. The personal website is a showcase of your skills and therefore, should also be a display of your skills in and of itself. Your website directly relates with your competance as a developer and it shows a first time visitor exactly what kind of work ethic you have. No matter if you are doing contracts or you are maintaining the website for display to recruiters, your website should be of top quality.
+A personal website is a great tool for showing the world exactly what you're about. It is akin to an online business card for developers who conduct most of their business on the internet. Having a personal website can be a great way of displaying your best projects, sharing your thoughts, as well as helping people connect with you. The personal website is a showcase of your skills and therefore, should also be a display of your skills in and of itself. Your website directly relates with your competance as a developer and it shows a first time visitor exactly what kind of work ethic you have. No matter if you're doing contracts or you're maintaining the website for display to recruiters, your website should be of top quality.
 
 In order to ensure a smooth user and developer experience, it is essential for a personal website to cover the following three foundational pillars: 
   1. __Performance__ - The website must load quickly on first load as well as between pages
@@ -13,7 +13,7 @@ In order to ensure a smooth user and developer experience, it is essential for a
 
 GatsbyJS is the perfect framework that allows developers to seamlessly cover these pillars.
 
-## 1. Performance
+## Performance
 Being a developer, it is of utmost importance that your website loads each page quickly. Too often do I see developer portfolios that load an entire treasure trove of assets for their super long single page portfolio. This is the exact opposite of how you want to build your webpage. If you were looking to hire a developer for your company and a potential hire's personal website took 4 seconds to load, what would this say to you? Would you want to hire somebody who does not even have the attention span to develop a simple page?
 
 The mistake of bloating up a website can be due to many reasons. Usually the prime suspect is using libraries to do the heavy lifting of making a flashy and interactive page. This adds Javascript code that the client has to first download and then run on their machine which leads to low performance. An example of a different type of overkill would be using React for your simple webpage. This is not necessary and can add a lot of code which would end up not being used anyway. 
@@ -29,4 +29,4 @@ This is a very simplified version of Gatsby's process but it is enough to give y
 
 Due to the fact that there is no extra overhead of libraries like jQuery or React re-rendering happening on the client side, the webpage is blazingly fast. 
 
-## 2. Design
+## Design
