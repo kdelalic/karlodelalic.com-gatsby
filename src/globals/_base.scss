@@ -20,16 +20,20 @@ body {
   text-align: left;
   
   &__date {
-    text-align: center;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.54);
+    font-weight: 200;
   }
-}
 
-.centered {
-  min-height: calc(100vh - 75px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  h2 {
+    margin-top: 3rem;
+  }
+
+  p, li {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    line-height: 1.6em;
+  }
 }
 
 .tag {

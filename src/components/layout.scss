@@ -6,8 +6,20 @@
 }
 
 .title {
-  text-align: center;
+  text-align: left;
   margin-bottom: 25px;
+}
+
+.centered {
+  min-height: calc(100vh - 97px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .title {
+    text-align: center;
+  }
 }
 
 @media all and (min-width: $width-max) {

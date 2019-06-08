@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 import "./contact.scss"
 
 const ContactPage = () => (
-  <Layout title="Contact">
+  <Layout centered title="Contact">
     <SEO title="Contact" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
     <div className="contact">
       <a className="contact__email" href="mailto:karlo.delalic1@gmail.com" target="_blank" rel="noopener noreferrer">karlo.delalic1@gmail.com</a>

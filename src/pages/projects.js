@@ -31,7 +31,7 @@ const ProjectsPage = ({
       <SEO title="Projects" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
       <div className="projects">
         {postEdges.map(edge => (
-          <div className="post project" key={edge.node.id}>
+          <div className="project" key={edge.node.id}>
             <div className="project__content paper">
               <h2 className="project__title">
                 {edge.node.frontmatter.title}

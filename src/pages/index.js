@@ -16,7 +16,7 @@ const IndexPage = () => (
     </div>
     <h1 className="fullname">Karlo Delalic</h1>
     <h2 className="occupation">Fullstack Software Engineer</h2>
-    <p className="description">I like to make cool things.</p>
+    <h4 className="description">I like to make cool things.</h4>
     <div className="social-buttons">
       <Link className="link-button ghost" to="/blog">
         <FaPencilAlt /> Writings
@@ -37,7 +37,7 @@ const IndexPage = () => (
           ) {
               edges {
                 node {
-                  excerpt(pruneLength: 175)
+                  excerpt(pruneLength: 200)
                   frontmatter {
                     path
                     title
