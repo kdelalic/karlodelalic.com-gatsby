@@ -1,7 +1,7 @@
 ---
 path: "/blog/gatsby-personal-site"
 date: "2019-06-05"
-title: "Building a statically generated personal website using GatsbyJS"
+title: "Building a Statically Generated Personal Website Using GatsbyJS"
 type: "blog"
 ---
 A personal website is a great tool for showing the world exactly what you're about. It is akin to an online business card for developers who conduct most of their business on the internet. Having a personal website can be a great way of displaying your best projects, sharing your thoughts, as well as helping people connect with you. The personal website is a showcase of your skills and therefore, should also be a display of your skills in and of itself. Your website directly relates with your competance as a developer and it shows a first time visitor exactly what kind of work ethic you have. No matter if you're doing contracts or you're maintaining the website for display to recruiters, your website should be of top quality.
