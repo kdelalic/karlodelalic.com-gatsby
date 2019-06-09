@@ -6,7 +6,6 @@ const typography = new Typography({
   bodyWeight: 400,
   boldWeight: 700,
   headerFontFamily: [
-    "Open sans",
     "Avenir Next",
     "Helvetica Neue",
     "Segoe UI",
@@ -15,23 +14,12 @@ const typography = new Typography({
     "sans-serif",
   ],
   bodyFontFamily: [
-    "Lato",
     "Avenir Next",
     "Helvetica Neue",
     "Segoe UI",
     "Helvetica",
     "Arial",
     "sans-serif",
-  ],
-  googleFonts: [
-    {
-      name: "Open Sans",
-      styles: ["300", "400", "600", "700"],
-    },
-    {
-      name: "Lato",
-      styles: ["300", "400"]
-    }
   ],
 })
 
