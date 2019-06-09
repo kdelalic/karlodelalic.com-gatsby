@@ -31,3 +31,6 @@ This is a very simplified version of Gatsby's process but it is enough to give y
 Due to the fact that there is no extra overhead of libraries like jQuery or React re-rendering happening on the client side, the webpage is blazingly fast. 
 
 ## Design
+Assuming you're at most a full-stack developer, you're going to want to have a simple website. Your primary goal should be to show off your projects and experience. Therefore, the design should be straight forward and the website should be easy to navigate. Having said that, it is a good idea to make your website look at least somewhat appealing. 
+
+Note: 
