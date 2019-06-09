@@ -9,11 +9,12 @@ export default function Template({
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
+  
   return (
     <Layout title={frontmatter.title}>
       <SEO
         title={frontmatter.title}
-        keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]}
+        keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`, ...frontmatter.tags.split(",")]}
       />
       <div className="post">
         <h3 className="post__date">{frontmatter.date}</h3>
@@ -34,6 +35,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        tags
       }
     }
   }
