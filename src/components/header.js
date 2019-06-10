@@ -30,7 +30,7 @@ const Header = () => {
       render={data => (
         <header>
           <div className="brand">
-            <Link to={"/"} className="brand__logo">
+            <Link to={"/"} aria-label="Brand Logo" className="brand__logo">
               <Logo />
             </Link>
             <span className="brand__name">Karlo Delalic</span>
