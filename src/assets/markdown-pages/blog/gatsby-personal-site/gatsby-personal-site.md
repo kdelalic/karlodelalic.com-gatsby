@@ -32,3 +32,20 @@ Due to the fact that there is no extra overhead of libraries like jQuery or Reac
 
 ## Design
 Your primary goal should be to show off your projects and experience. Therefore, the design should be straight-forward and the website should be easy to navigate. Having said that, it is a good idea to make your website look at least somewhat appealing. 
+
+Ideally you will want a clutter free design. The home page should have your name, profession, maybe a motto or something of the sort, a few links to your social media such as LinkedIn or Github, and a photo of yourself if you like. The other pages should be very straight forward as well, and should follow suit with the home page. Nothing complicated or complex.
+
+This also means that animations or unecessary eye catching things of the sort should be explicitly avoided. 
+
+If you were a recruiter or somebody looking to do business with a developer, you would want to have direct access to the developer's experience, and personal details. You would not care very much for unnecessary animations on the buttons.
+
+Although your main goal is to direct the user to your details, your website should not be off-putting. Therefore, it is a good idea to have a few of the following:
+ - Consistent structure (maybe through a grid system)
+ - A good color palette (a primary color which your design is based upon and maybe a second one for accenting elements)
+ - Appropriate shadows if using cards to display information (for added depth)
+ - A good looking font
+
+Note: Be careful not to include too many external fonts hosting sites such as Google Fonts as this can add unwanted performance overhead.
+
+Ensure that your website is based on the above design elements and you will have a good looking, minimal design which does not distract from your work.
+
