@@ -47,5 +47,10 @@ Although your main goal is to direct the user to your details, your website shou
 
 Note: Be careful not to include too many external fonts hosting sites such as Google Fonts as this can add unwanted performance overhead.
 
+The design elements listed above are easily attainable with Gatsby since it leverages React. You can simply create a Layout component which keeps a consistent design across all pages you choose to add to your website. The layout component should have the any elements which used among multiple pages such as the header or footer. 
+
+You can go one step further and make your life easier with SCSS or CSS-in-JS which ensures styling consistency. I will go into more detail about these in the following section. 
+
 Ensure that your website is based on the above design elements and you will have a good looking, minimal design which does not distract from your work.
 
+## Maintainability
