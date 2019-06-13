@@ -61,3 +61,16 @@ With Gatsby, this is easy. I'll give you a really high level overview of how it 
 You can specify one or multiple datasources - such as a CMS like Wordpress, simple files in markdown format, and other data in the form of JSON, YAML, CSV, or APIs. You can then query these datasources and pull them into your code in a structured manner. This can be useful if you want to automate adding posts, projects, or images to your website. 
 
 Let me give you a concrete example of a markdown file which contains project information.
+
+```markdown
+---
+path: "/projects/lunch-roulette"
+title: "Lunch Roulette"
+description: "Lunch Roulette helps users decide where to eat for lunch"
+type: "project"
+demo: "https://lunch-roulette.netlify.com"
+github: "https://github.com/kdelalic/lunch-roulette"
+tech: "ReactJS,Material UI,NodeJS"
+---
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam aliquam sem et tortor consequat id porta. Amet porttitor eget dolor morbi non. Diam maecenas ultricies mi eget mauris pharetra. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien. Et pharetra pharetra massa massa. Eu non diam phasellus vestibulum lorem sed. Nec ultrices dui sapien eget mi proin. Mi eget mauris pharetra et ultrices neque ornare aenean. Massa tincidunt nunc pulvinar sapien et. Dui vivamus arcu felis bibendum ut tristique. Dignissim diam quis enim lobortis scelerisque fermentum. Commodo ullamcorper a lacus vestibulum sed.
+```
