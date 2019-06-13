@@ -54,3 +54,10 @@ You can go one step further and make your life easier with SCSS or CSS-in-JS whi
 Ensure that your website is based on the above design elements and you will have a good looking, minimal design which does not distract from your work.
 
 ## Maintainability
+If you've ever maintained any sort of code base, you would know that the ease of modification of the code is what is usually a large barrier. In other words, if it's a huge burden to add a piece of code to the code base, you probably won't want to go near the code very often. This is why high maintainability of your website is something which should be established early in the development process.
+
+With Gatsby, this is easy. I'll give you a really high level overview of how it works: 
+
+You can specify one or multiple datasources - such as a CMS like Wordpress, simple files in markdown format, and other data in the form of JSON, YAML, CSV, or APIs. You can then query these datasources and pull them into your code in a structured manner. This can be useful if you want to automate adding posts, projects, or images to your website. 
+
+Let me give you a concrete example of a markdown file which contains project information.
