@@ -58,9 +58,9 @@ If you've ever maintained any sort of code base, you would know that the ease of
 
 With Gatsby, this is easy. I'll give you a really high level overview of how it works: 
 
-You can specify one or multiple datasources - such as a CMS like Wordpress, simple files in markdown format, and other data in the form of JSON, YAML, CSV, or APIs. You can then query these datasources and pull them into your code in a structured manner. This can be useful if you want to automate adding posts, projects, or images to your website. 
+You can specify one or multiple datasources - such as a CMS like Wordpress, markdown files, and other data in the form of JSON, YAML, CSV, or APIs. You can then query these datasources and pull them into your code in a structured manner. This can be useful if you want to automate adding posts, projects, or images to your website. 
 
-Let me give you a concrete example of a markdown file which contains project information.
+Here's an example of a markdown file: 
 
 ```markdown
 ---
