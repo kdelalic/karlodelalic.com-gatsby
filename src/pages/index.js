@@ -11,7 +11,7 @@ import "./index.scss"
 
 const IndexPage = () => (
   <Layout centered>
-    <SEO title="Home" keywords={[...Constants.tags]} />
+    <SEO title="Home" keywords={[...Constants.tags, "home page", "latest blog post"]} />
     <div style={{ maxWidth: `175px`, margin: `0 auto 1.45rem auto` }}>
       <Image />
     </div>
