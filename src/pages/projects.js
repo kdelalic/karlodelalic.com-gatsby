@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
+import Constants from "../globals/constants"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -28,7 +29,7 @@ const ProjectsPage = ({
 
   return (
     <Layout title="Projects">
-      <SEO title="Projects" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
+      <SEO title="Projects" keywords={[...Constants.tags]} />
       <div className="projects">
         {postEdges.map(edge => (
           <div className="project" key={edge.node.id}>

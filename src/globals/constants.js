@@ -1,0 +1,1 @@
+module.exports.tags = [`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`];

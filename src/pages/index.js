@@ -2,6 +2,7 @@ import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
 import { FaGithub, FaPencilAlt, FaTwitter } from "react-icons/fa";
 
+import Constants from "../globals/constants"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
@@ -10,7 +11,7 @@ import "./index.scss"
 
 const IndexPage = () => (
   <Layout centered>
-    <SEO title="Home" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
+    <SEO title="Home" keywords={[...Constants.tags]} />
     <div style={{ maxWidth: `175px`, margin: `0 auto 1.45rem auto` }}>
       <Image />
     </div>

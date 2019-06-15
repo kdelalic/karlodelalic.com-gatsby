@@ -2,6 +2,7 @@ import React from "react"
 import { FaRegFilePdf, FaLinkedinIn, FaTwitter, FaGithub } from "react-icons/fa";
 import { withPrefix } from 'gatsby'
 
+import Constants from "../globals/constants"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -9,7 +10,7 @@ import "./contact.scss"
 
 const ContactPage = () => (
   <Layout centered title="Contact">
-    <SEO title="Contact" keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`]} />
+    <SEO title="Contact" keywords={[...Constants.tags]} />
     <div className="contact">
       <a className="contact__email" href="mailto:karlo.delalic1@gmail.com" target="_blank" rel="noopener noreferrer">karlo.delalic1@gmail.com</a>
       <div className="contact__buttons">

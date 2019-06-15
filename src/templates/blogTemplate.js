@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import Constants from "../globals/constants"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -14,7 +15,7 @@ export default function Template({
     <Layout title={frontmatter.title}>
       <SEO
         title={frontmatter.title}
-        keywords={[`karlo delalic`, `portfolio`, `fullstack developer`, `software engineer`, `react`, ...frontmatter.tags]}
+        keywords={[...Constants.tags, ...frontmatter.tags]}
       />
       <div className="post">
         <h3 className="post__date">{frontmatter.date}</h3>
