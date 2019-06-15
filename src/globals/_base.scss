@@ -16,6 +16,14 @@ body {
   background-color: white;
 }
 
+pre[class*="language-"] {
+  border-radius: .3em;
+
+  code {
+    white-space: pre-wrap;
+  }
+}
+
 .post {
   text-align: left;
   

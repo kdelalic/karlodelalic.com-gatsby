@@ -6,6 +6,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -53,24 +54,9 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        commonmark: true,
-        footnotes: true,
-        pedantic: true,
-        gfm: true,
-        options: {
-          plugins: [
-            {
-              resolve: `gatsby-remark-prismjs`,
-              options: {
-                classPrefix: "language-",
-                inlineCodeMarker: null,
-                aliases: {},
-                showLineNumbers: false,
-                noInlineHighlight: false,
-              },
-            },
-          ],
-        },
+        plugins: [
+          `gatsby-remark-prismjs`,
+        ],
       },
     },
     {
