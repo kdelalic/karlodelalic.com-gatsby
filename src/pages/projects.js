@@ -50,12 +50,14 @@ const ProjectsPage = ({
                   })}
                 </div>
                 <div className="project__body__buttons">
-                  <Link to={edge.node.frontmatter.path} className="link-button">
-                    Read more
-                    </Link>
-                  <a className="link-button secondary" href={edge.node.frontmatter.demo} target="_blank" rel="noopener noreferrer">
+                  <a className="link-button" href={edge.node.frontmatter.demo} target="_blank" rel="noopener noreferrer">
                     Demo
-                    </a>
+                  </a>
+                  {edge.node.html && 
+                    <Link to={edge.node.frontmatter.path} className="link-button secondary">
+                      Read more
+                    </Link>
+                  }
                 </div>
               </div>
               <img className="project__logo" alt="Project logo" src={projectLogos[edge.node.frontmatter.path]} />
@@ -76,6 +78,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          html
           frontmatter {
             path
             title

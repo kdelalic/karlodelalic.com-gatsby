@@ -14,6 +14,7 @@ exports.createPages = ({ actions, graphql }) => {
       ) {
         edges {
           node {
+            html
             frontmatter {
               path
               type
@@ -29,11 +30,13 @@ exports.createPages = ({ actions, graphql }) => {
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       if (node.frontmatter.type === "project") {
-        createPage({
-          path: node.frontmatter.path,
-          component: projectTemplate,
-          context: {}, // additional data can be passed via context
-        })
+        if (node.html) {
+          createPage({
+            path: node.frontmatter.path,
+            component: projectTemplate,
+            context: {}, // additional data can be passed via context
+          })
+        }
       } else if (node.frontmatter.type === "blog") {
         createPage({
           path: node.frontmatter.path,
