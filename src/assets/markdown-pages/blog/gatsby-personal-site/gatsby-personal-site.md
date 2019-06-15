@@ -62,7 +62,7 @@ You can specify one or multiple datasources - such as a CMS like Wordpress, mark
 
 Here's an example of a markdown file: 
 
-```markdown
+```
 ---
 path: "/projects/lunch-roulette"
 title: "Lunch Roulette"
@@ -72,5 +72,7 @@ demo: "https://lunch-roulette.netlify.com"
 github: "https://github.com/kdelalic/lunch-roulette"
 tech: "ReactJS,Material UI,NodeJS"
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam aliquam sem et tortor consequat id porta. Amet porttitor eget dolor morbi non. Diam maecenas ultricies mi eget mauris pharetra. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien. Et pharetra pharetra massa massa. Eu non diam phasellus vestibulum lorem sed. Nec ultrices dui sapien eget mi proin. Mi eget mauris pharetra et ultrices neque ornare aenean. Massa tincidunt nunc pulvinar sapien et. Dui vivamus arcu felis bibendum ut tristique. Dignissim diam quis enim lobortis scelerisque fermentum. Commodo ullamcorper a lacus vestibulum sed.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam aliquam sem et tortor consequat id porta.
 ```
+
+The first part between the two `---` lines is called the frontmatter. This is basically the metadata for the post text which follows it. It is useful when listing out your posts in the main blog or project page.
