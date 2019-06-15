@@ -3,6 +3,7 @@ module.exports = {
     title: `Karlo Delalic`,
     description: `Karlo Delalic is a student, software engineer, and fullstack web developer in the Toronto area.`,
     author: `@karlodelalic`,
+    siteUrl: `https://karlodelalic.netlify.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
