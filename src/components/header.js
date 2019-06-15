@@ -12,20 +12,16 @@ const Header = () => {
   return (
     <StaticQuery
       query={graphql`
-            query PageInfoQuery {
-                allFile(
-                  filter: { 
-                    sourceInstanceName: { eq: "pages" } 
-                    extension: { eq: "js" }
-                  }) {
-                    edges {
-                        node {
-                            name
-                            id
-                        }
-                    }
+          {
+            allFile(filter: {sourceInstanceName: {eq: "pages"}, extension: {eq: "js"}}) {
+              edges {
+                node {
+                  name
+                  id
                 }
+              }
             }
+          }      
         `}
       render={data => (
         <header>

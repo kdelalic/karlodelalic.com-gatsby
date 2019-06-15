@@ -3,7 +3,10 @@ path: "/blog/gatsby-personal-site"
 date: "2019-06-05"
 title: "Building a Statically Generated Personal Website Using GatsbyJS"
 type: "blog"
-tags: "gatsbyjs,developer portfolio,statically generated"
+tags: 
+  - gatsbyjs
+  - developer portfolio
+  - statically generated
 ---
 A personal website is a great tool for showing the world exactly what you're about. It is akin to an online business card for developers who conduct most of their business on the internet. Having a personal website can be a great way of displaying your best projects, sharing your thoughts, as well as helping people connect with you. The personal website is a showcase of your skills and therefore, should also be a display of your skills in and of itself. Your website directly relates with your competance as a developer and it shows a first time visitor exactly what kind of work ethic you have. No matter if you're doing contracts or you're maintaining the website for display to recruiters, your website should be of top quality.
 
@@ -54,11 +57,13 @@ You can go one step further and make your life easier with SCSS or CSS-in-JS whi
 Ensure that your website is based on the above design elements and you will have a good looking, minimal design which does not distract from your work.
 
 ## Maintainability
-If you've ever maintained any sort of code base, you would know that the ease of modification of the code is what is usually a large barrier. In other words, if it's a huge burden to add a piece of code to the code base, you probably won't want to go near the code very often. This is why high maintainability of your website is something which should be established early in the development process.
+If you've ever maintained any sort of code base, you would know that the ease of modification of the code is what is usually a large barrier. In other words, if it's a huge burden to add a piece of code to the code base, you probably won't want to go anywhere near the code very often. This is why high maintainability of your website is something which should be established early in the development process.
 
 With Gatsby, this is easy. I'll give you a really high level overview of how it works: 
 
-You can specify one or multiple datasources - such as a CMS like Wordpress, markdown files, and other data in the form of JSON, YAML, CSV, or APIs. You can then query these datasources and pull them into your code in a structured manner. This can be useful if you want to automate adding posts, projects, or images to your website. 
+### GraphQL
+
+You can specify one or multiple datasources - such as a CMS like Wordpress, markdown files, other data in the form of JSON, YAML, CSV, or even REST APIs. You can then query these datasources and pull them into your code in a structured manner using GraphQL. This can be useful if you want to automate adding blog posts, projects, or images to your website. 
 
 Here's an example of a markdown file: 
 
@@ -75,4 +80,6 @@ tech: "ReactJS,Material UI,NodeJS"
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam aliquam sem et tortor consequat id porta.
 ```
 
-The first part between the two `---` lines is called the frontmatter. This is basically the metadata for the post text which follows it. It is useful when listing out your posts in the main blog or project page.
+In order to add a project to my projects page, I simply have to create a new markdown file with the information above, put it in the appropriate directory for projects, and that's it. My new project will be appended to the other projects on the projects page with almost no additional work besides writing the actual content of the post. 
+
+Aside from pulling

@@ -30,23 +30,20 @@ const IndexPage = () => (
     </div>
     <StaticQuery
       query={graphql`
-          query {
-            blogPosts: allMarkdownRemark(
-              sort: { order: DESC, fields: [frontmatter___date] }
-              filter: {frontmatter: {type: {eq: "blog"}}}
-          ) {
-              edges {
-                node {
-                  excerpt(pruneLength: 200)
-                  frontmatter {
-                    path
-                    title
-                  }
+        {
+          blogPosts: allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {type: {eq: "blog"}}}) {
+            edges {
+              node {
+                excerpt(pruneLength: 200)
+                frontmatter {
+                  path
+                  title
                 }
               }
             }
           }
-        `}
+        }      
+      `}
       render={data =>
         <div className="latest-post">
           <h3 className="latest-post__title">
