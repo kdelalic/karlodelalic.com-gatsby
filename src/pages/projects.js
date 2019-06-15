@@ -39,7 +39,7 @@ const ProjectsPage = ({
               <div className="project__body">
                 <p className="project__body__description">{edge.node.frontmatter.description}</p>
                 <div className="project__body__tech-logos">
-                  {edge.node.frontmatter.tech.split(",").map(tech => {
+                  {edge.node.frontmatter.tech.map(tech => {
                     return (
                       <div key={tech} className="project__body__tech-logos__logo">
                         <span className="tooltip">{tech}</span>
@@ -70,11 +70,8 @@ const ProjectsPage = ({
 export default ProjectsPage
 
 export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(
-      sort: {order: DESC, fields: [frontmatter___date]}
-      filter: {frontmatter: {type: {eq: "project"}}}
-    ) {
+  {
+    allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {type: {eq: "project"}}}) {
       edges {
         node {
           id
@@ -90,39 +87,21 @@ export const pageQuery = graphql`
         }
       }
     }
-    projectLogos: allFile(
-      filter: {
-        absolutePath: {
-          regex: "/projects/"
-        },
-        extension:{
-          regex: "/svg/"
+    projectLogos: allFile(filter: {absolutePath: {regex: "/projects/"}, extension: {regex: "/svg/"}}) {
+      edges {
+        node {
+          publicURL
+          relativeDirectory
         }
       }
-    ) {
+    }
+    techLogos: allFile(filter: {absolutePath: {regex: "/tech-logos/"}, extension: {regex: "/svg/"}}) {
       edges {
-      node {
-        publicURL
-        relativeDirectory
+        node {
+          publicURL
+          name
+        }
       }
     }
   }
-  techLogos: allFile(
-    filter: {
-      absolutePath: {
-        regex: "/tech-logos/"
-      },
-      extension:{
-        regex: "/svg/"
-      }
-    }
-  ) {
-    edges {
-      node {
-        publicURL
-        name
-      }
-    }
-  }
-}
 `

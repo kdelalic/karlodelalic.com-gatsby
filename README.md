@@ -1,1 +1,2 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/86174f44-60d1-4838-b995-93da88381ebb/deploy-status)](https://app.netlify.com/sites/karlodelalic/deploys)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e44496cefaae1dd02c6e/maintainability)](https://codeclimate.com/github/kdelalic/karlodelalic.com-gatsby/maintainability)
