@@ -29,7 +29,7 @@ const ProjectsPage = ({
 
   return (
     <Layout title="Projects">
-      <SEO title="Projects" keywords={[...Constants.tags]} />
+      <SEO title="Projects" keywords={[...Constants.tags, "projects", "technology"]} />
       <div className="projects">
         {postEdges.map(edge => (
           <div className="project" key={edge.node.id}>

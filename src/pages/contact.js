@@ -10,7 +10,7 @@ import "./contact.scss"
 
 const ContactPage = () => (
   <Layout centered title="Contact">
-    <SEO title="Contact" keywords={[...Constants.tags]} />
+    <SEO title="Contact" keywords={[...Constants.tags, "contact", "linkedin", "twitter", "email"]} />
     <div className="contact">
       <a className="contact__email" href="mailto:karlo.delalic1@gmail.com" target="_blank" rel="noopener noreferrer">karlo.delalic1@gmail.com</a>
       <div className="contact__buttons">
