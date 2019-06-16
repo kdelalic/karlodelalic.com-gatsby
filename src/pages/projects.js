@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { FaGithub } from "react-icons/fa";
 
 import Constants from "../globals/constants"
 import Layout from "../components/layout"
@@ -52,6 +53,9 @@ const ProjectsPage = ({
                 <div className="project__body__buttons">
                   <a className="link-button" href={edge.node.frontmatter.demo} target="_blank" rel="noopener noreferrer">
                     Demo
+                  </a>
+                  <a className="link-button secondary" href={edge.node.frontmatter.github} target="_blank" rel="noopener noreferrer">
+                    <FaGithub/>Source
                   </a>
                   {edge.node.html && 
                     <Link to={edge.node.frontmatter.path} className="link-button secondary">
