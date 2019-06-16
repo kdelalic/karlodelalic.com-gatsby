@@ -3,7 +3,6 @@ path: "/projects/portfolio"
 title: "karlodelalic.com"
 description: "This website, a personal showcase for my experience"
 type: "project"
-demo: "https://karlodelalic.com/"
 github: "https://github.com/kdelalic/karlodelalic.com-gatsby"
 tech: 
   - ReactJS
