@@ -43,7 +43,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Karlo Delalic's Personal Website`,
-        short_name: `Karlo`,
+        short_name: `Karlo Delalic`,
         start_url: `/`,
         background_color: `#6772e5`,
         theme_color: `#6772e5`,
