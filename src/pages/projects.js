@@ -52,12 +52,12 @@ const ProjectsPage = ({
                 </div>
                 <div className="project__body__buttons">
                   {edge.node.frontmatter.github &&
-                    <a className="link-button" href={edge.node.frontmatter.github} target="_blank" rel="noopener noreferrer">
+                    <a className="link-button" href={edge.node.frontmatter.github} target="_blank" rel="nofollow noopener noreferrer">
                       <FaGithub />Source
                     </a>
                   }
                   {edge.node.frontmatter.demo &&
-                    <a className="link-button secondary" href={edge.node.frontmatter.demo} target="_blank" rel="noopener noreferrer">
+                    <a className="link-button secondary" href={edge.node.frontmatter.demo} target="_blank" rel="nofollow noopener noreferrer">
                       Demo
                     </a>
                   }
