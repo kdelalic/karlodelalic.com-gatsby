@@ -22,7 +22,7 @@ const IndexPage = () => (
       <Link className="link-button ghost" to="/blog">
         <FaPencilAlt /> Writings
       </Link>
-      <a className="link-button ghost" href="https://github.com/kdelalic" target="_blank" rel="noopener noreferrer">
+      <a className="link-button ghost" href="https://github.com/kdelalic" target="_blank" rel="nofollow noopener noreferrer">
         <FaGithub /> Github
       </a>
       <a className="link-button ghost" href="https://twitter.com/karlodelalic" target="_blank" rel="noopener noreferrer">

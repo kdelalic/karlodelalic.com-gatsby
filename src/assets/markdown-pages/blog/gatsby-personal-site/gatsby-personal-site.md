@@ -11,7 +11,7 @@ tags:
 ---
 A personal website is a great tool for showing the world exactly what you're about. It can be a great way of displaying your best projects, sharing your thoughts, and helping people connect with you. You can think if a personal website as an online business card for developers. It makes sense for developers to have one since they do most of their business online.
 
-The personal website is a showcase of your skills and therefore, should also be a display of your skills in and of itself. Your website directly relates with your competence as a developer and it shows a first-time visitor exactly what kind of work ethic you have. No matter if you're doing contracts or you're maintaining the website for display to recruiters, your website should be made with high quality.
+The personal website is a showcase of your skills and therefore, should also be a display of your skills in and of itself. Your website directly relates with your competence as a developer and it shows a first-time visitor exactly what kind of work ethic you have. No matter if you're doing contracts or you're maintaining the website for display to company recruiters, your website should be made with high quality.
 
 In order to ensure a smooth user and developer experience, it is essential for a personal website to cover the following three foundational pillars:
 

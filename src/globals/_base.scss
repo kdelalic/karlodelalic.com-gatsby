@@ -44,11 +44,14 @@ pre[class*="language-"] {
     line-height: 1.6em;
   }
 
-  a {
+  p > a {
     color: $primary-color;
+    border-bottom: 1px solid;
+    padding-bottom: 1px;
 
     &:hover {
       color: $primary-color__hover;
+      border-bottom: 2px solid;
     }
   }
 }
