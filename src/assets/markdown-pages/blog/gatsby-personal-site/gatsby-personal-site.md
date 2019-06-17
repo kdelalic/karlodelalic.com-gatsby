@@ -9,15 +9,17 @@ tags:
   - developer portfolio
   - statically generated
 ---
-A personal website is a great tool for showing the world exactly what you're about. It is akin to an online business card for developers who conduct most of their business on the internet. Having a personal website can be a great way of displaying your best projects, sharing your thoughts, as well as helping people connect with you. The personal website is a showcase of your skills and therefore, should also be a display of your skills in and of itself. Your website directly relates with your competence as a developer and it shows a first-time visitor exactly what kind of work ethic you have. No matter if you're doing contracts or you're maintaining the website for display to recruiters, your website should be of top quality.
+A personal website is a great tool for showing the world exactly what you're about. It can be a great way of displaying your best projects, sharing your thoughts, and helping people connect with you. You can think if a personal website as an online business card for developers. It makes sense for developers to have one since they do most of their business online.
+
+The personal website is a showcase of your skills and therefore, should also be a display of your skills in and of itself. Your website directly relates with your competence as a developer and it shows a first-time visitor exactly what kind of work ethic you have. No matter if you're doing contracts or you're maintaining the website for display to recruiters, your website should be made with high quality.
 
 In order to ensure a smooth user and developer experience, it is essential for a personal website to cover the following three foundational pillars:
 
-  1. __Performance__ - The website must load quickly on first load as well as between pages
-  2. __Design__ - The website must have a simple and intuitive design
-  3. __Maintainability__ - Adding posts and editing the website must not be overbearing
+  1. __Performance__ - The website should load quickly on first load as well as between pages
+  2. __Design__ -  The design should be simple and intuitive yet appealing
+  3. __Maintainability__ - Adding posts and editing the website should not be overbearing
 
-GatsbyJS is the perfect framework that allows developers to seamlessly cover these pillars.
+[GatsbyJS](https://www.gatsbyjs.org/) is the perfect framework that will allow a developer to seamlessly cover these pillars.
 
 ## Performance
 
@@ -49,7 +51,7 @@ If you were a recruiter or somebody looking to do business with a developer, you
 
 Although your main goal is to direct the user to your details, your website should not be off-putting. Therefore, it is a good idea to have a few of the following:
 
-- Consistent structure (maybe through a grid system)
+- Consistent structure (such as through a grid system)
 - A good color palette (a primary color which your design is based upon and maybe a second one for accenting elements)
 - Appropriate shadows if using cards to display information (for added depth)
 - A good looking font
