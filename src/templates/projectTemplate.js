@@ -10,6 +10,7 @@ export default function Template({
 }) {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
+  
   return (
     <Layout title={frontmatter.title}>
       <SEO title={frontmatter.title} keywords={[...Constants.tags, ...frontmatter.tags]} />
