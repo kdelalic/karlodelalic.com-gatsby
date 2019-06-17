@@ -1,5 +1,6 @@
 ---
 path: "/blog/gatsby-personal-site"
+author: "Karlo Delalic"
 date: "2019-06-05"
 title: "Building a Statically Generated Personal Website Using GatsbyJS"
 type: "blog"

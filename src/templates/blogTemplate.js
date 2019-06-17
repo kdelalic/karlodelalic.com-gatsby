@@ -18,7 +18,7 @@ export default function Template({
         keywords={[...Constants.tags, ...frontmatter.tags]}
       />
       <div className="post">
-        <h3 className="post__date">{frontmatter.date}</h3>
+        <h3 className="post__date">{frontmatter.author}<span className="dot-divider"></span>{frontmatter.date}</h3>
         <div
           className="post__content"
           dangerouslySetInnerHTML={{ __html: html }}
@@ -34,6 +34,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        author
         path
         title
         tags
