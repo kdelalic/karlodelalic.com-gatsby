@@ -67,8 +67,6 @@ If you've ever maintained any sort of code base, you would know that the ease of
 
 With Gatsby, this is easy. I'll give you a really high-level overview of how it works:
 
-### GraphQL
-
 You can specify one or multiple data sources - such as a CMS like WordPress, markdown files, other data in the form of JSON, YAML, CSV, or even REST APIs. You can then query these data sources and pull them into your code in a structured manner using GraphQL. This can be useful if you want to automate adding blog posts, projects, or images to your website.
 
 Here's an example of a markdown file:
@@ -80,7 +78,7 @@ title: "Lunch Roulette"
 description: "Lunch Roulette helps users decide where to eat for lunch"
 type: "project"
 demo: "https://lunch-roulette.netlify.com"
-GitHub: "https://github.com/kdelalic/lunch-roulette"
+github: "https://github.com/kdelalic/lunch-roulette"
 tech:
   - ReactJS
   - Material UI
@@ -90,3 +88,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ```
 
 In order to add a project to my projects page, I simply have to create a new markdown file with the information above, put it in the appropriate directory for projects, and that's it. My new project will be appended to the other projects on the projects page with almost no additional work besides writing the actual content of the post.
+
+## Try it out
+
+Now that you have a bit of a better understanding of Gatsby, you should try it out for yourself! If you keep the above information in mind while making your website, you should have a minimal, blazing fast, and easily updatable website where you can show the world what kinds of things you enjoy building.
+
+Furthermore, the [Gatsby showcase](https://www.gatsbyjs.org/showcase/) is perfect if you want to look around for some inspiration for some designs or if you simply want to see what others have created.
+
+Also, if you're interested, you can check out how I made this website in this [repository](https://github.com/kdelalic/karlodelalic-gatsby).
+
+---
+__Hope you enjoyed this article and found it to be worthwhile. You can check out all my projects on [Github](https://github.com/kdelalic) and don’t hesitate to reach out to me on [Twitter](https://twitter.com/karlodelalic)!__

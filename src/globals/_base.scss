@@ -43,6 +43,14 @@ pre[class*="language-"] {
     font-size: 1.1rem;
     line-height: 1.6em;
   }
+
+  a {
+    color: $primary-color;
+
+    &:hover {
+      color: $primary-color__hover;
+    }
+  }
 }
 
 .tag {
