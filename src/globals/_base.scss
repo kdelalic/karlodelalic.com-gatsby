@@ -44,9 +44,9 @@ pre[class*="language-"] {
     line-height: 1.6em;
   }
 
-  p > a {
+  :not(h2) > a {
     color: $primary-color;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid $primary-color;
     padding-bottom: 1px;
 
     &:hover {
