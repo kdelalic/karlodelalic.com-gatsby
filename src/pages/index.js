@@ -48,13 +48,13 @@ const IndexPage = () => (
       render={data =>
         <div className="latest-post">
           <h3 className="latest-post__title">
-            <span className="tag">Latest writing</span>
             <Link
               className="latest-post__title__link"
               to={data.blogPosts.edges[0].node.frontmatter.path}
             >
               {data.blogPosts.edges[0].node.frontmatter.title}
             </Link>
+            <span className="tag">Latest writing</span>
           </h3>
           <p className="latest-post__excerpt">{data.blogPosts.edges[0].node.excerpt}</p>
         </div>
