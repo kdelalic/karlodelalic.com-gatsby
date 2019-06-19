@@ -10,7 +10,7 @@ tags:
   - statically generated
 ---
 A personal website is a great tool for showing the world exactly what you're about. It can be a great way of displaying your best projects, sharing your thoughts, and helping people connect with you. It makes sense for most developers to have one since they do most of their business online.
-
+<!-- end -->
 Your website is a showcase of your skills and therefore, should also be a display of your skills in and of themselves. The quality of the website reflects your competence as a developer and shows visitors exactly what kind of work ethic you have.
 
 No matter if you're doing contracts or you're maintaining a website for display to company recruiters, your website should be developed with high quality.
