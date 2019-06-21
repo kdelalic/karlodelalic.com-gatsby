@@ -9,31 +9,35 @@ tags:
   - developer portfolio
   - statically generated
 ---
-A personal website is a great tool for showing the world exactly what you're about. It can be a great way of displaying your best projects, sharing your thoughts, and helping people connect with you. You can think if a personal website as an online business card for developers. It makes sense for developers to have one since they do most of their business online.
+A personal website is a great tool for showing the world exactly what you're about. It can be a great way of displaying your best projects, sharing your thoughts, and helping people connect with you. It makes sense for most developers to have one since they do most of their business online.
+<!-- end -->
+Your website is a showcase of your skills and therefore, should also be a display of your skills in and of themselves. The quality of the website reflects your competence as a developer and shows visitors exactly what kind of work ethic you have.
 
-The personal website is a showcase of your skills and therefore, should also be a display of your skills in and of itself. Your website directly relates with your competence as a developer and it shows a first-time visitor exactly what kind of work ethic you have. No matter if you're doing contracts or you're maintaining the website for display to company recruiters, your website should be made with high quality.
+No matter if you're doing contracts or you're maintaining a website for display to company recruiters, your website should be developed with high quality.
 
-In order to ensure a smooth user and developer experience, it is essential for a personal website to cover the following three foundational pillars:
+In order to ensure a smooth experience for both the user and you as a developer, it is essential for a personal website to cover the following three foundational pillars:
 
   1. __Performance__ - The website should load quickly on first load as well as between pages
   2. __Design__ -  The design should be simple and intuitive yet appealing
   3. __Maintainability__ - Adding posts and editing the website should not be overbearing
 
-[GatsbyJS](https://www.gatsbyjs.org/) is the perfect framework that will allow a developer to seamlessly cover these pillars.
+[GatsbyJS](https://www.gatsbyjs.org/) is the perfect framework that will allow you to seamlessly cover these pillars.
 
 ## Performance
 
-Being a developer, it is of utmost importance that your website loads each page quickly. Too often do I see developer portfolios that load an entire treasure trove of assets for their super long single page portfolio. This is the exact opposite of how you want to build your webpage. If you were looking to hire a developer for your company and a potential hire's personal website took 4 seconds to load, what would this say to you? Would you want to hire somebody who does not even have the attention span to develop a simple page?
+Being a developer, it is of utmost importance that your website loads each page quickly.
 
-The mistake of bloating up a website can be due to many reasons. Usually the prime suspect is using libraries to do the heavy lifting of making a flashy and interactive page. This adds JavaScript code that the client has to first download and then run on their machine which leads to low performance. An example of a different type of overkill would be using React for your simple webpage. This is not necessary and can add a lot of code which would end up not being used anyway.
+Too often do I see developer portfolios that load an entire treasure trove of assets for their super long single page portfolio. This is the exact opposite of how you want to build your webpage. If you were looking to hire a developer for your company and a potential hire's personal website took 4 seconds to load, what would this say to you? Would you want to hire somebody who does not even have the attention span to develop a simple page?
 
-This is where static site rendering comes into the picture. Instead of making a full on React project for a simple webpage and handling all of the rendering on the client side, it is better to render once through a build process.
+The mistake of bloating up a website can be caused by a few different issues. Usually, the prime suspect is using libraries to do the heavy lifting of making a flashy and interactive page. This adds JavaScript code that the client has to first download and then run on their machine which leads to low performance. Another issue may be using React for your simple webpage. This is not necessary and can add a lot of code which would end up not being used anyway. It's overkill!
 
-Gatsby also uses React, except it uses what you could call a type of server-side rendering instead of sending it to the client's machine. It works like this:
+This is where static site rendering comes into the picture. Instead of making a full-on React project for a simple webpage and handling all of the rendering on the client side, it is better to render once through a build process.
+
+Gatsby also uses React, except it uses what you could call a type of server-side rendering. In other words, instead of sending JavaScript code to be rendered on the client's machine, it builds the static code on a server which then serves it to the client. It works like this:
 
   1. You make a few pages such as Home, About, and Contact, along with any React based components you may need to create
   2. Then you run Gatsby's build process which takes advantage of some built in code optimizations such as code splitting
-  3. Finally, you publish the code to your webserver where the static code is served to the user
+  3. Finally, you publish the code to your webserver (such as [Netlify](https://netlify.com)) where the static code is served to the user
 
 This is a very simplified version of Gatsby's process, but it is enough to give you an example of how the code is statically generated.
 
