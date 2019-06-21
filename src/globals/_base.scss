@@ -14,6 +14,10 @@ $secondary-color: #2ebf91;
 
 body {
   background-color: white;
+
+  &.dark {
+    background-color: black;
+  }
 }
 
 pre[class*="language-"] {
