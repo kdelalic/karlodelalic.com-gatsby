@@ -5,6 +5,8 @@ import Switch from '@material-ui/core/Switch'
 
 import Logo from "../assets/images/logo.svg";
 
+import useDarkMode from "../helpers/darkmode";
+
 import "./header.scss"
 
 const DarkSwitch = withStyles({
@@ -26,7 +28,7 @@ const DarkSwitch = withStyles({
 const Header = () => {
 
   const [isNavbarOpen, setNavbarOpen] = useState(false);
-  const [isDarkMode, setDarkMode] = useState(false);
+  const [isDarkMode, setDarkMode] = useDarkMode();
 
   return (
     <StaticQuery
@@ -77,13 +79,13 @@ const Header = () => {
                 )
               })
             }
-            <DarkSwitch
-              checked={isDarkMode}
-              onChange={() => setDarkMode(!isDarkMode)}
-              value="darkMode"
-              inputProps={{ 'aria-label': 'dark mode switch' }}
-            />
           </nav>
+          <DarkSwitch
+            checked={isDarkMode}
+            onChange={() => setDarkMode(!isDarkMode)}
+            value="darkMode"
+            inputProps={{ 'aria-label': 'dark mode switch' }}
+          />
         </header>
       )}
     />
