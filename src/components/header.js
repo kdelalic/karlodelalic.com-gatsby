@@ -86,6 +86,7 @@ const Header = () => {
             }
           </nav>
           <DarkSwitch
+            className="dark-switch"
             checked={isDarkMode}
             onChange={() => setDarkMode(!isDarkMode)}
             value="darkMode"
