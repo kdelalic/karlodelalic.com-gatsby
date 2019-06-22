@@ -5,7 +5,7 @@ import Switch from '@material-ui/core/Switch'
 
 import Logo from "../assets/images/logo.svg";
 
-import useDarkMode from "../helpers/darkmode";
+import useDarkMode from "../hooks/src/darkmode";
 
 import "./header.scss"
 
@@ -33,7 +33,7 @@ const DarkSwitch = withStyles({
 const Header = () => {
 
   const [isNavbarOpen, setNavbarOpen] = useState(false);
-  const [isDarkMode, setDarkMode] = useDarkMode();
+  const [isDarkMode, setDarkMode] = useDarkMode("dark");
 
   return (
     <StaticQuery
