@@ -9,7 +9,9 @@ const useDarkMode = () => {
 
   const setDarkMode = isDark => {
     setStoredDarkMode(isDark);
-    window.localStorage.setItem("isDarkMode", JSON.stringify(isDark));
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem("isDarkMode", JSON.stringify(isDark));
+    }
   }
 
   useEffect(() => {
