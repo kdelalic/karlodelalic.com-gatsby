@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Karlo Delalic",
   "dependencies": {
-    "@material-ui/core": "^4.1.1",
+    "@material-ui/core": "4.1.1",
     "gatsby": "2.9.7",
     "gatsby-image": "2.1.4",
     "gatsby-plugin-google-analytics": "2.0.21",
