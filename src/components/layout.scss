@@ -8,6 +8,10 @@
 .title {
   text-align: left;
   margin-bottom: 25px;
+
+  .dark & {
+    color: white;
+  }
 }
 
 .centered {
