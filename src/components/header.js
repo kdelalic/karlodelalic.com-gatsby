@@ -14,13 +14,20 @@ const DarkSwitch = withStyles({
     color: "#6772e5",
     '&$checked': {
       color: "#6772e5",
+      '&:hover': {
+        backgroundColor: "rgba(255, 255, 255, 0.08)"
+      },
     },
     '&$checked + $track': {
       backgroundColor: "#fff",
+      opacity: 1,
     },
   },
   checked: {},
-  track: {},
+  track: {
+    backgroundColor: "#252525",
+    opacity: 1,
+  },
 })(Switch);
 
 const Header = () => {
