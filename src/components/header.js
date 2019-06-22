@@ -20,9 +20,7 @@ const DarkSwitch = withStyles({
     },
   },
   checked: {},
-  track: {
-    border: "1px solid black"
-  },
+  track: {},
 })(Switch);
 
 const Header = () => {

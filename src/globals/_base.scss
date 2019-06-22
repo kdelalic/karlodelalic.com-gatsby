@@ -12,11 +12,25 @@ $primary-color__hover: #7795f8;
 
 $secondary-color: #2ebf91;
 
+$dark-background: #252525;
+
+$divider-shadow: #f5f5f5;
+$divider-shadow-dark: #424242;
+
 body {
   background-color: white;
 
   &.dark {
-    background-color: black;
+    background-color: $dark-background;
+  }
+}
+
+hr {
+  height: 2px;
+  background-color: $divider-shadow;
+
+  .dark & {
+    background-color: $divider-shadow-dark;
   }
 }
 
@@ -36,6 +50,18 @@ pre[class*="language-"] {
     color: rgba(0, 0, 0, 0.66);
     font-weight: 400;
     font-size: 20px;
+
+    .dark & {
+      color: white;
+    }
+  }
+
+  &__content {
+    color: black;
+
+    .dark & {
+      color: white;
+    }
   }
 
   h2 {
@@ -71,6 +97,11 @@ pre[class*="language-"] {
   height: 1.25rem;
   margin-left: 5px;
   margin-bottom: 5px;
+
+  .dark & {
+    color: white;
+    background-color: #424242;
+  }
 }
 
 .paper {
@@ -111,6 +142,11 @@ pre[class*="language-"] {
   transform: translateX(-50%);
   white-space: nowrap;
   font-size: 15px;
+
+  .dark & {
+    background-color: white;
+    color: black;
+  }
 }
 
 .tooltip::after {
@@ -122,6 +158,10 @@ pre[class*="language-"] {
   border-width: 5px;
   border-style: solid;
   border-color: black transparent transparent transparent;
+
+  .dark & {
+    border-color: white transparent transparent transparent;
+  }
 }
 
 .link-button {
@@ -171,8 +211,16 @@ pre[class*="language-"] {
     box-shadow: none;
     transform: none;
 
+    .dark & {
+      color: white;
+    }
+
     &:hover {
       background-color: #f1f1f1;
+
+      .dark & {
+        background-color: #424242;
+      }
     }
   }
 
