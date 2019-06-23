@@ -16,7 +16,7 @@ const IndexPage = () => (
       <Image />
     </div>
     <h1 className="fullname">Karlo Delalic</h1>
-    <h2 className="occupation">Fullstack Software Engineer</h2>
+    <h2 className="occupation">Full Stack Software Engineer</h2>
     <h4 className="description">I like to make cool things.</h4>
     <div className="social-buttons">
       <Link className="link-button ghost" to="/blog">
