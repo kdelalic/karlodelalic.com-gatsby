@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Karlo Delalic`,
-    description: `Karlo Delalic is a fullstack web developer and software engineer in the Toronto area. Experienced with React, Angular, Node, Golang, SQL, NoSQL, and more.`,
+    description: `Karlo Delalic is a full stack web developer and software engineer in the Toronto area. Experienced with React, Angular, Node, Golang, SQL, NoSQL, and more.`,
     author: `@karlodelalic`,
     siteUrl: `https://karlodelalic.com`,
   },
