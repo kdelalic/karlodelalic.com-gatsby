@@ -8,12 +8,16 @@
   padding: 30px 0;
 
   &__email {
-    box-shadow: 0 -2px 0 0 #f5f5f5, 0 2px 0 0 #f5f5f5;
+    box-shadow: 0 -2px 0 0 $divider-shadow, 0 2px 0 0 $divider-shadow;
     padding: 30px 0;
     color: $primary-color;
     font-size: 22px;
     max-width: 479px;
     width: 100%;
+
+    .dark & {
+      box-shadow: 0 -2px 0 0 $divider-shadow-dark, 0 2px 0 0 $divider-shadow-dark;
+    }
 
     &:hover {
       color: $primary-color__hover;
