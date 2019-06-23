@@ -20,6 +20,10 @@
     }
 
     &__content {
+      .dark & {
+        background-color: #373737;
+      }
+
       @media all and (min-width: $width-small + 1) {
         padding-left: 150px;
       }
@@ -34,6 +38,10 @@
     &__body {
       &__description {
         margin-bottom: 15px;
+
+        .dark & {
+          color: white;
+        }
       }
 
       &__tech-logos {
@@ -42,7 +50,6 @@
         margin-bottom: 10px;
 
         img {
-          width: 30px;
           height: 30px;
           margin: 0 5px;
         }
