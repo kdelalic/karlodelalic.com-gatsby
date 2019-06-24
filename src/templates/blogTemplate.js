@@ -6,19 +6,26 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default function Template({
-  data,
+  data: {
+    markdownRemark: {
+      html,
+      frontmatter: {
+        title,
+        tags,
+        author,
+        date
+      }
+    }
+  },
 }) {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
-  
   return (
-    <Layout title={frontmatter.title}>
+    <Layout title={title}>
       <SEO
-        title={frontmatter.title}
-        keywords={[...Constants.tags, ...frontmatter.tags]}
+        title={title}
+        keywords={[...Constants.tags, ...tags]}
       />
       <div className="post">
-        <h3 className="post__date">{frontmatter.author}<span className="dot-divider"></span>{frontmatter.date}</h3>
+        <h3 className="post__date">{author}<span className="dot-divider"></span>{date}</h3>
         <div
           className="post__content"
           dangerouslySetInnerHTML={{ __html: html }}
