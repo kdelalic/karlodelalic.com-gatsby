@@ -1,23 +1,32 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Constants from "../globals/constants"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default function Template({
-  data: {
-    markdownRemark: {
-      html,
-      frontmatter: {
-        title,
-        tags,
-        author,
-        date
+const Template = () => {
+  const { data } = useStaticQuery(
+    graphql`
+      query($path: String!) {
+        markdownRemark(frontmatter: { path: { eq: $path } }) {
+          html
+          frontmatter {
+            date(formatString: "MMMM D, YYYY")
+            author
+            path
+            title
+            tags
+          }
+        }
       }
-    }
-  },
-}) {
+    `
+  );
+
+  const { markdownRemark } = data;
+  const { html, frontmatter } = markdownRemark;
+  const { title, tags, author, date } = frontmatter;
+
   return (
     <Layout title={title}>
       <SEO
@@ -35,17 +44,4 @@ export default function Template({
   )
 }
 
-export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        date(formatString: "MMMM D, YYYY")
-        author
-        path
-        title
-        tags
-      }
-    }
-  }
-`
+export default Template
