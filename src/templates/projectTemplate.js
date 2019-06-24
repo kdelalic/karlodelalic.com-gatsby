@@ -6,14 +6,19 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default function Template({
-  data,
+  data: {
+    markdownRemark: {
+      html,
+      frontmatter: {
+        title,
+        tags
+      }
+    }
+  },
 }) {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
-  
   return (
-    <Layout title={frontmatter.title}>
-      <SEO title={frontmatter.title} keywords={[...Constants.tags, ...frontmatter.tags]} />
+    <Layout title={title}>
+      <SEO title={title} keywords={[...Constants.tags, ...tags]} />
       <div className="post">
         <div
           className="post__content"
