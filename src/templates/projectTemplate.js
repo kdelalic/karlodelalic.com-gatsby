@@ -6,7 +6,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Template = () => {
-
   const { data } = useStaticQuery(
     graphql`
       query($path: String!) {
@@ -20,11 +19,11 @@ const Template = () => {
         }
       }
     `
-  );
+  )
 
-  const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
-  const { title, tags } = frontmatter;
+  const { markdownRemark } = data
+  const { frontmatter, html } = markdownRemark
+  const { title, tags } = frontmatter
 
   return (
     <Layout title={title}>

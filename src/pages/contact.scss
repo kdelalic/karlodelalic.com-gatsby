@@ -16,7 +16,8 @@
     width: 100%;
 
     .dark & {
-      box-shadow: 0 -2px 0 0 $divider-shadow-dark, 0 2px 0 0 $divider-shadow-dark;
+      box-shadow: 0 -2px 0 0 $divider-shadow-dark,
+        0 2px 0 0 $divider-shadow-dark;
     }
 
     &:hover {

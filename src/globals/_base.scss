@@ -35,7 +35,7 @@ hr {
 }
 
 pre[class*="language-"] {
-  border-radius: .3em;
+  border-radius: 0.3em;
 
   code {
     white-space: pre-wrap;
@@ -44,7 +44,7 @@ pre[class*="language-"] {
 
 .post {
   text-align: left;
-  
+
   &__date {
     text-align: left;
     color: rgba(0, 0, 0, 0.66);
@@ -68,8 +68,9 @@ pre[class*="language-"] {
     margin-top: 3rem;
   }
 
-  p, li {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  p,
+  li {
+    font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 1.1rem;
     line-height: 1.6em;
   }
@@ -177,7 +178,8 @@ pre[class*="language-"] {
   padding: 0 15px;
   margin: 5px 10px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
   text-transform: uppercase;
   cursor: pointer;
 

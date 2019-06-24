@@ -1,24 +1,24 @@
 import React, { useState } from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
-import { withStyles } from '@material-ui/core/styles';
-import Switch from '@material-ui/core/Switch'
+import { withStyles } from "@material-ui/core/styles"
+import Switch from "@material-ui/core/Switch"
 
-import Logo from "../assets/images/logo.svg";
+import Logo from "../assets/images/logo.svg"
 
-import useDarkMode from "../hooks/src/darkmode";
+import useDarkMode from "../hooks/src/darkmode"
 
 import "./header.scss"
 
 const DarkSwitch = withStyles({
   switchBase: {
     color: "#6772e5",
-    '&$checked': {
+    "&$checked": {
       color: "#6772e5",
-      '&:hover': {
-        backgroundColor: "rgba(255, 255, 255, 0.08)"
+      "&:hover": {
+        backgroundColor: "rgba(255, 255, 255, 0.08)",
       },
     },
-    '&$checked + $track': {
+    "&$checked + $track": {
       backgroundColor: "#fff",
       opacity: 1,
     },
@@ -28,27 +28,31 @@ const DarkSwitch = withStyles({
     backgroundColor: "#252525",
     opacity: 1,
   },
-})(Switch);
+})(Switch)
 
 const Header = () => {
-
-  const [isNavbarOpen, setNavbarOpen] = useState(false);
-  const [isDarkMode, setDarkMode] = useDarkMode("dark");
+  const [isNavbarOpen, setNavbarOpen] = useState(false)
+  const [isDarkMode, setDarkMode] = useDarkMode("dark")
 
   return (
     <StaticQuery
       query={graphql`
-          {
-            allFile(filter: {sourceInstanceName: {eq: "pages"}, extension: {eq: "js"}}) {
-              edges {
-                node {
-                  name
-                  id
-                }
+        {
+          allFile(
+            filter: {
+              sourceInstanceName: { eq: "pages" }
+              extension: { eq: "js" }
+            }
+          ) {
+            edges {
+              node {
+                name
+                id
               }
             }
-          }      
-        `}
+          }
+        }
+      `}
       render={data => (
         <header>
           <div className="brand">
@@ -57,20 +61,28 @@ const Header = () => {
             </Link>
             <span className="brand__name">Karlo Delalic</span>
           </div>
-          <div onClick={() => setNavbarOpen(!isNavbarOpen)} className={`navbar-burger${isNavbarOpen ? " open" : ""}`}>
+          <div
+            onClick={() => setNavbarOpen(!isNavbarOpen)}
+            className={`navbar-burger${isNavbarOpen ? " open" : ""}`}
+          >
             <span></span>
             <span></span>
             <span></span>
           </div>
-          <nav onClick={() => setNavbarOpen(false)} className={`navbar${isNavbarOpen ? " open" : ""}`}>
-            <Link to={"/"} className="navbar__item" activeClassName="active">Home</Link>
+          <nav
+            onClick={() => setNavbarOpen(false)}
+            className={`navbar${isNavbarOpen ? " open" : ""}`}
+          >
+            <Link to={"/"} className="navbar__item" activeClassName="active">
+              Home
+            </Link>
             {data.allFile.edges
               .filter(edge => {
                 return edge.node.name !== "404" && edge.node.name !== "index"
               })
               .map(edge => {
-                const link = `/${edge.node.name}`;
-                const name = edge.node.name;
+                const link = `/${edge.node.name}`
+                const name = edge.node.name
                 return (
                   <Link
                     key={edge.node.id}
@@ -82,15 +94,14 @@ const Header = () => {
                     {name}
                   </Link>
                 )
-              })
-            }
+              })}
           </nav>
           <DarkSwitch
             className="dark-switch"
             checked={isDarkMode}
             onChange={() => setDarkMode(!isDarkMode)}
             value="darkMode"
-            inputProps={{ 'aria-label': 'dark mode switch' }}
+            inputProps={{ "aria-label": "dark mode switch" }}
           />
         </header>
       )}
