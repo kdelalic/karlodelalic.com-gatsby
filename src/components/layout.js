@@ -3,7 +3,7 @@ import React from "react"
 import Header from "./header"
 import "./layout.scss"
 
-const Layout = (props) => (
+const Layout = props => (
   <React.Fragment>
     <Header />
     <div className={`content${props.centered ? " centered" : ""}`}>
@@ -12,6 +12,5 @@ const Layout = (props) => (
     </div>
   </React.Fragment>
 )
-
 
 export default Layout

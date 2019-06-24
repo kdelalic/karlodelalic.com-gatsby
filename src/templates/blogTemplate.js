@@ -21,20 +21,21 @@ const Template = () => {
         }
       }
     `
-  );
+  )
 
-  const { markdownRemark } = data;
-  const { html, frontmatter } = markdownRemark;
-  const { title, tags, author, date } = frontmatter;
+  const { markdownRemark } = data
+  const { html, frontmatter } = markdownRemark
+  const { title, tags, author, date } = frontmatter
 
   return (
     <Layout title={title}>
-      <SEO
-        title={title}
-        keywords={[...Constants.tags, ...tags]}
-      />
+      <SEO title={title} keywords={[...Constants.tags, ...tags]} />
       <div className="post">
-        <h3 className="post__date">{author}<span className="dot-divider"></span>{date}</h3>
+        <h3 className="post__date">
+          {author}
+          <span className="dot-divider"></span>
+          {date}
+        </h3>
         <div
           className="post__content"
           dangerouslySetInnerHTML={{ __html: html }}
