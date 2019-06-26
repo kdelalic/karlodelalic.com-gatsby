@@ -1,5 +1,4 @@
 ---
-path: "/blog/gatsby-personal-site"
 author: "Karlo Delalic"
 date: "2019-06-05"
 title: "Building a Statically Generated Personal Website Using GatsbyJS"
@@ -80,7 +79,6 @@ Here's an example of a markdown file:
 
 ```
 ---
-path: "/projects/lunch-roulette"
 title: "Lunch Roulette"
 description: "Lunch Roulette helps users decide where to eat for lunch"
 type: "project"

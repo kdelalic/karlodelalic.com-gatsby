@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 
 import "./projects.scss"
 
-const ProjectsPage = ({
+export default ({
   data: {
     allMarkdownRemark: { edges: postEdges },
     projectLogos: { edges: projectLogoEdges },
@@ -18,6 +18,7 @@ const ProjectsPage = ({
   const projectLogos = {}
 
   projectLogoEdges.forEach(edge => {
+    console.log(edge.node.relativeDirectory)
     projectLogos["/" + edge.node.relativeDirectory] = edge.node.publicURL
   })
 
@@ -82,7 +83,7 @@ const ProjectsPage = ({
                   )}
                   {edge.node.html && (
                     <Link
-                      to={edge.node.frontmatter.path}
+                      to={edge.node.fields.slug}
                       className="link-button secondary"
                     >
                       Read more
@@ -93,7 +94,7 @@ const ProjectsPage = ({
               <img
                 className="project__logo"
                 alt="Project logo"
-                src={projectLogos[edge.node.frontmatter.path]}
+                src={projectLogos[edge.node.fields.slug]}
               />
             </div>
           </div>
@@ -103,9 +104,7 @@ const ProjectsPage = ({
   )
 }
 
-export default ProjectsPage
-
-export const pageQuery = graphql`
+export const query = graphql`
   {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
@@ -116,12 +115,14 @@ export const pageQuery = graphql`
           id
           html
           frontmatter {
-            path
             title
             description
             demo
             github
             tech
+          }
+          fields {
+            slug
           }
           timeToRead
         }

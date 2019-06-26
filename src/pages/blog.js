@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 
 import "./blog.scss"
 
-const BlogPage = ({
+export default ({
   data: {
     allMarkdownRemark: { edges },
   },
@@ -21,7 +21,7 @@ const BlogPage = ({
             <h2 className="blog__post__title">
               <Link
                 className="blog__post__title__link"
-                to={edge.node.frontmatter.path}
+                to={edge.node.fields.slug}
               >
                 {edge.node.frontmatter.title}
               </Link>
@@ -39,9 +39,7 @@ const BlogPage = ({
   </Layout>
 )
 
-export default BlogPage
-
-export const pageQuery = graphql`
+export const query = graphql`
   {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
@@ -53,8 +51,10 @@ export const pageQuery = graphql`
           excerpt(pruneLength: 300)
           frontmatter {
             date(formatString: "MMMM D, YYYY")
-            path
             title
+          }
+          fields {
+            slug
           }
           timeToRead
         }

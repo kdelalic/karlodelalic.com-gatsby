@@ -1,5 +1,4 @@
 ---
-path: "/projects/kiosk"
 title: "Kiosk"
 description: "Chrome new tab extension which displays latest crypto news"
 type: "project"
