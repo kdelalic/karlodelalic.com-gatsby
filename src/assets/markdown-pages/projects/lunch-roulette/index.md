@@ -1,5 +1,4 @@
 ---
-path: "/projects/lunch-roulette"
 title: "Lunch Roulette"
 description: "Lunch Roulette helps users decide where to eat for lunch"
 type: "project"

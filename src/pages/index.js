@@ -9,7 +9,7 @@ import SEO from "../components/seo"
 
 import "./index.scss"
 
-const IndexPage = () => (
+export default () => (
   <Layout centered>
     <SEO
       title="Home"
@@ -53,8 +53,10 @@ const IndexPage = () => (
               node {
                 excerpt(pruneLength: 200)
                 frontmatter {
-                  path
                   title
+                }
+                fields {
+                  slug
                 }
               }
             }
@@ -67,7 +69,7 @@ const IndexPage = () => (
             <span className="tag">Latest writing</span>
             <Link
               className="latest-post__title__link"
-              to={data.blogPosts.edges[0].node.frontmatter.path}
+              to={data.blogPosts.edges[0].node.fields.slug}
             >
               {data.blogPosts.edges[0].node.frontmatter.title}
             </Link>
@@ -80,5 +82,3 @@ const IndexPage = () => (
     />
   </Layout>
 )
-
-export default IndexPage

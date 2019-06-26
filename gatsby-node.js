@@ -1,10 +1,20 @@
 const path = require("path")
+const { createFilePath } = require("gatsby-source-filesystem")
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === "MarkdownRemark") {
+    const slug = createFilePath({ node, getNode, basePath: "pages", trailingSlash: false })
+    createNodeField({
+      node,
+      name: "slug",
+      value: slug,
+    })
+  }
+}
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
-
-  const blogPostTemplate = path.resolve(`src/templates/blogTemplate.js`)
-  const projectTemplate = path.resolve(`src/templates/projectTemplate.js`)
 
   return graphql(`
     {
@@ -15,8 +25,10 @@ exports.createPages = ({ actions, graphql }) => {
         edges {
           node {
             html
+            fields {
+              slug
+            }
             frontmatter {
-              path
               type
             }
           }
@@ -32,16 +44,20 @@ exports.createPages = ({ actions, graphql }) => {
       if (node.frontmatter.type === "project") {
         if (node.html) {
           createPage({
-            path: node.frontmatter.path,
-            component: projectTemplate,
-            context: {}, // additional data can be passed via context
+            path: node.fields.slug,
+            component: path.resolve("src/templates/project-post.js"),
+            context: {
+              slug: node.fields.slug,
+            },
           })
         }
       } else if (node.frontmatter.type === "blog") {
         createPage({
-          path: node.frontmatter.path,
-          component: blogPostTemplate,
-          context: {}, // additional data can be passed via context
+          path: node.fields.slug,
+          component: path.resolve("src/templates/blog-post.js"),
+          context: {
+            slug: node.fields.slug,
+          },
         })
       }
     })

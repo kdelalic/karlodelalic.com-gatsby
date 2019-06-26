@@ -1,5 +1,4 @@
 ---
-path: "/projects/cryptofolio"
 title: "Cryptofolio"
 description: "Crypto-currency investment portfolio tracker"
 type: "project"
