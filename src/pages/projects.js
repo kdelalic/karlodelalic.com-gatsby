@@ -130,7 +130,7 @@ export const query = graphql`
     projectLogos: allFile(
       filter: {
         absolutePath: { regex: "/projects/" }
-        extension: { regex: "/svg/" }
+        base: { eq: "logo.svg" }
       }
     ) {
       edges {
