@@ -18,7 +18,6 @@ export default ({
   const projectLogos = {}
 
   projectLogoEdges.forEach(edge => {
-    console.log(edge.node.relativeDirectory)
     projectLogos["/" + edge.node.relativeDirectory] = edge.node.publicURL
   })
 
