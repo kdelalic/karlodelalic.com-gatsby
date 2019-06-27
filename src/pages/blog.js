@@ -7,51 +7,54 @@ import SEO from "../components/seo"
 
 import "./blog.scss"
 
-const BlogPage = ({
+export default ({
   data: {
     allMarkdownRemark: { edges },
   },
 }) => (
-    <Layout title="Blog">
-      <SEO title="Blog" keywords={[...Constants.tags, `blog`]} />
-      <div className="blog">
-        {edges.map(edge => {
-          return (
-            <div className="blog__post" key={edge.node.id}>
-              <h2 className="blog__post__title">
-                <Link
-                  className="blog__post__title__link"
-                  to={edge.node.frontmatter.path}
-                >
-                  {edge.node.frontmatter.title}
-                </Link>
-              </h2>
-              <p className="blog__post__excerpt">{edge.node.excerpt}</p>
-              <h5 className="blog__post__info">
-                {edge.node.frontmatter.date}
-                <span className="dot-divider"></span>
-                {edge.node.timeToRead} min read
-                </h5>
-            </div>
-          )
-        })}
-      </div>
-    </Layout>
-  )
+  <Layout title="Blog">
+    <SEO title="Blog" keywords={[...Constants.tags, `blog`]} />
+    <div className="blog">
+      {edges.map(edge => {
+        return (
+          <div className="blog__post" key={edge.node.id}>
+            <h2 className="blog__post__title">
+              <Link
+                className="blog__post__title__link"
+                to={edge.node.fields.slug}
+              >
+                {edge.node.frontmatter.title}
+              </Link>
+            </h2>
+            <p className="blog__post__excerpt">{edge.node.excerpt}</p>
+            <h5 className="blog__post__info">
+              {edge.node.frontmatter.date}
+              <span className="dot-divider"></span>
+              {edge.node.timeToRead} min read
+            </h5>
+          </div>
+        )
+      })}
+    </div>
+  </Layout>
+)
 
-export default BlogPage
-
-export const pageQuery = graphql`
+export const query = graphql`
   {
-    allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {type: {eq: "blog"}}}) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { type: { eq: "blog" } } }
+    ) {
       edges {
         node {
           id
           excerpt(pruneLength: 300)
           frontmatter {
             date(formatString: "MMMM D, YYYY")
-            path
             title
+          }
+          fields {
+            slug
           }
           timeToRead
         }
