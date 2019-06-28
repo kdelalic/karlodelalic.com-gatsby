@@ -3,22 +3,22 @@ author: "Karlo Delalic"
 date: "2019-06-05"
 title: "Building a Statically Generated Personal Website Using GatsbyJS"
 type: "blog"
-tags: 
-  - gatsbyjs
-  - developer portfolio
-  - statically generated
+tags:
+ - gatsbyjs
+ - developer portfolio
+ - statically generated
 ---
-A personal website is a great tool for showing the world exactly what you're about. It can be a great way of displaying your best projects, sharing your thoughts, and helping people connect with you. It makes sense for most developers to have one since they do most of their business online.
+A personal website is a great tool for showing the world exactly who you are and what you do. It can be a great way of displaying your best projects, sharing your thoughts, and helping people connect with you. It makes sense for most developers to have one since they conduct most of their business online.
 <!-- end -->
-Your website is a showcase of your skills and therefore, should also be a display of your skills in and of themselves. The quality of the website reflects your competence as a developer and shows visitors exactly what kind of work ethic you have.
+Your website is a showcase of your skills and therefore, should also be a display of your skills in and of themselves. The quality of the website reflects your competence as a developer and is a testament to your work ethic.
 
-No matter if you're doing contracts or you're maintaining a website for display to company recruiters, your website should be developed with high quality.
+Whether you're doing contract work for a client or you're simply maintaining a website for display to company recruiters, your website should be developed with high quality.
 
 In order to ensure a smooth experience for both the user and you as a developer, it is essential for a personal website to cover the following three foundational pillars:
 
-  1. __Performance__ - The website should load quickly on first load as well as between pages
-  2. __Design__ -  The design should be simple and intuitive yet appealing
-  3. __Maintainability__ - Adding posts and editing the website should not be overbearing
+ 1. __Performance__ - The website should load quickly on the first load as well as in between pages
+ 2. __Design__ -  The design should be simple and intuitive, yet appealing
+ 3. __Maintainability__ - Adding posts and editing the website should not be overbearing
 
 [GatsbyJS](https://www.gatsbyjs.org/) is the perfect framework that will allow you to seamlessly cover these pillars.
 
@@ -26,17 +26,17 @@ In order to ensure a smooth experience for both the user and you as a developer,
 
 Being a developer, it is of utmost importance that your website loads each page quickly.
 
-Too often do I see developer portfolios that load an entire treasure trove of assets for their super long single page portfolio. This is the exact opposite of how you want to build your webpage. If you were looking to hire a developer for your company and a potential hire's personal website took 4 seconds to load, what would this say to you? Would you want to hire somebody who does not even have the attention span to develop a simple page?
+Too often do I see developers that load an entire treasure trove of assets for their unnecessarily long, single-page portfolios. This is the exact opposite of how you would want to build your webpage. If you were looking to hire a developer for your own company and a potential hire's personal website took 4 seconds to load, what message would this convey to you? Perhaps, you would be better suited to take your business to someone with a better understanding of quality.
 
-The mistake of bloating up a website can be caused by a few different issues. Usually, the prime suspect is using libraries to do the heavy lifting of making a flashy and interactive page. This adds JavaScript code that the client has to first download and then run on their machine which leads to low performance. Another issue may be using React for your simple webpage. This is not necessary and can add a lot of code which would end up not being used anyway. It's overkill!
+The mistake of bloating a website can be caused by a few different issues. Usually, the prime suspect is using libraries to do the heavy lifting of making a flashy and interactive page. This adds JavaScript code that the client has to first download and then run on their machine which leads to lower than optimal performance. Another issue may be using React for your simple webpage. This is not necessary and can add a significant amount of code which would end up not being used anyway. It's overkill!
 
-This is where static site rendering comes into the picture. Instead of making a full-on React project for a simple webpage and handling all of the rendering on the client side, it is better to render once through a build process.
+This is where static site rendering comes into the picture. Instead of making a full-on React project for a simple webpage and handling all of the rendering on the client side, it is better to render once through the build process of the application.
 
 Gatsby also uses React, except it uses what you could call a type of server-side rendering. In other words, instead of sending JavaScript code to be rendered on the client's machine, it builds the static code on a server which then serves it to the client. It works like this:
 
-  1. You make a few pages such as Home, About, and Contact, along with any React based components you may need to create
-  2. Then you run Gatsby's build process which takes advantage of some built in code optimizations such as code splitting
-  3. Finally, you publish the code to your webserver (such as [Netlify](https://netlify.com)) where the static code is served to the user
+ 1. You make a few pages such as Home, About, and Contact, along with any React based components you may need to create
+ 2. Then you run Gatsby's build process which takes advantage of some built-in code optimizations such as code splitting
+ 3. Finally, you publish the code to your webserver (such as [Netlify](https://netlify.com)) where the static code is served to the user
 
 This is a very simplified version of Gatsby's process, but it is enough to give you an example of how the code is statically generated.
 
@@ -44,28 +44,28 @@ Due to the fact that there is no extra overhead of libraries like jQuery or Reac
 
 ## Design
 
-Your primary goal should be to show off your projects and experience. Therefore, the design should be straight-forward, and the website should be easy to navigate. Having said that, it is a good idea to make your website look at least somewhat appealing.
+Your primary goal should be to show off your projects and work experience. Therefore, the design should be straight-forward, and the website should be easy to navigate. Having said that, it is a good idea to make your website look at least somewhat appealing.
 
-Ideally you will want a clutter free design. The home page should have your name, profession, maybe a motto or something of the sort, a few links to your social media such as LinkedIn or GitHub, and a photo of yourself if you like. The other pages should be very straight forward as well and should follow suit with the home page. Nothing complicated or complex.
+Ideally you will want a clutter free design. The home page should have your name, profession, maybe a motto or something of the sort, a few links to your social media such as LinkedIn or GitHub, and a photo of yourself if you like. The other pages should be very straight forward as well and should follow suit with the home page. Nothing complicated or too complex.
 
-This also means that animations or unnecessary eye-catching things of the sort should be explicitly avoided.
+This also means that animations or unnecessary eye-catching add-ons of the sort should be explicitly avoided.
 
 If you were a recruiter or somebody looking to do business with a developer, you would want to have direct access to the developer's experience, and personal details. You would not care very much for unnecessary animations on the buttons.
 
 Although your main goal is to direct the user to your details, your website should not be off-putting. Therefore, it is a good idea to have a few of the following:
 
-- Consistent structure (such as through a grid system)
-- A good color palette (a primary color which your design is based upon and maybe a second one for accenting elements)
+- Consistent structure (using a grid system)
+- A good color palette (a primary color which your design is based upon and maybe a second one for accenting)
 - Appropriate shadows if using cards to display information (for added depth)
-- A good looking font
+- An appropriate font
 
 Note: Be careful not to include too many external fonts hosting sites such as Google Fonts as this can add unwanted performance overhead.
 
-The design elements listed above are easily attainable with Gatsby since it leverages React. You can simply create a Layout component which keeps a consistent design across all pages you choose to add to your website. The layout component should have the any elements which used among multiple pages such as the header or footer.
+The design elements listed above are easily attainable with Gatsby since it leverages React. You can simply create a Layout component which keeps a consistent design across all pages you choose to add to your website. The layout component should have any elements which are used among multiple pages such as the header or footer.
 
 You can go one step further and make your life easier with SCSS or CSS-in-JS which ensures styling consistency. I will go into more detail about these in the following section.
 
-Ensure that your website is based on the above design elements and you will have a good looking, minimal design which does not distract from your work.
+Ensure that your website is based on the above design elements and you will have a beautiful, yet minimal design which does not distract from your work.
 
 ## Maintainability
 
@@ -85,14 +85,14 @@ type: "project"
 demo: "https://lunch-roulette.netlify.com"
 github: "https://github.com/kdelalic/lunch-roulette"
 tech:
-  - ReactJS
-  - Material UI
-  - NodeJS
+ - ReactJS
+ - Material UI
+ - NodeJS
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam aliquam sem et tortor consequat id porta.
 ```
 
-In order to add a project to my projects page, I simply have to create a new markdown file with the information above, put it in the appropriate directory for projects, and that's it. My new project will be appended to the other projects on the projects page with almost no additional work besides writing the actual content of the post.
+In order to add a project to my projects page, I simply have to create a new markdown file with the information above, put it in the appropriate directory for projects, and that's it! My new project will be appended to the other projects on the projects page with almost no additional work besides writing the actual content of the post.
 
 ## Try it out
 
