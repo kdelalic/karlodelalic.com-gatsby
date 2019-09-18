@@ -3,7 +3,7 @@ module.exports = {
     title: `Karlo Delalic`,
     description: `Karlo Delalic is a full stack web developer and software engineer in the Toronto area. Experienced with React, Angular, Node, Golang, SQL, NoSQL, and more.`,
     author: `@karlodelalic`,
-    siteUrl: `https://karlodelalic.com`,
+    siteUrl: `https://karlodelalic.me`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
