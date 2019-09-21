@@ -1,6 +1,6 @@
 [submodule "src/hooks"]
 	path = src/hooks
 	url = https://github.com/kdelalic/react-hooks
-[submodule "static/resume"]
-	path = static/resume
+[submodule "src/resume"]
+	path = src/resume
 	url = git@github.com:kdelalic/resume.git
