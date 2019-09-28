@@ -1,3 +1,6 @@
 [submodule "src/hooks"]
 	path = src/hooks
 	url = https://github.com/kdelalic/react-hooks
+[submodule "src/resume"]
+	path = src/resume
+	url = git@github.com:kdelalic/auto-resume.git
