@@ -3,4 +3,4 @@
 	url = https://github.com/kdelalic/react-hooks
 [submodule "src/resume"]
 	path = src/resume
-	url = https://github.com/kdelalic/resume
+	url = https://github.com/kdelalic/auto-resume
