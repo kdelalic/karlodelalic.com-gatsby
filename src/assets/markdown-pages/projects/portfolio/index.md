@@ -1,5 +1,5 @@
 ---
-title: "karlodelalic.com"
+title: "karlodelalic.me"
 description: "This website, a personal showcase for my experience"
 type: "project"
 github: "https://github.com/kdelalic/karlodelalic.com-gatsby"
