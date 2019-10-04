@@ -38,4 +38,6 @@ A seemingly small but welcome feature is the Github info which is display when y
 
 ![Staged changes](./staged.png)
 
+![Committed changes](./committed.png)
+
 ![Clean branch](./clean.png)
