@@ -54,12 +54,10 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "lint-staged": {
-    "linters": {
-      "src/**/*.{js,jsx,scss}": [
-        "prettier --write",
-        "git add"
-      ]
-    }
+    "src/**/*.{js,jsx,scss}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
