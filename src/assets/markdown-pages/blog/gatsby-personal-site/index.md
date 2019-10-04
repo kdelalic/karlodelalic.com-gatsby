@@ -40,7 +40,7 @@ Gatsby also uses React, except it uses what you could call a type of server-side
 
 This is a very simplified version of Gatsby's process, but it is enough to give you an example of how the code is statically generated.
 
-Due to the fact that there is no extra overhead of libraries like jQuery or React re-rendering happening on the client side, the webpage is blazingly fast.
+Due to the fact that there is no extra overhead of libraries like jQuery or React re-rendering happening on the client side, the webpage is blazing fast.
 
 ## Design
 
@@ -103,4 +103,4 @@ Furthermore, the [Gatsby showcase](https://www.gatsbyjs.org/showcase/) is perfec
 Also, if you're interested, you can check out how I made this website in this [repository](https://github.com/kdelalic/karlodelalic-gatsby).
 
 ---
-__Hope you enjoyed this article and found it to be worthwhile. You can check out all my projects on [Github](https://github.com/kdelalic) and don’t hesitate to reach out to me on [Twitter](https://twitter.com/karlodelalic)!__
+__I hope you enjoyed this article and found it to be worthwhile. You can check out all my projects on [Github](https://github.com/kdelalic) and don’t hesitate to reach out to me on [Twitter](https://twitter.com/karlodelalic)!__

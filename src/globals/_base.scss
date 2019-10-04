@@ -97,7 +97,6 @@ pre[class*="language-"] {
   display: inline-flex;
   height: 1.25rem;
   margin-left: 5px;
-  margin-bottom: 5px;
 
   .dark & {
     color: white;
@@ -267,4 +266,8 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.gatsby-resp-image-figcaption {
+  text-align: center;
 }
