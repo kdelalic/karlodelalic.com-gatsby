@@ -1,6 +1,6 @@
 ---
 author: "Karlo Delalic"
-date: "2019-06-18"
+date: "2019-10-02"
 title: "Efficient development: iTerm2 and Oh My Zsh"
 type: "blog"
 tags: 
@@ -22,17 +22,17 @@ Taking the `ssh` command example from above, with OhMyZsh configured, you could 
 
 ![Autosuggestion example](./autosuggest.png)
 
-## Word Jumps and Word Deletion
+## Word jumps and word deletion
 
 Have you ever typed out or copy-pasted a long command only to realize that you need to change something in the middle of the command? Well, you probably have and to make the change, you probably had to spam your ← key multiple times. With word jumps, you can avoid this nonsense by simple pressing `option + ←` just a few times to reach your desired point in the command. This is especially useful for developers with defective Macbook keyboard buttons which can give at any moment.
 
 This works likewise with word deletion. Pressing `delete + ←` yields the same, except that it deletes each word.
 
-## Github Information
+## Github information
 
 A seemingly small but welcome feature is the Github info which is display when your working directory is inside of a git repo. It displays which branch is currently checked out, whether there are changes made, and whether they are staged.
 
-
+![Clean tree on branch 'zsh'](./clean.png)
 
 ![Unstaged changes](./unstaged.png)
 
@@ -40,4 +40,19 @@ A seemingly small but welcome feature is the Github info which is display when y
 
 ![Committed changes](./committed.png)
 
-![Clean branch](./clean.png)
+## Cycle through files in a directory
+
+When you need to `cd` into a specific directory or just execute a command such as `cp` on a specific file, you can type `cd` and then press `tab` to cycle through all of the options. Unlike zsh, bash only lists the entries which can be used with the command.
+
+![Cycling through files by pressing the tab key](./cycle.png)
+
+## And many more...
+
+Oh My Zsh has an extensive community who have come up with many similar innovations. If you are interested in the above, I definitely suggest the you install Oh My Zsh and give all of these a try!
+
+## Installation
+
+When showing this wonderful piece of software to my peers, I usually refer them to this Github gist found [here](https://gist.github.com/kevin-smets/8568070#how-to-install). It will show you have to install iTerm 2, Oh My Zsh, and all of the features that I listed above.
+
+---
+__I hope you enjoyed this article and found it to be worthwhile. You can check out all my projects on [Github](https://github.com/kdelalic) and don’t hesitate to reach out to me on [Twitter](https://twitter.com/karlodelalic)!__
