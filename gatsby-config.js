@@ -3,7 +3,7 @@ module.exports = {
     title: `Karlo Delalic`,
     description: `Karlo Delalic is a full stack web developer and software engineer in the Toronto area. Experienced with React, Angular, Node, Golang, SQL, NoSQL, and more.`,
     author: `@karlodelalic`,
-    siteUrl: `https://karlodelalic.com`,
+    siteUrl: `https://karlodelalic.me`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -81,7 +81,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-39382503-2",
+        trackingId: "UA-39382503-3",
         head: false,
         anonymize: false,
         respectDNT: false,
