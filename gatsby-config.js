@@ -60,6 +60,13 @@ module.exports = {
           `gatsby-remark-external-links`,
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+              showCaptions: true,
+            },
+          },
         ],
       },
     },
