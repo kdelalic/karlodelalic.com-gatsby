@@ -103,4 +103,4 @@ Furthermore, the [Gatsby showcase](https://www.gatsbyjs.org/showcase/) is perfec
 Also, if you're interested, you can check out how I made this website in this [repository](https://github.com/kdelalic/karlodelalic-gatsby).
 
 ---
-__Hope you enjoyed this article and found it to be worthwhile. You can check out all my projects on [Github](https://github.com/kdelalic) and don’t hesitate to reach out to me on [Twitter](https://twitter.com/karlodelalic)!__
+__I hope you enjoyed this article and found it to be worthwhile. You can check out all my projects on [Github](https://github.com/kdelalic) and don’t hesitate to reach out to me on [Twitter](https://twitter.com/karlodelalic)!__
