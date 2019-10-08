@@ -103,5 +103,13 @@ module.exports = {
         minify: true,
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://karlodelalic.me',
+        sitemap: 'https://karlodelalic.me/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
   ],
 }
