@@ -1,5 +1,7 @@
+@import "../globals/base";
+
 .page-not-found {
-  .dark & {
+  .#{$dark-class} & {
     color: white;
   }
 }
