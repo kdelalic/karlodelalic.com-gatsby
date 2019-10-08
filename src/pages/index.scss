@@ -5,7 +5,7 @@
   margin-bottom: 10px;
   font-weight: 600;
 
-  .dark & {
+  .#{$dark-class} & {
     color: white;
   }
 }
@@ -15,7 +15,7 @@
   color: #4a4a4a;
   margin-bottom: 20px;
 
-  .dark & {
+  .#{$dark-class} & {
     color: white;
   }
 }
@@ -24,7 +24,7 @@
   color: #4a4a4a;
   font-weight: 400;
 
-  .dark & {
+  .#{$dark-class} & {
     color: white;
   }
 }
@@ -46,7 +46,7 @@
   max-width: $width-large;
   margin: 0 auto;
 
-  .dark & {
+  .#{$dark-class} & {
     box-shadow: 0 -2px 0 0 $divider-shadow-dark;
   }
 
@@ -72,7 +72,7 @@
     color: #4a4a4a;
     margin: 0;
 
-    .dark & {
+    .#{$dark-class} & {
       color: white;
     }
   }

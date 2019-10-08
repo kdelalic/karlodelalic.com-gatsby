@@ -20,7 +20,7 @@
     }
 
     &__content {
-      .dark & {
+      .#{$dark-class} & {
         background-color: #373737;
       }
 
@@ -39,7 +39,7 @@
       &__description {
         margin-bottom: 15px;
 
-        .dark & {
+        .#{$dark-class} & {
           color: white;
         }
       }
