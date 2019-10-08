@@ -55,4 +55,4 @@ Oh My Zsh has an extensive community who have come up with many similar innovati
 When showing this wonderful piece of software to my peers, I usually refer them to this Github gist found [here](https://gist.github.com/kevin-smets/8568070#how-to-install). It will show you have to install iTerm 2, Oh My Zsh, and all of the features that I listed above.
 
 ---
-__I hope you enjoyed this article and found it to be worthwhile. You can check out all my projects on [Github](https://github.com/kdelalic) and don’t hesitate to reach out to me on [Twitter](https://twitter.com/karlodelalic)!__
+__I hope you enjoyed this article and found it to be worthwhile. You can check out all of my projects on [Github](https://github.com/kdelalic) and don’t hesitate to reach out to me on [Twitter](https://twitter.com/karlodelalic)!__
