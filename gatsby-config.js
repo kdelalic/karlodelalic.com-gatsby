@@ -95,5 +95,13 @@ module.exports = {
         siteSpeedSampleRate: 10,
       },
     },
+    {
+      resolve: 'gatsby-plugin-use-dark-mode',
+      options: {
+        classNameDark: 'dark',
+        storageKey: 'isDarkMode',
+        minify: true,
+      },
+    },
   ],
 }
