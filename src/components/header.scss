@@ -8,7 +8,7 @@ header {
   box-shadow: 0 2px 0 0 $divider-shadow;
   align-items: center;
 
-  .dark & {
+  .#{$dark-class} & {
     box-shadow: 0 2px 0 0 $divider-shadow-dark;
   }
 
@@ -36,7 +36,7 @@ header {
     &__name {
       margin-left: 10px;
 
-      .dark & {
+      .#{$dark-class} & {
         color: white;
       }
     }
@@ -54,7 +54,7 @@ header {
       border-bottom: 1px solid transparent;
       text-transform: capitalize;
 
-      .dark & {
+      .#{$dark-class} & {
         color: white;
       }
 
@@ -77,7 +77,7 @@ header {
     max-width: 100%;
     width: 100%;
 
-    .dark-switch {
+    .#{$dark-class}-switch {
       display: none;
     }
 
@@ -122,6 +122,10 @@ header {
 
       &:hover {
         background-color: #f1f1f1;
+
+        .#{$dark-class} & {
+          background-color: #424242;
+        }
       }
 
       span {

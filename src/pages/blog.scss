@@ -12,7 +12,7 @@
     &:not(:last-child) {
       box-shadow: 0 2px 0 0 $divider-shadow;
 
-      .dark & {
+      .#{$dark-class} & {
         box-shadow: 0 2px 0 0 $divider-shadow-dark;
       }
     }
@@ -33,7 +33,7 @@
       line-height: 1.75;
       margin-bottom: 15px;
 
-      .dark & {
+      .#{$dark-class} & {
         color: white;
       }
     }
@@ -43,7 +43,7 @@
       color: rgba(0, 0, 0, 0.54);
       margin: 0;
 
-      .dark & {
+      .#{$dark-class} & {
         color: white;
       }
     }
