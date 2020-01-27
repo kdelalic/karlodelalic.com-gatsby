@@ -1,8 +1,13 @@
-rm static/resume.pdf
+RESUME_FILE_DIR="static"
+RESUME_FILE_NAME="resume.pdf"
+RESUME_FILE_PATH=$RESUME_FILE_DIR/$RESUME_FILE_NAME
+
+rm $RESUME_FILE_PATH
 
 # Pull latest resume from auto-resume releases
-curl -s https://api.github.com/repos/kdelalic/auto-resume/releases/latest \
+LATEST_RESUME=`curl -s https://api.github.com/repos/kdelalic/auto-resume/releases/latest \
     | grep "browser_download_url" \
     | cut -d : -f 2,3 \
-    | tr -d \" \
-    | wget -i - -P static
+    | tr -d \"`
+
+curl -L $LATEST_RESUME -o $RESUME_FILE_PATH
