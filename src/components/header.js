@@ -63,14 +63,18 @@ const Header = () => {
           </div>
           <div
             onClick={() => setNavbarOpen(!isNavbarOpen)}
+            onKeyDown={() => setNavbarOpen(!isNavbarOpen)}
             className={`navbar-burger${isNavbarOpen ? " open" : ""}`}
+            role="button"
+            tabIndex="0"
           >
             <span></span>
             <span></span>
             <span></span>
           </div>
-          <nav
+          <nav // eslint-disable-line jsx-a11y/no-noninteractive-element-interactions
             onClick={() => setNavbarOpen(false)}
+            onKeyDown={() => setNavbarOpen(false)}
             className={`navbar${isNavbarOpen ? " open" : ""}`}
           >
             <Link to={"/"} className="navbar__item" activeClassName="active">
