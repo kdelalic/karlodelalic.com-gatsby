@@ -1,34 +1,13 @@
 import React, { useState } from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
-import { withStyles } from "@material-ui/core/styles"
-import Switch from "@material-ui/core/Switch"
+import IconButton from "@material-ui/core/IconButton"
+import { FaSun, FaMoon } from "react-icons/fa"
 
 import Logo from "../assets/images/logo.svg"
 
 import useDarkMode from "../hooks/src/darkmode"
 
 import "./header.scss"
-
-const DarkSwitch = withStyles({
-  switchBase: {
-    color: "#6772e5",
-    "&$checked": {
-      color: "#6772e5",
-      "&:hover": {
-        backgroundColor: "rgba(255, 255, 255, 0.08)",
-      },
-    },
-    "&$checked + $track": {
-      backgroundColor: "#fff",
-      opacity: 1,
-    },
-  },
-  checked: {},
-  track: {
-    backgroundColor: "#252525",
-    opacity: 1,
-  },
-})(Switch)
 
 const Header = () => {
   const [isNavbarOpen, setNavbarOpen] = useState(false)
@@ -67,6 +46,7 @@ const Header = () => {
             className={`navbar-burger${isNavbarOpen ? " open" : ""}`}
             role="button"
             tabIndex="0"
+            aria-label="navbar mobile button"
           >
             <span></span>
             <span></span>
@@ -100,13 +80,17 @@ const Header = () => {
                 )
               })}
           </nav>
-          <DarkSwitch
-            className="dark-switch"
-            checked={isDarkMode}
-            onChange={() => setDarkMode(!isDarkMode)}
-            value="darkMode"
-            inputProps={{ "aria-label": "dark mode switch" }}
-          />
+          <IconButton
+            aria-label="dark mode button"
+            className="dark-button"
+            onClick={() => setDarkMode(!isDarkMode)}
+          >
+            {isDarkMode ? (
+              <FaSun className="sun-icon" />
+            ) : (
+              <FaMoon className="moon-icon" />
+            )}
+          </IconButton>
         </header>
       )}
     />

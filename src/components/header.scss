@@ -12,6 +12,30 @@ header {
     box-shadow: 0 2px 0 0 $divider-shadow-dark;
   }
 
+  .#{$dark-class}-button {
+    font-size: 1.1rem;
+
+    .#{$dark-class} &:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  .sun-icon {
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .moon-icon {
+    color: black;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   .brand {
     display: flex;
     align-items: center;
@@ -77,7 +101,7 @@ header {
     max-width: 100%;
     width: 100%;
 
-    .#{$dark-class}-switch {
+    .#{$dark-class}-button {
       display: none;
     }
 

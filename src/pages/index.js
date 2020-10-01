@@ -20,7 +20,7 @@ export default () => (
     </div>
     <h1 className="fullname">Karlo Delalic</h1>
     <h2 className="occupation">Software Engineer</h2>
-    <h4 className="description">I like to make cool things.</h4>
+    <h3 className="description">I like to make cool things.</h3>
     <div className="social-buttons">
       <Link className="link-button ghost" to="/blog">
         <FaPencilAlt /> Writings
