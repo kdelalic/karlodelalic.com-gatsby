@@ -67,6 +67,7 @@ const Header = () => {
             className={`navbar-burger${isNavbarOpen ? " open" : ""}`}
             role="button"
             tabIndex="0"
+            aria-label="navbar mobile button"
           >
             <span></span>
             <span></span>
