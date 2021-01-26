@@ -5,7 +5,7 @@ import Constants from "../globals/constants"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default ({
+const BlogPost = ({
   data: {
     markdownRemark: {
       frontmatter: { author, date, tags, title },
@@ -42,3 +42,5 @@ export const query = graphql`
     }
   }
 `
+
+export default BlogPost

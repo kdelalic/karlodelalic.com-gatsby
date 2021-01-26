@@ -1,14 +1,14 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { FaGithub } from "react-icons/fa"
+import { graphql } from "gatsby"
 
 import Constants from "../globals/constants"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Project from "../components/project"
 
 import "./projects.scss"
 
-export default ({
+const ProjectsPage = ({
   data: {
     allMarkdownRemark: { edges: postEdges },
     projectLogos: { edges: projectLogoEdges },
@@ -17,14 +17,14 @@ export default ({
 }) => {
   const projectLogos = {}
 
-  projectLogoEdges.forEach(edge => {
-    projectLogos["/" + edge.node.relativeDirectory] = edge.node.publicURL
+  projectLogoEdges.forEach(({ node }) => {
+    projectLogos["/" + node.relativeDirectory] = node.publicURL
   })
 
   const techLogos = {}
 
-  techLogoEdges.forEach(edge => {
-    techLogos[edge.node.name] = edge.node.publicURL
+  techLogoEdges.forEach(({ node }) => {
+    techLogos[node.name] = node.publicURL
   })
 
   return (
@@ -34,70 +34,29 @@ export default ({
         keywords={[...Constants.tags, "projects", "technology"]}
       />
       <div className="projects">
-        {postEdges.map(edge => (
-          <div className="project" key={edge.node.id}>
-            <div className="project__content paper">
-              <h2 className="project__title">{edge.node.frontmatter.title}</h2>
-              <div className="project__body">
-                <p className="project__body__description">
-                  {edge.node.frontmatter.description}
-                </p>
-                <div className="project__body__tech-logos">
-                  {edge.node.frontmatter.tech.map(tech => {
-                    return (
-                      <div
-                        key={tech}
-                        className="project__body__tech-logos__logo"
-                      >
-                        <span className="tooltip">{tech}</span>
-                        <img
-                          alt={`${tech} Logo`}
-                          src={techLogos[tech.toLowerCase()]}
-                        />
-                      </div>
-                    )
-                  })}
-                </div>
-                <div className="project__body__buttons">
-                  {edge.node.frontmatter.github && (
-                    <a
-                      className="link-button"
-                      href={edge.node.frontmatter.github}
-                      target="_blank"
-                      rel="nofollow noopener noreferrer"
-                    >
-                      <FaGithub />
-                      Source
-                    </a>
-                  )}
-                  {edge.node.frontmatter.demo && (
-                    <a
-                      className="link-button secondary"
-                      href={edge.node.frontmatter.demo}
-                      target="_blank"
-                      rel="nofollow noopener noreferrer"
-                    >
-                      Demo
-                    </a>
-                  )}
-                  {edge.node.html && (
-                    <Link
-                      to={edge.node.fields.slug}
-                      className="link-button secondary"
-                    >
-                      Read more
-                    </Link>
-                  )}
-                </div>
-              </div>
-              <img
-                className="project__logo"
-                alt="Project logo"
-                src={projectLogos[edge.node.fields.slug]}
-              />
-            </div>
-          </div>
-        ))}
+        {postEdges.map(({ node }) => {
+          const {
+            id,
+            description,
+            github,
+            technologies,
+            title,
+            demo,
+          } = node.frontmatter
+          const { slug } = node.fields
+          return (
+            <Project
+              key={id}
+              description={description}
+              github={github}
+              technologies={technologies}
+              title={title}
+              demo={demo}
+              techLogos={techLogos}
+              projectLogo={projectLogos[slug]}
+            />
+          )
+        })}
       </div>
     </Layout>
   )
@@ -118,12 +77,12 @@ export const query = graphql`
             description
             demo
             github
-            tech
+            technologies
+            tags
           }
           fields {
             slug
           }
-          timeToRead
         }
       }
     }
@@ -155,3 +114,5 @@ export const query = graphql`
     }
   }
 `
+
+export default ProjectsPage

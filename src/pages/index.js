@@ -9,7 +9,7 @@ import SEO from "../components/seo"
 
 import "./index.scss"
 
-export default () => (
+const IndexPage = () => (
   <Layout centered>
     <SEO
       title="Home"
@@ -82,3 +82,5 @@ export default () => (
     />
   </Layout>
 )
+
+export default IndexPage

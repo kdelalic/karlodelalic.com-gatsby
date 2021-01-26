@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 
 import "./blog.scss"
 
-export default ({
+const BlogPage = ({
   data: {
     allMarkdownRemark: { edges },
   },
@@ -62,3 +62,4 @@ export const query = graphql`
     }
   }
 `
+export default BlogPage

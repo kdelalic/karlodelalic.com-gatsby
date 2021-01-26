@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 
 import "./contact.scss"
 
-export default () => (
+const ContactPage = () => (
   <Layout centered title="Contact">
     <SEO
       title="Contact"
@@ -61,3 +61,5 @@ export default () => (
     </div>
   </Layout>
 )
+
+export default ContactPage

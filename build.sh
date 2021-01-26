@@ -2,7 +2,7 @@ RESUME_FILE_DIR="static"
 RESUME_FILE_NAME="resume.pdf"
 RESUME_FILE_PATH=$RESUME_FILE_DIR/$RESUME_FILE_NAME
 
-rm $RESUME_FILE_PATH
+rm -f $RESUME_FILE_PATH
 
 # Pull latest resume from auto-resume releases
 LATEST_RESUME=`curl -s https://api.github.com/repos/kdelalic/auto-resume/releases/latest \

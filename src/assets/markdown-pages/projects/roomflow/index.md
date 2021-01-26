@@ -3,7 +3,7 @@ title: "RoomFlow"
 description: "Helps students find the ideal studying environment."
 type: "project"
 github: "https://github.com/RoomFlow"
-tech: 
+technologies: 
   - ReactJS
   - Golang
   - Arduino

@@ -3,7 +3,7 @@ title: "Kiosk"
 description: "Chrome new tab extension which displays latest crypto news."
 type: "project"
 github: "https://github.com/kdelalic/kiosk"
-tech: 
+technologies: 
   - ReactJS
   - Material UI
   - Redux
