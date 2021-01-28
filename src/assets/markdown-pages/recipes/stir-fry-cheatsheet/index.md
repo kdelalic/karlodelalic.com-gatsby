@@ -6,5 +6,6 @@ tags:
   - chicken
   - beef
   - shrimp
+  - easy
 source: "https://i.imgur.com/NjXJ8V2.png"
 ---

@@ -21,8 +21,6 @@ const RecipesPage = ({
     recipeImages["/" + node.relativeDirectory] = node.publicURL
   })
 
-  const [filters, setFilters] = useState([])
-
   const allTags = new Set()
 
   postEdges.forEach(postEdge => {
@@ -32,24 +30,39 @@ const RecipesPage = ({
     })
   })
 
+  const [filters, setFilters] = useState([])
+
   const addTag = tag => {
-    console.log(tag)
-    setFilters([...filters, tag])
+    const tagIdx = filters.indexOf(tag)
+    if (tagIdx === -1) filters.push(tag)
+    else filters.splice(tagIdx)
+    setFilters([...filters])
   }
 
   return (
     <Layout title="Recipes">
       <SEO title="Recipes" keywords={[...Constants.tags, "recipes"]} />
-      {[...allTags].map(tag => {
-        return <Chip onClick={() => addTag(tag)} label={tag} />
+      {[...allTags].sort().map(tag => {
+        return (
+          <Chip
+            key={tag}
+            active={filters.includes(tag)}
+            onClick={() => addTag(tag)}
+            label={tag}
+          />
+        )
       })}
-
       <div className="recipes">
-        {postEdges.map(({ node }) => {
-          const { source, tags, title } = node.frontmatter
-          const { slug } = node.fields
+        {postEdges
+          .filter(({ node }) => {
+            const { tags } = node.frontmatter
 
-          if (filters.length === 0)
+            return new Set([...filters, ...tags]).size <= tags.length
+          })
+          .map(({ node }) => {
+            const { source, tags, title } = node.frontmatter
+            const { slug } = node.fields
+
             return (
               <Recipe
                 key={node.id}
@@ -59,19 +72,7 @@ const RecipesPage = ({
                 image={recipeImages[slug]}
               />
             )
-          for (let i = 0; i < tags.length; i++) {
-            if (filters.includes(tags[i]))
-              return (
-                <Recipe
-                  key={node.id}
-                  source={source}
-                  tags={tags}
-                  title={title}
-                  image={recipeImages[slug]}
-                />
-              )
-          }
-        })}
+          })}
       </div>
     </Layout>
   )

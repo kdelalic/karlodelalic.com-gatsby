@@ -18,7 +18,10 @@
   text-decoration: none;
   background-color: $secondary-color;
   margin: 5px 3px 0px;
-  pointer-events: all;
+
+  &.active {
+    background-color: #bf2d99;
+  }
 
   &__label {
     overflow: hidden;
