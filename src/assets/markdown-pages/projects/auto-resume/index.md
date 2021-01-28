@@ -4,7 +4,7 @@ description: "Automatically generates and releases LaTeX-based resumes."
 type: "project"
 demo: "https://travis-ci.org/kdelalic/auto-resume"
 github: "https://github.com/kdelalic/auto-resume"
-tech: 
+technologies: 
   - LaTeX
   - Travis-CI
 tags:

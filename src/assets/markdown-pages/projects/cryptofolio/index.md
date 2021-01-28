@@ -4,7 +4,7 @@ description: "Crypto-currency investment portfolio tracker."
 type: "project"
 demo: "https://cryptofolio-demo.netlify.com"
 github: "https://github.com/kdelalic/cryptofolio"
-tech: 
+technologies: 
   - ReactJS
   - Material UI
   - Socket.io

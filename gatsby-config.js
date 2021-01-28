@@ -1,4 +1,9 @@
+const cors = require('cors')
+
 module.exports = {
+  developMiddleware: app => {
+    app.use(cors())
+  },
   siteMetadata: {
     title: `Karlo Delalic`,
     description: `Karlo Delalic is a software engineer in the Toronto area. Experienced with React, Node, Golang, SQL, NoSQL, and more.`,

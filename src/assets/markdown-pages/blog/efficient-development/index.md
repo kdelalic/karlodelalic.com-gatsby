@@ -4,9 +4,9 @@ date: "2019-10-02"
 title: "Efficient development: iTerm2 and Oh My Zsh"
 type: "blog"
 tags: 
-  - gatsbyjs
-  - developer portfolio
-  - statically generated
+  - ohmyzsh
+  - iterm2
+  - terminal improvements
 ---
 If you want to become a better developer, you must learn to be efficient at communicating with your computer. This means putting your entire focus on the problem at hand, and not wasting any time with menial tasks. This article will show you how to become more efficient with the terminal.
 <!-- end -->

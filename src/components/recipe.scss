@@ -1,0 +1,28 @@
+@import "../globals/base";
+
+.recipe {
+  padding: 15px;
+  text-align: left;
+  width: 100%;
+  display: inline-block;
+
+  &__content {
+    .#{$dark-class} & {
+      background-color: #373737;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    color: $primary-color;
+    margin-bottom: 10px;
+  }
+
+  &__body {
+    &__buttons {
+      display: flex;
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+  }
+}
