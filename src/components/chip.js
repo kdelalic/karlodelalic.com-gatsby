@@ -8,7 +8,7 @@ const Chip = ({ active, onClick, label }) => (
     onClick={onClick}
     role="button"
     tabIndex="0"
-    className={active ? "active chip" : "chip"}
+    className={`chip${active ? " active" : ""}${onClick ? " button" : ""}`}
   >
     <span className="chip__label noselect">{label}</span>
   </div>

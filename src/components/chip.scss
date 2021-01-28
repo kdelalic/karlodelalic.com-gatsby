@@ -3,7 +3,6 @@
 .chip {
   color: #fff;
   border: none;
-  cursor: pointer;
   height: 32px;
   display: inline-flex;
   outline: 0;
@@ -21,6 +20,10 @@
 
   &.active {
     background-color: #bf2d99;
+  }
+
+  &.button {
+    cursor: pointer;
   }
 
   &__label {
