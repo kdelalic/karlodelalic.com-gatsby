@@ -1,4 +1,5 @@
 import React from "react"
+import Img from "gatsby-image"
 
 import Chip from "./chip"
 
@@ -10,7 +11,7 @@ const Recipe = ({ image, source, tags, title }) => {
       <div className="paper recipe__content">
         <h2 className="recipe__title">{title}</h2>
         <div className="recipe__body">
-          {image && <img className="recipe__image" alt={title} src={image} />}
+          {image && <Img className="recipe__image" alt={title} fluid={image} />}
           <div className="recipe__body__buttons">
             {source && (
               <a

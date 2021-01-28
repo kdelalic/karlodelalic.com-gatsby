@@ -18,7 +18,7 @@ const RecipesPage = ({
   const recipeImages = {}
 
   recipeImageEdges.forEach(({ node }) => {
-    recipeImages["/" + node.relativeDirectory] = node.publicURL
+    recipeImages["/" + node.relativeDirectory] = node.childImageSharp.fluid
   })
 
   const allTags = new Set()
@@ -108,8 +108,12 @@ export const query = graphql`
     ) {
       edges {
         node {
-          publicURL
           relativeDirectory
+          childImageSharp {
+            fluid(maxWidth: 400) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }
