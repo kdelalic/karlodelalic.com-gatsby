@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 
 import Constants from "../globals/constants"
@@ -10,7 +10,7 @@ import Chip from "../components/chip"
 import "./recipes.scss"
 
 const shuffle = array => {
-  var currentIndex = array.length,
+  let currentIndex = array.length,
     temporaryValue,
     randomIndex
 
@@ -25,8 +25,6 @@ const shuffle = array => {
     array[currentIndex] = array[randomIndex]
     array[randomIndex] = temporaryValue
   }
-
-  return array
 }
 
 const RecipesPage = ({
@@ -35,15 +33,20 @@ const RecipesPage = ({
     recipeImages: { edges: recipeImageEdges },
   },
 }) => {
+  const [firstRender, setFirstRender] = useState(false)
+  const [filters, setFilters] = useState([])
+
+  useEffect(() => {
+    if (!firstRender) shuffle(postEdges)
+    setFirstRender(true)
+  }, [firstRender, postEdges])
+
   const recipeImages = {}
+  const allTags = new Set()
 
   recipeImageEdges.forEach(({ node }) => {
     recipeImages["/" + node.relativeDirectory] = node.childImageSharp.fluid
   })
-
-  const allTags = new Set()
-
-  shuffle(postEdges)
 
   postEdges.forEach(postEdge => {
     const tags = postEdge.node.frontmatter.tags
@@ -51,8 +54,6 @@ const RecipesPage = ({
       allTags.add(tag)
     })
   })
-
-  const [filters, setFilters] = useState([])
 
   const addTag = tag => {
     const tagIdx = filters.indexOf(tag)
