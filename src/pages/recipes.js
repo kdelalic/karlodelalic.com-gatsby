@@ -9,6 +9,26 @@ import Chip from "../components/chip"
 
 import "./recipes.scss"
 
+const shuffle = array => {
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex -= 1
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex]
+    array[currentIndex] = array[randomIndex]
+    array[randomIndex] = temporaryValue
+  }
+
+  return array
+}
+
 const RecipesPage = ({
   data: {
     allMarkdownRemark: { edges: postEdges },
@@ -23,6 +43,8 @@ const RecipesPage = ({
 
   const allTags = new Set()
 
+  shuffle(postEdges)
+
   postEdges.forEach(postEdge => {
     const tags = postEdge.node.frontmatter.tags
     tags.forEach(tag => {
@@ -35,7 +57,7 @@ const RecipesPage = ({
   const addTag = tag => {
     const tagIdx = filters.indexOf(tag)
     if (tagIdx === -1) filters.push(tag)
-    else filters.splice(tagIdx)
+    else filters.splice(tagIdx, 1)
     setFilters([...filters])
   }
 
@@ -80,10 +102,7 @@ const RecipesPage = ({
 
 export const query = graphql`
   {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { type: { eq: "recipe" } } }
-    ) {
+    allMarkdownRemark(filter: { frontmatter: { type: { eq: "recipe" } } }) {
       edges {
         node {
           id

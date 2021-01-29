@@ -7,5 +7,6 @@ tags:
   - beef
   - shrimp
   - easy
+  - asian
 source: "https://i.imgur.com/NjXJ8V2.png"
 ---
