@@ -6,6 +6,10 @@
   width: 100%;
   display: inline-block;
 
+  &__image {
+    margin-bottom: 10px;
+  }
+
   &__content {
     .#{$dark-class} & {
       background-color: #373737;
