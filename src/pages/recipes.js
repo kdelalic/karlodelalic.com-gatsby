@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 
 import Constants from "../globals/constants"
@@ -9,19 +9,44 @@ import Chip from "../components/chip"
 
 import "./recipes.scss"
 
+const shuffle = array => {
+  let currentIndex = array.length,
+    temporaryValue,
+    randomIndex
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex -= 1
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex]
+    array[currentIndex] = array[randomIndex]
+    array[randomIndex] = temporaryValue
+  }
+}
+
 const RecipesPage = ({
   data: {
     allMarkdownRemark: { edges: postEdges },
     recipeImages: { edges: recipeImageEdges },
   },
 }) => {
+  const [firstRender, setFirstRender] = useState(false)
+  const [filters, setFilters] = useState([])
+
+  useEffect(() => {
+    if (!firstRender) shuffle(postEdges)
+    setFirstRender(true)
+  }, [firstRender, postEdges])
+
   const recipeImages = {}
+  const allTags = new Set()
 
   recipeImageEdges.forEach(({ node }) => {
     recipeImages["/" + node.relativeDirectory] = node.childImageSharp.fluid
   })
-
-  const allTags = new Set()
 
   postEdges.forEach(postEdge => {
     const tags = postEdge.node.frontmatter.tags
@@ -30,12 +55,10 @@ const RecipesPage = ({
     })
   })
 
-  const [filters, setFilters] = useState([])
-
   const addTag = tag => {
     const tagIdx = filters.indexOf(tag)
     if (tagIdx === -1) filters.push(tag)
-    else filters.splice(tagIdx)
+    else filters.splice(tagIdx, 1)
     setFilters([...filters])
   }
 
@@ -80,10 +103,7 @@ const RecipesPage = ({
 
 export const query = graphql`
   {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { type: { eq: "recipe" } } }
-    ) {
+    allMarkdownRemark(filter: { frontmatter: { type: { eq: "recipe" } } }) {
       edges {
         node {
           id

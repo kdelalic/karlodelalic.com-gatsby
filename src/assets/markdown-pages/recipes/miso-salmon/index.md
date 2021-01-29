@@ -6,5 +6,6 @@ tags:
   - easy
   - baked
   - salmon
+  - asian
 source: "https://www.justonecookbook.com/miso-salmon/"
 ---
