@@ -2,7 +2,7 @@
 
 .content {
   text-align: center;
-  padding: 50px 25px 0;
+  padding: 50px 0;
 }
 
 .title {
@@ -43,5 +43,11 @@
 @media all and (min-width: $width-xlarge) {
   .content {
     margin: auto;
+  }
+}
+
+@media all and (max-width: $width-xlarge) {
+  .content {
+    padding: 50px 20px 0;
   }
 }

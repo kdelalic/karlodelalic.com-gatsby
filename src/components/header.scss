@@ -12,10 +12,15 @@ header {
     box-shadow: 0 2px 0 0 $divider-shadow-dark;
   }
 
+  @media all and (max-width: $width-max) {
+    .brand {
+      margin-left: 20px;
+    }
+  }
+
   .brand {
     display: flex;
     align-items: center;
-    margin-left: 15px;
 
     $logo-dimension: 24px;
 

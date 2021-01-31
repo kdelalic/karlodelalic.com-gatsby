@@ -65,16 +65,18 @@ const RecipesPage = ({
   return (
     <Layout title="Recipes">
       <SEO title="Recipes" keywords={[...Constants.tags, "recipes"]} />
-      {[...allTags].sort().map(tag => {
-        return (
-          <Chip
-            key={tag}
-            active={filters.includes(tag)}
-            onClick={() => addTag(tag)}
-            label={tag}
-          />
-        )
-      })}
+      <div className="chips">
+        {[...allTags].sort().map(tag => {
+          return (
+            <Chip
+              key={tag}
+              active={filters.includes(tag)}
+              onClick={() => addTag(tag)}
+              label={tag}
+            />
+          )
+        })}
+      </div>
       <div className="recipes">
         {postEdges
           .filter(({ node }) => {
@@ -88,11 +90,12 @@ const RecipesPage = ({
 
             return (
               <Recipe
-                key={node.id}
                 source={source}
                 tags={tags}
                 title={title}
                 image={recipeImages[slug]}
+                tagClick={addTag}
+                tagFilters={filters}
               />
             )
           })}

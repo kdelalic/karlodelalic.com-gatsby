@@ -20,7 +20,7 @@ $divider-shadow-dark: #424242;
 $dark-class: dark;
 
 body {
-  background-color: white;
+  background-color: #eff2f5;
 
   &.#{$dark-class} {
     background-color: $dark-background;
