@@ -116,5 +116,6 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
+    'gatsby-plugin-netlify-cms'
   ],
 }
