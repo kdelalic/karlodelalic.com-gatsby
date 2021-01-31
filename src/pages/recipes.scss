@@ -1,12 +1,22 @@
 @import "../globals/base";
 
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .recipes {
   margin: auto;
-  margin-left: -15px;
-  margin-right: -15px;
+  /* margin-left: -15px; */
+  /* margin-right: -15px; */
   padding-bottom: 25px;
-  columns: 2 auto;
-  column-gap: 0;
+  columns: 3 auto;
+  column-gap: 50px;
+  margin-top: 40px;
+
+  @media all and (max-width: $width-max) {
+    columns: 2 auto;
+  }
 
   @media all and (max-width: $width-large) {
     columns: 1 auto;

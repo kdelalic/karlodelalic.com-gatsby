@@ -16,10 +16,18 @@
   justify-content: center;
   text-decoration: none;
   background-color: $secondary-color;
-  margin: 5px 3px 0px;
+  margin: 2px 6px 2px 0;
+
+  &:hover {
+    background-color: #259a74;
+  }
 
   &.active {
     background-color: #bf2d99;
+
+    &:hover {
+      background-color: #9c257d;
+    }
   }
 
   &.button {
