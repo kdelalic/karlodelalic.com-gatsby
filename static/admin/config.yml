@@ -7,8 +7,8 @@ public_folder: /img
 
 collections:
   - name: 'recipes'
-    label: 'Recipes'
-    folder: 'assets/markdown-pages/recipes'
+    label: 'Recipe'
+    folder: 'src/assets/markdown-pages/recipes'
     create: true
     slug: 'index'
     media_folder: ''
@@ -18,5 +18,7 @@ collections:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Type', name: 'type', widget: 'string', default: 'recipe' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
       - { label: 'Source', name: 'source', widget: 'string' }
+      - { label: 'Image', name: 'image', widget: 'image' }
