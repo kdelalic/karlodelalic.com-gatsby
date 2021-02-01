@@ -11,16 +11,9 @@ import "./projects.scss"
 const ProjectsPage = ({
   data: {
     allMarkdownRemark: { edges: postEdges },
-    projectLogos: { edges: projectLogoEdges },
     techLogos: { edges: techLogoEdges },
   },
 }) => {
-  const projectLogos = {}
-
-  projectLogoEdges.forEach(({ node }) => {
-    projectLogos["/" + node.relativeDirectory] = node.publicURL
-  })
-
   const techLogos = {}
 
   techLogoEdges.forEach(({ node }) => {
@@ -36,24 +29,23 @@ const ProjectsPage = ({
       <div className="projects">
         {postEdges.map(({ node }) => {
           const {
-            id,
             description,
             github,
             technologies,
             title,
             demo,
+            projectLogo,
           } = node.frontmatter
-          const { slug } = node.fields
           return (
             <Project
-              key={id}
+              key={node.id}
               description={description}
               github={github}
               technologies={technologies}
               title={title}
               demo={demo}
               techLogos={techLogos}
-              projectLogo={projectLogos[slug]}
+              projectLogo={projectLogo.publicURL}
             />
           )
         })}
@@ -79,23 +71,10 @@ export const query = graphql`
             github
             technologies
             tags
+            projectLogo {
+              publicURL
+            }
           }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-    projectLogos: allFile(
-      filter: {
-        absolutePath: { regex: "/projects/" }
-        base: { eq: "logo.svg" }
-      }
-    ) {
-      edges {
-        node {
-          publicURL
-          relativeDirectory
         }
       }
     }

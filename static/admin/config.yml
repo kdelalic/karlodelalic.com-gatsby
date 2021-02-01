@@ -8,7 +8,7 @@ public_folder: /img
 collections:
   - name: 'recipes'
     label: 'Recipe'
-    folder: 'src/assets/markdown-pages/recipes'
+    folder: 'content/markdown/recipes'
     create: true
     slug: 'index'
     media_folder: ''

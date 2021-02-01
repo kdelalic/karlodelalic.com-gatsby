@@ -17,14 +17,21 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/assets/images`,
+        path: `${__dirname}/content/assets/images`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/assets/markdown-pages`,
-        name: "markdown-pages",
+        path: `${__dirname}/content/markdown`,
+        name: "markdown",
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/assets/tech-logos`,
+        name: "tech-logo",
       },
     },
     {
@@ -32,13 +39,6 @@ module.exports = {
       options: {
         path: `${__dirname}/src/pages`,
         name: "pages",
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/assets/tech-logos`,
-        name: "tech-logo",
       },
     },
     `gatsby-transformer-sharp`,
@@ -52,7 +52,7 @@ module.exports = {
         background_color: `#6772e5`,
         theme_color: `#6772e5`,
         display: `minimal-ui`,
-        icon: `src/assets/images/icon.png`,
+        icon: `content/assets/images/icon.png`,
       },
     },
     `gatsby-plugin-sass`,

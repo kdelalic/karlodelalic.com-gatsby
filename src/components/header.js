@@ -3,7 +3,7 @@ import { graphql, Link, StaticQuery } from "gatsby"
 import { withStyles } from "@material-ui/core/styles"
 import Switch from "@material-ui/core/Switch"
 
-import Logo from "../assets/images/logo.svg"
+import Logo from "../../content/assets/images/logo.svg"
 
 import useDarkMode from "../hooks/src/darkmode"
 

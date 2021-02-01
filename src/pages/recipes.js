@@ -30,7 +30,6 @@ const shuffle = array => {
 const RecipesPage = ({
   data: {
     allMarkdownRemark: { edges: postEdges },
-    recipeImages: { edges: recipeImageEdges },
   },
 }) => {
   const [firstRender, setFirstRender] = useState(false)
@@ -41,12 +40,7 @@ const RecipesPage = ({
     setFirstRender(true)
   }, [firstRender, postEdges])
 
-  const recipeImages = {}
   const allTags = new Set()
-
-  recipeImageEdges.forEach(({ node }) => {
-    recipeImages["/" + node.relativeDirectory] = node.childImageSharp.fluid
-  })
 
   postEdges.forEach(postEdge => {
     const tags = postEdge.node.frontmatter.tags
@@ -85,15 +79,14 @@ const RecipesPage = ({
             return new Set([...filters, ...tags]).size <= tags.length
           })
           .map(({ node }) => {
-            const { source, tags, title } = node.frontmatter
-            const { slug } = node.fields
-
+            const { source, tags, title, image } = node.frontmatter
             return (
               <Recipe
+                key={node.id}
                 source={source}
                 tags={tags}
                 title={title}
-                image={recipeImages[slug]}
+                image={image.childImageSharp.fluid}
                 tagClick={addTag}
                 tagFilters={filters}
               />
@@ -116,25 +109,12 @@ export const query = graphql`
             type
             source
             tags
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-    recipeImages: allFile(
-      filter: {
-        absolutePath: { regex: "/recipes/" }
-        base: { glob: "*.{png,jpg,gif,webp,jpeg}" }
-      }
-    ) {
-      edges {
-        node {
-          relativeDirectory
-          childImageSharp {
-            fluid(maxWidth: 400) {
-              ...GatsbyImageSharpFluid
+            image {
+              childImageSharp {
+                fluid(maxWidth: 400) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }
