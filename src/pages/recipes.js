@@ -126,7 +126,7 @@ export const query = graphql`
     recipeImages: allFile(
       filter: {
         absolutePath: { regex: "/recipes/" }
-        base: { glob: "image.*" }
+        base: { glob: "*.{png,jpg,gif,webp,jpeg}" }
       }
     ) {
       edges {
