@@ -4,7 +4,8 @@ type: recipe
 tags:
   - german
   - easy
-  - youtube
+  - pork
+  - sausage
 source: https://www.thekitchenmaus.com/homemade-currywurst/
 image: image.jpg
 ---
