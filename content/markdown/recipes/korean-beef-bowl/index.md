@@ -1,10 +1,11 @@
 ---
-title: "Korean Beef Bowl"
-type: "recipe"
-tags: 
+title: Korean Beef Bowl
+type: recipe
+tags:
   - korean
   - easy
   - asian
-source: "https://damndelicious.net/2013/07/07/korean-beef-bowl/"
-image: "image.jpg"
+  - beef
+source: https://damndelicious.net/2013/07/07/korean-beef-bowl/
+image: image.jpg
 ---
