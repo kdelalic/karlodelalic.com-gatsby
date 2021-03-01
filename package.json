@@ -29,7 +29,7 @@
     "gatsby-source-filesystem": "2.10.0",
     "gatsby-transformer-remark": "2.15.0",
     "gatsby-transformer-sharp": "2.11.0",
-    "jsonld": "3.3.0",
+    "jsonld": "3.3.2",
     "netlify-cms-app": "2.14.14",
     "node-sass": "5.0.0",
     "playwright": "1.8.0",
