@@ -32,7 +32,7 @@
     "jsonld": "3.3.2",
     "netlify-cms-app": "2.14.26",
     "node-sass": "5.0.0",
-    "playwright": "1.8.0",
+    "playwright": "1.9.1",
     "prismjs": "1.23.0",
     "prop-types": "15.7.2",
     "react": "17.0.1",
