@@ -20,7 +20,7 @@ const Recipe = ({ image, source, tags, title, tagClick, tagFilters }) => (
         </a>
       )}
       <div className="recipe__body__chips">
-        {tags.map(tag => {
+        {tags.sort().map(tag => {
           return (
             <Chip
               key={tag}
