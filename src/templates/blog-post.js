@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import Constants from "../globals/constants"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const BlogPost = ({
   data: {
@@ -14,7 +14,7 @@ const BlogPost = ({
   },
 }) => (
   <Layout title={title}>
-    <SEO title={title} keywords={[...Constants.tags, ...tags]} />
+    <Seo title={title} keywords={[...Constants.tags, ...tags]} />
     <div className="post">
       <h3 className="post__date">
         {author}

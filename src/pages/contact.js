@@ -4,13 +4,13 @@ import { withPrefix } from "gatsby"
 
 import Constants from "../globals/constants"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 import "./contact.scss"
 
 const ContactPage = () => (
   <Layout centered title="Contact">
-    <SEO
+    <Seo
       title="Contact"
       keywords={[...Constants.tags, "contact", "linkedin", "twitter", "email"]}
     />

@@ -77,7 +77,7 @@ You can specify one or multiple data sources - such as a CMS like WordPress, mar
 
 Here's an example of a markdown file:
 
-```
+```md
 ---
 title: "Lunch Roulette"
 description: "Lunch Roulette helps users decide where to eat for lunch"

@@ -111,6 +111,16 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
-    'gatsby-plugin-netlify-cms'
+    'gatsby-plugin-netlify-cms',
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`, `avif`],
+        }
+      }
+    },
+    `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`
   ],
 }

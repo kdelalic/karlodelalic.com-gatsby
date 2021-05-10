@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import Constants from "../globals/constants"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Project from "../components/project"
 
 import "./projects.scss"
@@ -22,7 +22,7 @@ const ProjectsPage = ({
 
   return (
     <Layout title="Projects">
-      <SEO
+      <Seo
         title="Projects"
         keywords={[...Constants.tags, "projects", "technology"]}
       />
