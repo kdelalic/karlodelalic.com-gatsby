@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Chip from "./chip"
 
@@ -16,7 +16,7 @@ const Recipe = ({ image, source, tags, title, tagClick, tagFilters }) => (
           rel="nofollow noopener noreferrer"
           className="recipe__link"
         >
-          <Img className="recipe__image" alt={title} fluid={image} />
+          <GatsbyImage className="recipe__image" alt={title} image={getImage(image)} />
         </a>
       )}
       <div className="recipe__body__chips">

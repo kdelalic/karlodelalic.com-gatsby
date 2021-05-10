@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import Constants from "../globals/constants"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Recipe from "../components/recipe"
 import Chip from "../components/chip"
 
@@ -58,7 +58,7 @@ const RecipesPage = ({
 
   return (
     <Layout title="Recipes">
-      <SEO title="Recipes" keywords={[...Constants.tags, "recipes"]} />
+      <Seo title="Recipes" keywords={[...Constants.tags, "recipes"]} />
       <div className="chips">
         {[...allTags].sort().map(tag => {
           return (
@@ -86,7 +86,7 @@ const RecipesPage = ({
                 source={source}
                 tags={tags}
                 title={title}
-                image={image.childImageSharp.fluid}
+                image={image}
                 tagClick={addTag}
                 tagFilters={filters}
               />
@@ -97,30 +97,27 @@ const RecipesPage = ({
   )
 }
 
-export const query = graphql`
-  {
-    allMarkdownRemark(filter: { frontmatter: { type: { eq: "recipe" } } }) {
-      edges {
-        node {
-          id
-          html
-          frontmatter {
-            title
-            type
-            source
-            tags
-            image {
-              childImageSharp {
-                fluid(maxWidth: 400) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+export const query = graphql`{
+  allMarkdownRemark(filter: {frontmatter: {type: {eq: "recipe"}}}) {
+    edges {
+      node {
+        id
+        html
+        frontmatter {
+          title
+          type
+          source
+          tags
+          image {
+            childImageSharp {
+              gatsbyImageData(width: 400, placeholder: BLURRED, layout: CONSTRAINED)
             }
           }
         }
       }
     }
   }
+}
 `
 
 export default RecipesPage
