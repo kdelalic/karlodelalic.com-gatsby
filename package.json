@@ -35,8 +35,8 @@
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
     "react-icons": "4.2.0",
-    "react-typography": "0.16.19",
-    "typography": "0.16.19"
+    "react-typography": "0.16.20",
+    "typography": "0.16.21"
   },
   "devDependencies": {
     "husky": "6.0.0",
