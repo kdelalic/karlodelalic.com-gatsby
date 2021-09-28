@@ -1,5 +1,5 @@
 ---
-title: Garlic Brocollini
+title: Garlic Broccolini
 type: recipe
 tags:
   - Easy
