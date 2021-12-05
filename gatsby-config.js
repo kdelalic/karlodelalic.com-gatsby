@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: `https://karlodelalic.me`,
   },
   plugins: [
+    'gatsby-plugin-netlify',
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     {
