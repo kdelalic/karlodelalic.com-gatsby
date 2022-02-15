@@ -1,12 +1,13 @@
 ---
-title: "Poke Bowl"
-type: "recipe"
-tags: 
+title: Poke
+type: recipe
+tags:
   - hawaiian
   - japanese
   - fish
   - easy
   - rice
   - fitmeal
-image: "image.jpg"
+source: https://www.vice.com/en/article/aeazvz/tuna-poke
+image: image.jpg
 ---
