@@ -19,12 +19,12 @@ $divider-shadow-dark: #424242;
 
 $dark-class: dark;
 
-body {
-  background-color: #eff2f5;
+.#{$dark-class} body{
+  background-color: $dark-background;
+}
 
-  &.#{$dark-class} {
-    background-color: $dark-background;
-  }
+body {
+  background-color: #eff2f5; 
 }
 
 hr {
