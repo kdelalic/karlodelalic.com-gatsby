@@ -36,7 +36,9 @@ const Header = () => {
     e => {
       const isDarkMode = e.target.checked;
       setIsDarkMode(isDarkMode);
-      window.__setPreferredTheme(isDarkMode ? 'dark' : 'light');
+      if (window != null) {
+        window.__setPreferredTheme(isDarkMode ? 'dark' : 'light');
+      }
     },
     [setIsDarkMode]
   )
