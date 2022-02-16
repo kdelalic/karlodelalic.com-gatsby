@@ -87,21 +87,16 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: "UA-39382503-3",
-        head: false,
-        anonymize: false,
-        respectDNT: false,
-        siteSpeedSampleRate: 10,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-use-dark-mode',
-      options: {
-        classNameDark: 'dark',
-        storageKey: 'isDarkMode',
-        minify: true,
+        trackingIds: ["UA-39382503-3"],
+        gtagConfig: {
+          anonymize_ip: false,
+        },
+        pluginConfig: {
+          head: false,
+          respectDNT: false,
+        }
       },
     },
     {
