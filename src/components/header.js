@@ -1,11 +1,9 @@
-import React, { useState } from "react"
+import React, { useCallback, useState } from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
 import { withStyles } from "@material-ui/core/styles"
 import Switch from "@material-ui/core/Switch"
 
 import Logo from "../../content/assets/images/logo.svg"
-
-import useDarkMode from "../hooks/src/darkmode"
 
 import "./header.scss"
 
@@ -32,7 +30,16 @@ const DarkSwitch = withStyles({
 
 const Header = () => {
   const [isNavbarOpen, setNavbarOpen] = useState(false)
-  const [isDarkMode, setDarkMode] = useDarkMode("dark")
+  const [isDarkMode, setIsDarkMode] = useState(window.__theme === 'dark');
+
+  const onChange = useCallback(
+    e => {
+      const isDarkMode = e.target.checked;
+      setIsDarkMode(isDarkMode);
+      window.__setPreferredTheme(isDarkMode ? 'dark' : 'light');
+    },
+    [setIsDarkMode]
+  )
 
   return (
     <StaticQuery
@@ -104,7 +111,7 @@ const Header = () => {
           <DarkSwitch
             className="dark-switch"
             checked={isDarkMode}
-            onChange={() => setDarkMode(!isDarkMode)}
+            onChange={onChange}
             value="darkMode"
             inputProps={{ "aria-label": "dark mode switch" }}
           />
