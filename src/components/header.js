@@ -30,13 +30,13 @@ const DarkSwitch = withStyles({
 
 const Header = () => {
   const [isNavbarOpen, setNavbarOpen] = useState(false)
-  const [isDarkMode, setIsDarkMode] = useState(window != null ? window.__theme === 'dark' : true);
+  const [isDarkMode, setIsDarkMode] = useState(typeof window != null ? window.__theme === 'dark' : true);
 
   const onChange = useCallback(
     e => {
       const isDarkMode = e.target.checked;
       setIsDarkMode(isDarkMode);
-      if (window != null) {
+      if (typeof window != null) {
         window.__setPreferredTheme(isDarkMode ? 'dark' : 'light');
       }
     },
