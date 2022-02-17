@@ -20,7 +20,6 @@ const DarkSwitch = styled(Switch)(() => ({
   '& .MuiSwitch-track': {
     opacity: 1,
     backgroundColor: "#252525",
-    transition: 'none'
   },
 }))
 
