@@ -2,7 +2,7 @@ const React = require('react');
 
 exports.onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
-    <script
+    <script key="0"
       dangerouslySetInnerHTML={{
         __html: `(function() {
             function setTheme(theme) {
@@ -26,15 +26,8 @@ exports.onRenderBody = ({ setHeadComponents }) => {
               preferredTheme = localStorage.getItem('preferred-theme');
             } catch (e) {}
 
-            window.__themeListeners = [];
-
             var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-            darkQuery.addListener(function(e) {
-                window.__setPreferredTheme(e.matches ? 'dark' : 'light');
-                window.__themeListeners.forEach(function(listener) {
-                    listener();
-                });
-            });
+
             setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
           })();`.replace(/\n/g, ' ').replace(/ {2}/g, ''),
       }}
