@@ -41,8 +41,8 @@
     "typography": "0.16.21"
   },
   "devDependencies": {
-    "gatsby-plugin-netlify": "5.0.0",
-    "husky": "7.0.4",
+    "gatsby-plugin-netlify": "^5.0.0",
+    "husky": "8.0.1",
     "lint-staged": "12.1.2",
     "prettier": "2.5.1"
   },
