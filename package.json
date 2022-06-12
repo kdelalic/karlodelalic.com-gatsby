@@ -5,8 +5,8 @@
   "version": "0.1.0",
   "author": "Karlo Delalic",
   "dependencies": {
-    "@emotion/react": "11.9.0",
-    "@emotion/styled": "11.8.1",
+    "@emotion/react": "11.9.3",
+    "@emotion/styled": "11.9.3",
     "@mui/material": "5.8.3",
     "@mui/styles": "5.8.3",
     "gatsby": "4.16.0",
