@@ -13,6 +13,7 @@
     "gatsby-plugin-google-gtag": "^5.9.0",
     "gatsby-plugin-image": "^3.9.0",
     "gatsby-plugin-manifest": "^5.9.0",
+    "gatsby-plugin-netlify": "^5.1.0",
     "gatsby-plugin-offline": "^6.9.0",
     "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
@@ -38,7 +39,6 @@
     "typography": "^0.16.21"
   },
   "devDependencies": {
-    "gatsby-plugin-netlify": "^5.1.0",
     "husky": "8.0.2",
     "lint-staged": "13.0.3",
     "prettier": "2.7.1"
