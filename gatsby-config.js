@@ -7,7 +7,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-netlify',
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -107,7 +106,7 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
-    'gatsby-plugin-netlify-cms',
+    `gatsby-plugin-static-cms`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {

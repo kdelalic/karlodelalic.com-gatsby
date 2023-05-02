@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: kdelalic/karlodelalic.com-gatsby
+  branch: master
 
 media_folder: static/img
 public_folder: /img
@@ -18,7 +19,7 @@ collections:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Type', name: 'type', widget: 'string', default: 'recipe' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Type', name: 'type', widget: 'hidden', default: 'recipe' }
+      - { label: 'Tags', name: 'tags', widget: 'list', fields: [{label: "Tag", name: "tag", widget: "string"}]}
       - { label: 'Source', name: 'source', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'image' }

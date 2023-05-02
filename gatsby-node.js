@@ -17,25 +17,22 @@ exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
   return graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            html
-            fields {
-              slug
-            }
-            frontmatter {
-              type
-              source
-            }
+  {
+    allMarkdownRemark(sort: {frontmatter: {date: DESC}}, limit: 1000) {
+      edges {
+        node {
+          html
+          fields {
+            slug
+          }
+          frontmatter {
+            type
+            source
           }
         }
       }
     }
+  }
   `).then(result => {
     if (result.errors) {
       return Promise.reject(result.errors)
