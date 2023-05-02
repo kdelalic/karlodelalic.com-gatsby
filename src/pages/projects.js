@@ -22,10 +22,6 @@ const ProjectsPage = ({
 
   return (
     <Layout title="Projects">
-      <Seo
-        title="Projects"
-        keywords={[...Constants.tags, "projects", "technology"]}
-      />
       <div className="projects">
         {postEdges.map(({ node }) => {
           const {
@@ -95,3 +91,10 @@ export const query = graphql`
 `
 
 export default ProjectsPage
+
+export const Head = () => (
+  <Seo
+    title="Projects"
+    keywords={[...Constants.tags, "projects", "technology"]}
+  />
+)

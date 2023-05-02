@@ -58,7 +58,6 @@ const RecipesPage = ({
 
   return (
     <Layout title="Recipes">
-      <Seo title="Recipes" keywords={[...Constants.tags, "recipes"]} />
       <div className="chips">
         {[...allTags].sort().map(tag => {
           return (
@@ -121,3 +120,7 @@ export const query = graphql`{
 `
 
 export default RecipesPage
+
+export const Head = () => (
+  <Seo title="Recipes" keywords={[...Constants.tags, "recipes"]} />
+)

@@ -8,13 +8,12 @@ import Seo from "../components/seo"
 const BlogPost = ({
   data: {
     markdownRemark: {
-      frontmatter: { author, date, tags, title },
+      frontmatter: { author, date, title },
       html,
     },
   },
 }) => (
   <Layout title={title}>
-    <Seo title={title} keywords={[...Constants.tags, ...tags]} />
     <div className="post">
       <h3 className="post__date">
         {author}
@@ -44,3 +43,11 @@ export const query = graphql`
 `
 
 export default BlogPost
+
+export const Head = ({
+  data: {
+    markdownRemark: {
+      frontmatter: { tags, title },
+    },
+  },
+}) => <Seo title={title} keywords={[...Constants.tags, ...tags]} />

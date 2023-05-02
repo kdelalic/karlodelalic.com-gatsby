@@ -13,10 +13,6 @@ const IndexPage = ({
   data
 }) => (
   <Layout centered>
-    <Seo
-      title="Home"
-      keywords={[...Constants.tags, "home page", "latest blog post"]}
-    />
     <GatsbyImage className="profile-image" image={getImage(data.profileImage)} alt="profile image" />
     <h1 className="fullname">Karlo Delalic</h1>
     <h2 className="occupation">Software Engineer</h2>
@@ -85,3 +81,10 @@ export const query = graphql`{
 `
 
 export default IndexPage
+
+export const Head = () => (
+  <Seo
+    title="Home"
+    keywords={[...Constants.tags, "home page", "latest blog post"]}
+  />
+)

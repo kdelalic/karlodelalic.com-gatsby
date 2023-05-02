@@ -13,7 +13,6 @@ const BlogPage = ({
   },
 }) => (
   <Layout title="Blog">
-    <Seo title="Blog" keywords={[...Constants.tags, `blog`]} />
     <div className="blog">
       {edges.map(edge => {
         return (
@@ -63,3 +62,7 @@ export const query = graphql`
   }
 `
 export default BlogPage
+
+export const Head = () => (
+  <Seo title="Blog" keywords={[...Constants.tags, `blog`]} />
+)
