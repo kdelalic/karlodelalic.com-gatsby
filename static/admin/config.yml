@@ -19,7 +19,8 @@ collections:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Type', name: 'type', widget: 'hidden', default: 'recipe' }
-      - { label: 'Tags', name: 'tags', widget: 'list', fields: [{label: "Tag", name: "tag", widget: "string"}]}
       - { label: 'Source', name: 'source', widget: 'string' }
+      - { label: 'Tags', name: 'tags', widget: 'list', fields: [{label: "Tag", name: "tag", widget: "string"}]}
       - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Type', name: 'type', widget: 'hidden', default: 'recipe' }
+local_backend: true
