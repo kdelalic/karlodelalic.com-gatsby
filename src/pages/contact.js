@@ -10,10 +10,6 @@ import "./contact.scss"
 
 const ContactPage = () => (
   <Layout centered title="Contact">
-    <Seo
-      title="Contact"
-      keywords={[...Constants.tags, "contact", "linkedin", "twitter", "email"]}
-    />
     <div className="contact">
       <a
         className="contact__email"
@@ -63,3 +59,10 @@ const ContactPage = () => (
 )
 
 export default ContactPage
+
+export const Head = () => (
+  <Seo
+    title="Contact"
+    keywords={[...Constants.tags, "contact", "linkedin", "twitter", "email"]}
+  />
+)
