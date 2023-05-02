@@ -7,7 +7,6 @@ tags:
   - fish
   - easy
   - rice
-  - fitmeal
 source: https://www.vice.com/en/article/aeazvz/tuna-poke
 image: image.jpg
 ---
