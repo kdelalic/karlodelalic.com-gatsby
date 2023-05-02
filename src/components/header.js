@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { graphql, Link, StaticQuery } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import DarkModeSwitch from "./darkmodeswitch"
 
 import Logo from "../../content/assets/images/logo.svg"
@@ -8,10 +8,7 @@ import "./header.scss"
 
 const Header = () => {
   const [isNavbarOpen, setNavbarOpen] = useState(false)
-
-  return (
-    <StaticQuery
-      query={graphql`
+    const data = useStaticQuery(graphql`
         {
           allFile(
             filter: {
@@ -27,9 +24,9 @@ const Header = () => {
             }
           }
         }
-      `}
-      render={data => (
-        <header>
+      `)
+
+      return <header>
           <div className="brand">
             <Link to={"/"} aria-label="Brand Logo" className="brand__logo">
               <Logo />
@@ -78,9 +75,6 @@ const Header = () => {
           </nav>
           <DarkModeSwitch />
         </header>
-      )}
-    />
-  )
 }
 
 export default Header
