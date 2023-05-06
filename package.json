@@ -8,7 +8,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.12.2",
-    "@staticcms/app": "^2.1.0",
+    "@staticcms/app": "^2.2.0",
     "gatsby": "^5.9.0",
     "gatsby-plugin-google-gtag": "^5.9.0",
     "gatsby-plugin-image": "^3.9.0",
