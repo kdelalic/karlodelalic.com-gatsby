@@ -7,8 +7,8 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.14.8",
-    "@staticcms/app": "^3.2.0",
+    "@mui/material": "^5.14.9",
+    "@staticcms/app": "^3.3.1",
     "gatsby": "^5.12.4",
     "gatsby-plugin-google-gtag": "^5.12.0",
     "gatsby-plugin-image": "^3.12.0",
