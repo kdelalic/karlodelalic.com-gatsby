@@ -1,38 +1,42 @@
-import React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import React from "react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Chip from "./chip";
+import "./recipe.scss";
 
-import Chip from "./chip"
+const Recipe = ({ image, source, tags, title, tagClick, tagFilters }) => {
+  const tagFiltersSet = new Set(tagFilters);
 
-import "./recipe.scss"
+  const handleTagClick = (tag) => {
+    tagClick(tag);
+  };
 
-const Recipe = ({ image, source, tags, title, tagClick, tagFilters }) => (
-  <div className="recipe">
-    <h2 className="recipe__title">{title}</h2>
-    <div className="recipe__body">
-      {image && (
-        <a
-          href={source}
-          target="_blank"
-          rel="nofollow noopener noreferrer"
-          className="recipe__link"
-        >
-          <GatsbyImage className="recipe__image" alt={title} image={getImage(image)} />
-        </a>
-      )}
-      <div className="recipe__body__chips">
-        {tags.sort().map(tag => {
-          return (
+  return (
+    <div className="recipe">
+      <h2 className="recipe__title">{title}</h2>
+      <div className="recipe__body">
+        {image && (
+          <a
+            href={source}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            className="recipe__link"
+          >
+            <GatsbyImage className="recipe__image" alt={title} image={getImage(image) ?? undefined} />
+          </a>
+        )}
+        <div className="recipe__body__chips">
+          {tags.sort().map(tag => (
             <Chip
               key={tag}
               label={tag}
-              onClick={() => tagClick(tag)}
-              active={tagFilters.includes(tag)}
+              onClick={() => handleTagClick(tag)}
+              active={tagFiltersSet.has(tag)}
             />
-          )
-        })}
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-)
+  );
+};
 
-export default Recipe
+export default React.memo(Recipe);

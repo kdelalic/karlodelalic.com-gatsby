@@ -1,28 +1,23 @@
 import React from "react"
-
 import "./chip.scss"
 
 const Chip = ({ active, onClick, label }) => {
-  let chipProps = {
-    onClick: onClick,
-    className: "chip",
-  }
+  const classNames = ["chip"]
+  if (active) classNames.push("active")
+  if (onClick) classNames.push("button")
 
-  if (onClick) {
-    chipProps.role = "button"
-    chipProps.tabIndex = "0"
-    chipProps.className += " button"
-  }
-
-  if (active) {
-    chipProps.className += " active"
+  const handleKeyDown = (event) => {
+    // Check if the key pressed is "Enter" or "Space"
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault()
+      onClick()
+    }
   }
 
   return (
-    // eslint-disable-line jsx-a11y/click-events-have-key-events
-    <div {...chipProps}>
+    <button className={classNames.join(' ')} onClick={onClick} onKeyDown={handleKeyDown}>
       <span className="chip__label noselect">{label}</span>
-    </div>
+    </button>
   )
 }
 

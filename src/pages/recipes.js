@@ -9,102 +9,73 @@ import Chip from "../components/chip"
 
 import "./recipes.scss"
 
-const shuffle = array => {
-  let currentIndex = array.length,
-    temporaryValue,
-    randomIndex
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex)
-    currentIndex -= 1
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex]
-    array[currentIndex] = array[randomIndex]
-    array[randomIndex] = temporaryValue
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
 }
 
-const RecipesPage = ({
-  data: {
-    allMarkdownRemark: { edges: postEdges },
-  },
-}) => {
+const RecipesPage = ({ data: { allMarkdownRemark: { edges: postEdges } } }) => {
   const [firstRender, setFirstRender] = useState(false)
   const [filters, setFilters] = useState([])
 
   useEffect(() => {
-    if (!firstRender) shuffle(postEdges)
-    setFirstRender(true)
+    if (!firstRender) {
+      shuffleArray(postEdges)
+      setFirstRender(true)
+    }
   }, [firstRender, postEdges])
 
-  const allTags = new Set()
+  const allTags = new Set(postEdges.flatMap(postEdge => postEdge.node.frontmatter.tags))
 
-  postEdges.forEach(postEdge => {
-    const tags = postEdge.node.frontmatter.tags
-    tags.forEach(tag => {
-      allTags.add(tag)
-    })
-  })
-
-  const addTag = tag => {
-    const tagIdx = filters.indexOf(tag)
-    if (tagIdx === -1) filters.push(tag)
-    else filters.splice(tagIdx, 1)
-    setFilters([...filters])
+  const toggleTag = tag => {
+    setFilters(prevFilters =>
+      prevFilters.includes(tag)
+        ? prevFilters.filter(t => t !== tag)
+        : [...prevFilters, tag]
+    )
   }
 
   return (
     <Layout title="Recipes">
       <div className="chips">
-        {[...allTags].sort().map(tag => {
-          return (
-            <Chip
-              key={tag}
-              active={filters.includes(tag)}
-              onClick={() => addTag(tag)}
-              label={tag}
-            />
-          )
-        })}
+        {[...allTags].sort().map(tag => (
+          <Chip
+            key={tag}
+            active={filters.includes(tag)}
+            onClick={() => toggleTag(tag)}
+            label={tag}
+          />
+        ))}
       </div>
       <div className="recipes">
         {postEdges
           .filter(({ node }) => {
             const { tags } = node.frontmatter
-
-            return new Set([...filters, ...tags]).size <= tags.length
+            return filters.every(filter => tags.includes(filter))
           })
-          .map(({ node }) => {
-            const { source, tags, title, image } = node.frontmatter
-            return (
-              <Recipe
-                key={node.id}
-                source={source}
-                tags={tags}
-                title={title}
-                image={image}
-                tagClick={addTag}
-                tagFilters={filters}
-              />
-            )
-          })}
+          .map(({ node }) => (
+            <Recipe
+              key={node.id}
+              {...node.frontmatter}
+              tagClick={toggleTag}
+              tagFilters={filters}
+            />
+          ))}
       </div>
     </Layout>
   )
 }
 
-export const query = graphql`{
+export const query = graphql`
+{
   allMarkdownRemark(filter: {frontmatter: {type: {eq: "recipe"}}}) {
     edges {
       node {
         id
-        html
         frontmatter {
           title
-          type
           source
           tags
           image {
