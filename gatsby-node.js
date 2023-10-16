@@ -1,53 +1,64 @@
-const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
+
   if (node.internal.type === "MarkdownRemark") {
-    const slug = createFilePath({ node, getNode, basePath: "pages", trailingSlash: false })
+    const slug = createFilePath({
+      node,
+      getNode,
+      basePath: "pages",
+      trailingSlash: false,
+    });
+
     createNodeField({
       node,
       name: "slug",
       value: slug,
-    })
+    });
   }
-}
+};
 
 exports.createPages = async ({ actions, graphql }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  return graphql(`
-  {
-    allMarkdownRemark(sort: {frontmatter: {date: DESC}}, limit: 1000) {
-      edges {
-        node {
-          html
-          fields {
-            slug
-          }
-          frontmatter {
-            type
-            source
+  try {
+    const result = await graphql(`
+      {
+        allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 1000) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                type
+              }
+            }
           }
         }
       }
-    }
-  }
-  `).then(result => {
+    `);
+
     if (result.errors) {
-      return Promise.reject(result.errors)
+      throw new Error(result.errors);
     }
 
-    result.data.allMarkdownRemark.edges.forEach(async ({ node }) => {
-      if (node.frontmatter.type === "blog") {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve("src/templates/blog-post.js"),
-          context: {
-            slug: node.fields.slug,
-          },
-        })
-      }
-    })
-  })
-}
+    const blogPosts = result.data.allMarkdownRemark.edges.filter(
+      ({ node }) => node.frontmatter.type === "blog"
+    );
+
+    blogPosts.forEach(({ node }) => {
+      createPage({
+        path: node.fields.slug,
+        component: path.resolve("src/templates/blog-post.js"),
+        context: {
+          slug: node.fields.slug,
+        },
+      });
+    });
+  } catch (error) {
+    console.error("Error creating pages:", error);
+  }
+};
