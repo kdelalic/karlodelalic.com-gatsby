@@ -13,7 +13,7 @@ const IndexPage = ({
   data
 }) => (
   <Layout centered>
-    <GatsbyImage className="profile-image" image={getImage(data.profileImage)} alt="profile image" />
+    <GatsbyImage className="profile-image" image={getImage(data.profileImage)} alt="profile image" loading="eager" />
     <h1 className="fullname">Karlo Delalic</h1>
     <h2 className="occupation">Software Engineer</h2>
     <h3 className="description">I like to make cool things.</h3>
