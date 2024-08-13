@@ -20,7 +20,7 @@
     "gatsby-plugin-sass": "^6.12.0",
     "gatsby-plugin-sharp": "^5.12.0",
     "gatsby-plugin-sitemap": "^6.12.0",
-    "gatsby-plugin-static-cms": "^3.0.1",
+    "gatsby-plugin-static-cms": "^4.0.0",
     "gatsby-plugin-typography": "^5.12.0",
     "gatsby-remark-autolink-headers": "^6.12.0",
     "gatsby-remark-external-links": "^0.0.4",
