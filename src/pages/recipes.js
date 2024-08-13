@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
+import { TextField, InputAdornment } from "@mui/material"
+import { FaSearch } from "react-icons/fa";
+import Fuse from 'fuse.js'
 
 import Constants from "../globals/constants"
 import Layout from "../components/layout"
@@ -19,15 +22,35 @@ const shuffleArray = (array) => {
 const RecipesPage = ({ data: { allMarkdownRemark: { edges: postEdges } } }) => {
   const [firstRender, setFirstRender] = useState(false)
   const [filters, setFilters] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
+  const [searchResults, setSearchResults] = useState(postEdges)
+  const [displayedTags, setDisplayedTags] = useState(new Set())
 
   useEffect(() => {
     if (!firstRender) {
       shuffleArray(postEdges)
       setFirstRender(true)
     }
-  }, [firstRender, postEdges])
 
-  const allTags = new Set(postEdges.flatMap(postEdge => postEdge.node.frontmatter.tags))
+    const fuse = new Fuse(postEdges, {
+      keys: ['node.frontmatter.title'],
+      includeScore: true,
+      threshold: 0.4
+    })
+
+    let filteredResults = postEdges;
+    if (searchTerm) {
+      filteredResults = fuse.search(searchTerm).map(result => result.item);
+      setSearchResults(filteredResults);
+    } else {
+      setSearchResults(postEdges);
+    }
+
+    const newDisplayedTags = new Set(
+      filteredResults.flatMap(({ node }) => node.frontmatter.tags)
+    );
+    setDisplayedTags(newDisplayedTags);
+  }, [firstRender, postEdges, searchTerm])
 
   const toggleTag = tag => {
     setFilters(prevFilters =>
@@ -37,10 +60,30 @@ const RecipesPage = ({ data: { allMarkdownRemark: { edges: postEdges } } }) => {
     )
   }
 
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value)
+  }
+
   return (
     <Layout title="Recipes">
+      <div className="searchContainer">
+        <TextField 
+          label="Search" 
+          type="search" 
+          onChange={handleSearchChange} 
+          variant="outlined"
+          className="search"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <FaSearch />
+              </InputAdornment>
+            ),
+          }}
+        />
+      </div>
       <div className="chips">
-        {[...allTags].sort().map(tag => (
+        {[...displayedTags].sort().map(tag => (
           <Chip
             key={tag}
             active={filters.includes(tag)}
@@ -50,7 +93,7 @@ const RecipesPage = ({ data: { allMarkdownRemark: { edges: postEdges } } }) => {
         ))}
       </div>
       <div className="recipes">
-        {postEdges
+        {searchResults
           .filter(({ node }) => {
             const { tags } = node.frontmatter
             return filters.every(filter => tags.includes(filter))

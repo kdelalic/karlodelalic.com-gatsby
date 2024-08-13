@@ -1,7 +1,13 @@
-import React from "react"
-import { FaGithub } from "react-icons/fa"
+import React from "react";
+import { FaGithub } from "react-icons/fa";
+import "./project.scss";
 
-import "./project.scss"
+const TechLogo = ({ technology, src }) => (
+  <div key={technology} className="project__body__tech-logos__logo">
+    <span className="tooltip">{technology}</span>
+    <img alt={`${technology} Logo`} src={src} />
+  </div>
+);
 
 const Project = ({
   description,
@@ -18,22 +24,17 @@ const Project = ({
         <h2 className="project__title">{title}</h2>
         <div className="project__body">
           <p className="project__body__description">{description}</p>
+          <img className="project__logo" alt="Project logo" src={projectLogo} />
           <div className="project__body__tech-logos">
-            {technologies.map(technology => {
-              return (
-                <div
-                  key={technology}
-                  className="project__body__tech-logos__logo"
-                >
-                  <span className="tooltip">{technology}</span>
-                  <img
-                    alt={`${technology} Logo`}
-                    src={techLogos[technology.toLowerCase()]}
-                  />
-                </div>
-              )
-            })}
+            {technologies.map(technology => (
+              <TechLogo
+                key={technology}
+                technology={technology}
+                src={techLogos[technology.toLowerCase()]}
+              />
+            ))}
           </div>
+
           <div className="project__body__buttons">
             {github && (
               <a
@@ -58,10 +59,9 @@ const Project = ({
             )}
           </div>
         </div>
-        <img className="project__logo" alt="Project logo" src={projectLogo} />
       </div>
     </div>
-  )
+  );
 }
 
-export default Project
+export default Project;

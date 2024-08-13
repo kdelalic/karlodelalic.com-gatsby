@@ -15,7 +15,7 @@
         background-color: #373737;
       }
 
-      @media all and (min-width: $width-small + 1) {
+      @media all and (min-width: ($width-small + 1)) {
         padding-left: 150px;
       }
     }
