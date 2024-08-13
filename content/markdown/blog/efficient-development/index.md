@@ -8,29 +8,29 @@ tags:
   - iterm2
   - terminal improvements
 ---
-If you want to become a better developer, you must learn to be efficient at communicating with your computer. This means putting your entire focus on the problem at hand, and not wasting any time with menial tasks. This article will show you how to become more efficient with the terminal.
+If you want to become a better developer, learning to communicate efficiently with your computer is essential. This involves focusing intently on the problem at hand and avoiding distractions from menial tasks. In this article, we'll explore how to enhance your efficiency using the terminal.
 <!-- end -->
-If you, like most developers, rely on the terminal to do certain tasks such as, communicating with a remote server, configuring applications, setting up environments, then you should be familiar with the pain of remembering commands or fiddling with the terminal history to get to your desired command. Remembering and typing out commands may only take a few seconds but these seconds accumulate over time.
+Like many developers, if you depend on the terminal for tasks such as communicating with remote servers, configuring applications, or setting up environments, you're likely familiar with the hassle of remembering commands or digging through terminal history to find the right one. Although recalling and typing commands might only take a few seconds, these seconds add up over time.
 
 ## Autosuggest
 
-Initially, it may not seem like a big deal to type out something like `ssh root@server.myhost.com:9123` each time you want to connect to your remote server, but then, if you realize that you might type this out multiple times a day, then you should also realize that there has to be a better way of doing this. After all, a part of writing efficient and quality code is minimizing duplications and unnecessary work.
+Typing commands like `ssh root@server.myhost.com:9123` every time you need to connect to a remote server might seem trivial, but if you do this multiple times a day, you'll realize the need for a more efficient approach. Minimizing redundancy and unnecessary work is a key component of writing quality code.
 
-With OhMyZsh and a few plugins, you can save yourself the pain of remembering and typing commands such as these.
+With OhMyZsh and a few plugins, you can reduce the need to remember and type frequent commands.
 
-Taking the `ssh` command example from above, with OhMyZsh configured, you could simply begin typing `ssh root@ser` and then you would get a shadow text which would show you the most recently executed command that matches your input. You can then complete the command simply by pressing the → key.
+For example, with OhMyZsh installed, start typing `ssh root@ser` and you'll see a shadow text appear, showing the most recently executed command that matches your input. Complete the command by pressing the → key.
 
 ![Autosuggestion example](./autosuggest.png)
 
-## Word jumps and word deletion
+## Word Jumps and Word Deletion
 
-Have you ever typed out or copy-pasted a long command only to realize that you need to change something in the middle of the command? Well, you probably have and to make the change, you probably had to spam your ← key multiple times. With word jumps, you can avoid this nonsense by simple pressing `option + ←` just a few times to reach your desired point in the command. This is especially useful for developers with defective Macbook keyboard buttons which can give at any moment.
+Ever typed or pasted a long command only to realize you need to edit something in the middle? Rather than repeatedly pressing the ← key, use word jumps by pressing `option + ←` a few times to reach the desired point. This is particularly useful for developers with faulty Macbook keyboards.
 
-This works likewise with word deletion. Pressing `delete + ←` yields the same, except that it deletes each word.
+Word deletion works similarly by pressing `delete + ←`, deleting each word as you go.
 
-## Github information
+## GitHub Information
 
-A seemingly small but welcome feature is the Github info which is display when your working directory is inside of a git repo. It displays which branch is currently checked out, whether there are changes made, and whether they are staged.
+A handy feature when working within a git repository is the GitHub info display. It shows the current branch, whether there are uncommitted changes, and if changes are staged.
 
 ![Clean tree on branch 'zsh'](./clean.png)
 
@@ -40,19 +40,19 @@ A seemingly small but welcome feature is the Github info which is display when y
 
 ![Committed changes](./committed.png)
 
-## Cycle through files in a directory
+## Cycle Through Files in a Directory
 
-When you need to `cd` into a specific directory or just execute a command such as `cp` on a specific file, you can type `cd` and then press `tab` to cycle through all of the options. Unlike zsh, bash only lists the entries which can be used with the command.
+When you need to `cd` into a specific directory or execute a command like `cp` on a particular file, type `cd` and then press `tab` to cycle through all available options. Unlike zsh, bash only lists the entries that are relevant to the command.
 
 ![Cycling through files by pressing the tab key](./cycle.png)
 
-## And many more...
+## And Many More...
 
-Oh My Zsh has an extensive community who have come up with many similar innovations. If you are interested in the above, I definitely suggest the you install Oh My Zsh and give all of these a try!
+The Oh My Zsh community has developed many such innovations. If you find these features intriguing, I definitely recommend installing Oh My Zsh to try them out!
 
 ## Installation
 
-When showing this wonderful piece of software to my peers, I usually refer them to this Github gist found [here](https://gist.github.com/kevin-smets/8568070#how-to-install). It will show you have to install iTerm 2, Oh My Zsh, and all of the features that I listed above.
+To introduce this excellent tool to others, I usually share this GitHub gist: [here](https://gist.github.com/kevin-smets/8568070#how-to-install), which explains how to install iTerm 2, Oh My Zsh, and all of the features discussed above.
 
 ---
-__I hope you enjoyed this article and found it to be worthwhile. You can check out all of my projects on [Github](https://github.com/kdelalic) and don’t hesitate to reach out to me on [Twitter](https://twitter.com/karlodelalic)!__
+__I hope you found this article helpful. Check out all of my projects on [GitHub](https://github.com/kdelalic) and feel free to reach out to me on [Twitter](https://twitter.com/karlodelalic)!__
