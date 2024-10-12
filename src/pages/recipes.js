@@ -26,6 +26,13 @@ const RecipesPage = ({ data: { allMarkdownRemark: { edges: postEdges } } }) => {
   const [searchResults, setSearchResults] = useState(postEdges)
   const [displayedTags, setDisplayedTags] = useState(new Set())
 
+  // Modify postEdges directly to lowercase the tags
+  postEdges.forEach(({ node }) => {
+    if (Array.isArray(node.frontmatter.tags)) {
+      node.frontmatter.tags = node.frontmatter.tags.map(tag => tag.toLowerCase());
+    }
+  });
+
   useEffect(() => {
     if (!firstRender) {
       shuffleArray(postEdges)

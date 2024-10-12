@@ -105,7 +105,7 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
-    `gatsby-plugin-static-cms`,
+    `gatsby-plugin-decap-cms`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {

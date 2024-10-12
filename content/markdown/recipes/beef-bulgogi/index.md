@@ -6,7 +6,7 @@ tags:
   - beef
   - maangchi
   - asian
-  - easy
+  - Easy
 source: https://www.maangchi.com/recipe/bulgogi
 image: image.jpg
 ---
