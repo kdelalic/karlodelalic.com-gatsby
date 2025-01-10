@@ -90,7 +90,7 @@ const RecipesPage = ({ data: { allMarkdownRemark: { edges: postEdges } } }) => {
         />
       </div>
       <div className="chips">
-        {[...displayedTags].sort().map(tag => (
+        {[...(displayedTags || [])].sort().map(tag => (
           <Chip
             key={tag}
             active={filters.includes(tag)}
