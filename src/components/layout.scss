@@ -14,6 +14,17 @@
   }
 }
 
+.date {
+  text-align: left;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+
+  .#{$dark-class} & {
+    color: white;
+  }
+}
+
 .centered {
   min-height: calc(100vh - 97px);
   display: flex;
@@ -33,7 +44,7 @@
   }
 }
 
-@media all and (min-width: $width-xlarge) and (max-width: $width-max - 1px) {
+@media all and (min-width: $width-xlarge) and (max-width: ($width-max - 1px)) {
   .content {
     max-width: $width-xlarge - 50px;
     width: $width-xlarge - 50px;

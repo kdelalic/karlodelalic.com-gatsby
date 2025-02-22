@@ -1,5 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 import Chip from "./chip";
 import { FaRegStickyNote } from "react-icons/fa";
 import Tooltip from "@mui/material/Tooltip";
@@ -11,7 +12,17 @@ const capitalizeTitle = (title = "") =>
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
-const Recipe = ({ image, source, tags, title, tagClick, tagFilters, notes }) => {
+const Recipe = ({
+  image,
+  source,
+  tags,
+  title,
+  tagClick,
+  tagFilters,
+  notes,
+  type,
+  slug
+}) => {
   const tagFiltersSet = new Set(tagFilters);
 
   const handleTagClick = (tag) => {
@@ -22,7 +33,6 @@ const Recipe = ({ image, source, tags, title, tagClick, tagFilters, notes }) => 
     <div className="recipe">
       <h2 className="recipe__title">
         {capitalizeTitle(title)}
-        {/* Conditionally render icon only if notes exist */}
         {notes && notes.trim() !== "" && (
           <Tooltip title={notes} arrow placement="top">
             <span className="recipe__note-icon">
@@ -32,29 +42,39 @@ const Recipe = ({ image, source, tags, title, tagClick, tagFilters, notes }) => 
         )}
       </h2>
       <div className="recipe__body">
-        {image && (
-          <a
-            href={source}
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            className="recipe__link"
-          >
-            <GatsbyImage
-              className="recipe__image"
-              alt={title}
-              image={getImage(image) ?? undefined}
-            />
-          </a>
-        )}
-        <div className="recipe__body__chips">
-          {tags.sort().map((tag) => (
-            <Chip
-              key={tag}
-              label={tag}
-              onClick={() => handleTagClick(tag)}
-              active={tagFiltersSet.has(tag)}
-            />
+        {image &&
+          (type === "custom-recipe" ? (
+            <Link to={slug} className="recipe__link">
+              <GatsbyImage
+                className="recipe__image"
+                alt={title}
+                image={getImage(image) ?? undefined}
+              />
+            </Link>
+          ) : (
+            <a
+              href={source}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              className="recipe__link"
+            >
+              <GatsbyImage
+                className="recipe__image"
+                alt={title}
+                image={getImage(image) ?? undefined}
+              />
+            </a>
           ))}
+        <div className="recipe__body__chips">
+          {tags &&
+            tags.sort().map((tag) => (
+              <Chip
+                key={tag}
+                label={tag}
+                onClick={() => handleTagClick(tag)}
+                active={tagFiltersSet.has(tag)}
+              />
+            ))}
         </div>
       </div>
     </div>

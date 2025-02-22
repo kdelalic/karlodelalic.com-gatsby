@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import { TextField, InputAdornment } from "@mui/material"
-import { FaSearch } from "react-icons/fa";
-import Fuse from 'fuse.js'
+import { FaSearch } from "react-icons/fa"
+import Fuse from "fuse.js"
 
 import Constants from "../globals/constants"
 import Layout from "../components/layout"
@@ -19,50 +19,54 @@ const shuffleArray = (array) => {
   }
 }
 
-const RecipesPage = ({ data: { allMarkdownRemark: { edges: postEdges } } }) => {
+const RecipesPage = ({ data: { recipes, customRecipes } }) => {
   const [firstRender, setFirstRender] = useState(false)
   const [filters, setFilters] = useState([])
-  const [searchTerm, setSearchTerm] = useState('')
-  const [searchResults, setSearchResults] = useState(postEdges)
+  const [searchTerm, setSearchTerm] = useState("")
+  
+  // Combine recipes and custom recipes arrays into one list.
+  const combinedEdges = [...recipes.edges, ...customRecipes.edges]
+
+  const [searchResults, setSearchResults] = useState(combinedEdges)
   const [displayedTags, setDisplayedTags] = useState(new Set())
 
-  // Modify postEdges directly to lowercase the tags
-  postEdges.forEach(({ node }) => {
-    if (Array.isArray(node.frontmatter.tags)) {
-      node.frontmatter.tags = node.frontmatter.tags.map(tag => tag.toLowerCase());
+  // Normalize tags for nodes that have them.
+  combinedEdges.forEach(({ node }) => {
+    if (node.frontmatter.tags && Array.isArray(node.frontmatter.tags)) {
+      node.frontmatter.tags = node.frontmatter.tags.map((tag) => tag.toLowerCase())
     }
-  });
+  })
 
   useEffect(() => {
     if (!firstRender) {
-      shuffleArray(postEdges)
+      shuffleArray(combinedEdges)
       setFirstRender(true)
     }
 
-    const fuse = new Fuse(postEdges, {
-      keys: ['node.frontmatter.title'],
+    const fuse = new Fuse(combinedEdges, {
+      keys: ["node.frontmatter.title"],
       includeScore: true,
-      threshold: 0.4
+      threshold: 0.4,
     })
 
-    let filteredResults = postEdges;
+    let filteredResults = combinedEdges
     if (searchTerm) {
-      filteredResults = fuse.search(searchTerm).map(result => result.item);
-      setSearchResults(filteredResults);
+      filteredResults = fuse.search(searchTerm).map((result) => result.item)
+      setSearchResults(filteredResults)
     } else {
-      setSearchResults(postEdges);
+      setSearchResults(combinedEdges)
     }
 
     const newDisplayedTags = new Set(
-      filteredResults.flatMap(({ node }) => node.frontmatter.tags)
-    );
-    setDisplayedTags(newDisplayedTags);
-  }, [firstRender, postEdges, searchTerm])
+      filteredResults.flatMap(({ node }) => node.frontmatter.tags || [])
+    )
+    setDisplayedTags(newDisplayedTags)
+  }, [firstRender, combinedEdges, searchTerm])
 
-  const toggleTag = tag => {
-    setFilters(prevFilters =>
+  const toggleTag = (tag) => {
+    setFilters((prevFilters) =>
       prevFilters.includes(tag)
-        ? prevFilters.filter(t => t !== tag)
+        ? prevFilters.filter((t) => t !== tag)
         : [...prevFilters, tag]
     )
   }
@@ -74,18 +78,20 @@ const RecipesPage = ({ data: { allMarkdownRemark: { edges: postEdges } } }) => {
   return (
     <Layout title="Recipes">
       <div className="searchContainer">
-        <TextField 
-          label="Search" 
-          type="search" 
-          onChange={handleSearchChange} 
+        <TextField
+          label="Search"
+          type="search"
+          onChange={handleSearchChange}
           variant="outlined"
           className="search"
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <FaSearch />
-              </InputAdornment>
-            ),
+          slotProps={{
+            input: {
+              endAdornment: (
+                <InputAdornment position="end">
+                  <FaSearch />
+                </InputAdornment>
+              ),
+            }
           }}
         />
       </div>
@@ -102,13 +108,14 @@ const RecipesPage = ({ data: { allMarkdownRemark: { edges: postEdges } } }) => {
       <div className="recipes">
         {searchResults
           .filter(({ node }) => {
-            const { tags } = node.frontmatter
-            return filters.every(filter => tags.includes(filter))
+            const tags = node.frontmatter.tags || []
+            return filters.every((filter) => tags.includes(filter))
           })
           .map(({ node }) => (
             <Recipe
               key={node.id}
               {...node.frontmatter}
+              slug={node.fields?.slug}
               tagClick={toggleTag}
               tagFilters={filters}
             />
@@ -120,7 +127,7 @@ const RecipesPage = ({ data: { allMarkdownRemark: { edges: postEdges } } }) => {
 
 export const query = graphql`
 {
-  allMarkdownRemark(filter: {frontmatter: {type: {eq: "recipe"}}}) {
+  recipes: allMarkdownRemark(filter: { frontmatter: { type: { eq: "recipe" } } }) {
     edges {
       node {
         id
@@ -128,6 +135,27 @@ export const query = graphql`
           title
           notes
           source
+          tags
+          image {
+            childImageSharp {
+              gatsbyImageData(width: 400, placeholder: BLURRED, layout: CONSTRAINED)
+            }
+          }
+        }
+      }
+    }
+  }
+  customRecipes: allMarkdownRemark(filter: { frontmatter: { type: { eq: "custom-recipe" } } }) {
+    edges {
+      node {
+        id
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          type
+          notes
           tags
           image {
             childImageSharp {

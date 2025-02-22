@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Constants from "../globals/constants"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import "./blog-post.scss";
 
 const BlogPost = ({
   data: {

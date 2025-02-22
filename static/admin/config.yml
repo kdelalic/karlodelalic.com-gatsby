@@ -24,4 +24,19 @@ collections:
       - { label: 'Image', name: 'image', widget: 'image' }
       - { label: 'Notes', name: 'notes', widget: 'text' } 
       - { label: 'Type', name: 'type', widget: 'hidden', default: 'recipe' }
+  - name: "custom-recipes"
+    label: "Custom Recipes"
+    folder: "content/markdown/custom-recipes"
+    create: true
+    slug: 'index'
+    path: '{{title}}/index'
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: 'Tags', name: 'tags', widget: 'list', field: {label: 'Tag', name: 'tag', widget: 'string'} }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Ingredients", name: "ingredients", widget: "list", field: { label: "Ingredient", name: "ingredient", widget: "string" } }
+      - { label: "Body (Steps)", name: "body", widget: "markdown" }
+      - { label: "Notes", name: "notes", widget: "markdown" }
+      - { label: 'Type', name: 'type', widget: 'hidden', default: 'custom-recipe' }
 local_backend: true
