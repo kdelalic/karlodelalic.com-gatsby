@@ -25,7 +25,7 @@ collections:
       - { label: 'Notes', name: 'notes', widget: 'text', optional: true } 
       - { label: 'Type', name: 'type', widget: 'hidden', default: 'recipe' }
   - name: "custom-recipes"
-    label: "Custom Recipes"
+    label: "Custom Recipe"
     folder: "content/markdown/custom-recipes"
     create: true
     slug: 'index'
