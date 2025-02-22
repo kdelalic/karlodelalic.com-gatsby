@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import Chip from "./chip";
 import { FaRegStickyNote } from "react-icons/fa";
 import Tooltip from "@mui/material/Tooltip";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 import "./recipe.scss";
 
 const capitalizeTitle = (title = "") =>
@@ -21,12 +22,36 @@ const Recipe = ({
   tagFilters,
   notes,
   type,
-  slug
+  slug,
 }) => {
   const tagFiltersSet = new Set(tagFilters);
+  // State for click and hover behavior
+  const [clicked, setClicked] = useState(false);
+  const [hover, setHover] = useState(false);
+
+  // Tooltip is open if either clicked or hovered
+  const open = clicked || hover;
 
   const handleTagClick = (tag) => {
     tagClick(tag);
+  };
+
+  const handleTooltipClick = (e) => {
+    e.stopPropagation();
+    setClicked((prev) => !prev);
+  };
+
+  const handleMouseEnter = () => {
+    setHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHover(false);
+  };
+
+  const handleClickAway = () => {
+    setClicked(false);
+    setHover(false);
   };
 
   return (
@@ -34,11 +59,24 @@ const Recipe = ({
       <h2 className="recipe__title">
         {capitalizeTitle(title)}
         {notes && notes.trim() !== "" && (
-          <Tooltip title={notes} arrow placement="top">
-            <span className="recipe__note-icon">
-              <FaRegStickyNote />
-            </span>
-          </Tooltip>
+          <ClickAwayListener onClickAway={handleClickAway}>
+            <Tooltip
+              title={notes}
+              arrow
+              placement="top"
+              open={open}
+              // Disable MUI's default triggers
+              disableFocusListener
+              disableTouchListener
+              // Manage hover manually
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span className="recipe__note-icon" onClick={handleTooltipClick}>
+                <FaRegStickyNote />
+              </span>
+            </Tooltip>
+          </ClickAwayListener>
         )}
       </h2>
       <div className="recipe__body">
