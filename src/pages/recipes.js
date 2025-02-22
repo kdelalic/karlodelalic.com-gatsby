@@ -126,6 +126,7 @@ export const query = graphql`
         id
         frontmatter {
           title
+          notes
           source
           tags
           image {
