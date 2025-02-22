@@ -8,5 +8,9 @@ tags:
   - chinese
   - asian
 image: img_9345.jpeg
+notes: |-
+  No celery
+  Cook vegetables less so they’re softer 
+  Not too much peanuts
 type: recipe
 ---
