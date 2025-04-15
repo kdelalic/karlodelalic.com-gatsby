@@ -81,7 +81,18 @@ const Recipe = ({
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <span className="recipe__note-icon" onClick={handleTooltipClick}>
+              <span 
+                className="recipe__note-icon" 
+                onClick={handleTooltipClick}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleTooltipClick(e);
+                  }
+                }}
+                role="button"
+                tabIndex="0"
+              >
                 <FaRegStickyNote />
               </span>
             </Tooltip>

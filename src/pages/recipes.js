@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useMemo } from "react"
 import { graphql } from "gatsby"
 import { TextField, InputAdornment } from "@mui/material"
 import { FaSearch } from "react-icons/fa"
@@ -24,8 +24,8 @@ const RecipesPage = ({ data: { recipes, customRecipes } }) => {
   const [filters, setFilters] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
   
-  // Combine recipes and custom recipes arrays into one list.
-  const combinedEdges = [...recipes.edges, ...customRecipes.edges]
+  // Combine recipes and custom recipes arrays into one list using useMemo
+  const combinedEdges = useMemo(() => [...recipes.edges, ...customRecipes.edges], [recipes.edges, customRecipes.edges])
 
   const [searchResults, setSearchResults] = useState(combinedEdges)
   const [displayedTags, setDisplayedTags] = useState(new Set())

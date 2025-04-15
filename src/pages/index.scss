@@ -1,4 +1,4 @@
-@import "../globals/base";
+@use "../globals/base" as *;
 
 .profile-image {
   margin: 0 auto 1.45rem auto;

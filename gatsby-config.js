@@ -49,8 +49,17 @@ module.exports = {
         icon: `content/assets/images/icon.png`,
       },
     },
-    `gatsby-plugin-sass`,
     `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        sassOptions: {
+          outputStyle: "compressed",
+          api: "modern",
+          silenceDeprecations: ["legacy-js-api"],
+        },
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

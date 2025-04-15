@@ -1,4 +1,4 @@
-@import "../globals/base";
+@use "../globals/base" as *;
 
 .page-not-found {
   .#{$dark-class} & {

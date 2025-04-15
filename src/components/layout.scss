@@ -1,4 +1,4 @@
-@import "../globals/base";
+@use "../globals/base" as *;
 
 .content {
   text-align: center;

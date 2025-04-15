@@ -108,3 +108,22 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild("Error creating pages", error);
   }
 };
+
+// Explicitly include the query for Gatsby to know which fields to include
+// This helps avoid the warning about using an exported query in a non-page component
+exports.createResolvers = ({ createResolvers }) => {
+  createResolvers({
+    Query: {
+      customRecipeById: {
+        type: "MarkdownRemark",
+        args: { id: { type: "String!" } },
+        resolve: (source, args, context) => {
+          return context.nodeModel.findOne({
+            type: "MarkdownRemark",
+            query: { filter: { id: { eq: args.id } } },
+          });
+        },
+      },
+    },
+  });
+};

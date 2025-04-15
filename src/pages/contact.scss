@@ -1,4 +1,4 @@
-@import "../globals/base";
+@use "../globals/base" as *;
 
 .contact {
   display: flex;
@@ -8,7 +8,9 @@
   padding: 30px 0;
 
   &__email {
-    box-shadow: 0 -2px 0 0 $divider-shadow, 0 2px 0 0 $divider-shadow;
+    box-shadow:
+      0 -2px 0 0 $divider-shadow,
+      0 2px 0 0 $divider-shadow;
     padding: 30px 0;
     color: $primary-color;
     font-size: 22px;
@@ -16,7 +18,8 @@
     width: 100%;
 
     .#{$dark-class} & {
-      box-shadow: 0 -2px 0 0 $divider-shadow-dark,
+      box-shadow:
+        0 -2px 0 0 $divider-shadow-dark,
         0 2px 0 0 $divider-shadow-dark;
     }
 
