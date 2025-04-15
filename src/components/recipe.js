@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
+import { useInView } from 'react-intersection-observer';
 import Chip from "./chip";
 import { FaRegStickyNote } from "react-icons/fa";
 import Tooltip from "@mui/material/Tooltip";
@@ -28,6 +29,11 @@ const Recipe = ({
   // State for click and hover behavior
   const [clicked, setClicked] = useState(false);
   const [hover, setHover] = useState(false);
+  // Setup intersection observer
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   // Tooltip is open if either clicked or hovered
   const open = clicked || hover;
@@ -55,7 +61,10 @@ const Recipe = ({
   };
 
   return (
-    <div className="recipe">
+    <div 
+      className={`recipe ${inView ? 'fade-in' : ''}`} 
+      ref={ref}
+    >
       <h2 className="recipe__title">
         {capitalizeTitle(title)}
         {notes && notes.trim() !== "" && (

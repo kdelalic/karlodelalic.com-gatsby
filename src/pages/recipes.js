@@ -75,6 +75,12 @@ const RecipesPage = ({ data: { recipes, customRecipes } }) => {
     setSearchTerm(event.target.value)
   }
 
+  // Filter recipes based on selected tags
+  const filteredRecipes = searchResults.filter(({ node }) => {
+    const tags = node.frontmatter.tags || []
+    return filters.every((filter) => tags.includes(filter))
+  })
+
   return (
     <Layout title="Recipes">
       <div className="searchContainer">
@@ -106,20 +112,16 @@ const RecipesPage = ({ data: { recipes, customRecipes } }) => {
         ))}
       </div>
       <div className="recipes">
-        {searchResults
-          .filter(({ node }) => {
-            const tags = node.frontmatter.tags || []
-            return filters.every((filter) => tags.includes(filter))
-          })
-          .map(({ node }) => (
+        {filteredRecipes.map(({ node }, index) => (
+          <div key={node.id} className="recipe-wrapper" style={{ animationDelay: `${index * 0.05}s` }}>
             <Recipe
-              key={node.id}
               {...node.frontmatter}
               slug={node.fields?.slug}
               tagClick={toggleTag}
               tagFilters={filters}
             />
-          ))}
+          </div>
+        ))}
       </div>
     </Layout>
   )

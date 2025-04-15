@@ -19,6 +19,11 @@
   @media all and (max-width: $width-large) {
     columns: 1 auto;
   }
+
+  .recipe-wrapper {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
 }
 
 .searchContainer {
