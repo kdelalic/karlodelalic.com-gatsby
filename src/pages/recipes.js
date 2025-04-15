@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react"
+import React, { useState, useMemo, useCallback } from "react"
 import { graphql } from "gatsby"
 import { TextField, InputAdornment } from "@mui/material"
 import { FaSearch } from "react-icons/fa"
@@ -12,74 +12,78 @@ import Chip from "../components/chip"
 
 import "./recipes.scss"
 
-const shuffleArray = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
 
 const RecipesPage = ({ data: { recipes, customRecipes } }) => {
-  const [firstRender, setFirstRender] = useState(false)
   const [filters, setFilters] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
-  
-  // Combine recipes and custom recipes arrays into one list using useMemo
-  const combinedEdges = useMemo(() => [...recipes.edges, ...customRecipes.edges], [recipes.edges, customRecipes.edges])
 
-  const [searchResults, setSearchResults] = useState(combinedEdges)
-  const [displayedTags, setDisplayedTags] = useState(new Set())
-
-  // Normalize tags for nodes that have them.
-  combinedEdges.forEach(({ node }) => {
-    if (node.frontmatter.tags && Array.isArray(node.frontmatter.tags)) {
-      node.frontmatter.tags = node.frontmatter.tags.map((tag) => tag.toLowerCase())
+  // Combine, normalize, and shuffle recipes only once
+  const combinedEdges = useMemo(() => {
+    const normalizeTags = (edges) =>
+      edges.map(({ node }) => ({
+        ...node,
+        frontmatter: {
+          ...node.frontmatter,
+          tags: Array.isArray(node.frontmatter.tags)
+            ? node.frontmatter.tags.map((tag) => tag.toLowerCase())
+            : [],
+        },
+      }))
+    const all = [
+      ...normalizeTags(recipes.edges),
+      ...normalizeTags(customRecipes.edges),
+    ]
+    // Shuffle
+    for (let i = all.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[all[i], all[j]] = [all[j], all[i]]
     }
-  })
+    return all
+  }, [recipes.edges, customRecipes.edges])
 
-  useEffect(() => {
-    if (!firstRender) {
-      shuffleArray(combinedEdges)
-      setFirstRender(true)
-    }
-
+  // Fuse.js search
+  const searchResults = useMemo(() => {
+    if (!searchTerm) return combinedEdges
     const fuse = new Fuse(combinedEdges, {
-      keys: ["node.frontmatter.title"],
+      keys: ["frontmatter.title"],
       includeScore: true,
       threshold: 0.4,
     })
-
-    let filteredResults = combinedEdges
-    if (searchTerm) {
-      filteredResults = fuse.search(searchTerm).map((result) => result.item)
-      setSearchResults(filteredResults)
-    } else {
-      setSearchResults(combinedEdges)
-    }
-
-    const newDisplayedTags = new Set(
-      filteredResults.flatMap(({ node }) => node.frontmatter.tags || [])
-    )
-    setDisplayedTags(newDisplayedTags)
-  }, [firstRender, combinedEdges, searchTerm])
-
-  const toggleTag = (tag) => {
-    setFilters((prevFilters) =>
-      prevFilters.includes(tag)
-        ? prevFilters.filter((t) => t !== tag)
-        : [...prevFilters, tag]
-    )
-  }
-
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value)
-  }
+    return fuse.search(searchTerm).map((result) => result.item)
+  }, [combinedEdges, searchTerm])
 
   // Filter recipes based on selected tags
-  const filteredRecipes = searchResults.filter(({ node }) => {
-    const tags = node.frontmatter.tags || []
-    return filters.every((filter) => tags.includes(filter))
-  })
+  const filteredRecipes = useMemo(
+    () =>
+      searchResults.filter((node) => {
+        const tags = node.frontmatter.tags || []
+        return filters.every((filter) => tags.includes(filter))
+      }),
+    [searchResults, filters]
+  )
+
+  // Displayed tags
+  const displayedTags = useMemo(() => {
+    return new Set(
+      searchResults.flatMap((node) => node.frontmatter.tags || [])
+    )
+  }, [searchResults])
+
+  // Memoize handlers
+  const toggleTag = useCallback(
+    (tag) => {
+      setFilters((prevFilters) =>
+        prevFilters.includes(tag)
+          ? prevFilters.filter((t) => t !== tag)
+          : [...prevFilters, tag]
+      )
+    },
+    []
+  )
+
+  const handleSearchChange = useCallback((event) => {
+    setSearchTerm(event.target.value)
+  }, [])
 
   return (
     <Layout title="Recipes">
@@ -97,12 +101,12 @@ const RecipesPage = ({ data: { recipes, customRecipes } }) => {
                   <FaSearch />
                 </InputAdornment>
               ),
-            }
+            },
           }}
         />
       </div>
       <div className="chips">
-        {[...(displayedTags || [])].sort().map(tag => (
+        {[...(displayedTags || [])].sort().map((tag) => (
           <Chip
             key={tag}
             active={filters.includes(tag)}
@@ -112,8 +116,12 @@ const RecipesPage = ({ data: { recipes, customRecipes } }) => {
         ))}
       </div>
       <div className="recipes">
-        {filteredRecipes.map(({ node }, index) => (
-          <div key={node.id} className="recipe-wrapper" style={{ animationDelay: `${index * 0.05}s` }}>
+        {filteredRecipes.map((node, index) => (
+          <div
+            key={node.id}
+            className="recipe-wrapper"
+            style={{ animationDelay: `${index * 0.05}s` }}
+          >
             <Recipe
               {...node.frontmatter}
               slug={node.fields?.slug}
