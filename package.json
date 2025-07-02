@@ -7,7 +7,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^6.0.0",
+    "@mui/material": "^7.0.0",
     "decap-cms-app": "^3.3.3",
     "fuse.js": "^7.0.0",
     "gatsby": "^5.12.4",
