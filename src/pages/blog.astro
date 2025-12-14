@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import './_blog.scss';
+
+const blogPosts = await getCollection('blog');
+const sortedBlogPosts = blogPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const keywords = ['karlo delalic', 'portfolio', 'distributed systems', 'software engineer', 'blog'];
+
+function getReadingTime(content: string) {
+  const wordsPerMinute = 200;
+  const wordCount = content.split(/\s+/).length;
+  return Math.ceil(wordCount / wordsPerMinute);
+}
+---
+
+<BaseLayout title="Blog" keywords={keywords}>
+  <Header slot="header" />
+  <div class="blog">
+    {sortedBlogPosts.map(post => {
+      const readingTime = getReadingTime(post.body);
+      const formattedDate = post.data.date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      return (
+        <div class="blog__post">
+          <h2 class="blog__post__title">
+            <a
+              class="blog__post__title__link"
+              href={`/blog/${post.slug}`}
+            >
+              {post.data.title}
+            </a>
+          </h2>
+          <p class="blog__post__excerpt">
+            {post.body.substring(0, 300)}...
+          </p>
+          <h5 class="blog__post__info">
+            {formattedDate}
+            <span class="dot-divider"></span>
+            {readingTime} min read
+          </h5>
+        </div>
+      );
+    })}
+  </div>
+</BaseLayout>

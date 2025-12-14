@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import '../_blog-post.scss';
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog');
+  return blogPosts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const formattedDate = post.data.date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+const keywords = ['karlo delalic', 'portfolio', 'distributed systems', 'software engineer', ...(post.data.tags || [])];
+---
+
+<BaseLayout title={post.data.title} keywords={keywords}>
+  <Header slot="header" />
+  <div class="post">
+    <h3 class="post__date">
+      {post.data.author}
+      <span class="dot-divider"></span>
+      {formattedDate}
+    </h3>
+    <div class="post__content">
+      <Content />
+    </div>
+  </div>
+</BaseLayout>

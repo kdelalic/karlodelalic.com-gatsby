@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import './_404.scss';
+---
+
+<BaseLayout title="404" centered={true}>
+  <Header slot="header" />
+  <h2 class="page-not-found">Page not found</h2>
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Project from '../components/Project';
+import './_projects.scss';
+
+const projects = await getCollection('projects');
+
+// Get all tech logos from the public directory
+const techLogosPath = '/tech-logos/';
+const techLogos = {
+  'reactjs': `${techLogosPath}reactjs.svg`,
+  'nodejs': `${techLogosPath}nodejs.svg`,
+  'firebase': `${techLogosPath}firebase.svg`,
+  'material ui': `${techLogosPath}material-ui.svg`,
+  'socket.io': `${techLogosPath}socket.io.svg`,
+  'python': `${techLogosPath}python.svg`,
+  'django': `${techLogosPath}django.svg`,
+  'postgresql': `${techLogosPath}postgresql.svg`,
+  'docker': `${techLogosPath}docker.svg`,
+  'javascript': `${techLogosPath}javascript.svg`,
+  'typescript': `${techLogosPath}typescript.svg`,
+  'html': `${techLogosPath}html.svg`,
+  'css': `${techLogosPath}css.svg`,
+  'sass': `${techLogosPath}sass.svg`,
+  'gatsby': `${techLogosPath}gatsby.svg`,
+};
+
+const keywords = ['karlo delalic', 'portfolio', 'distributed systems', 'software engineer', 'projects', 'technology'];
+---
+
+<BaseLayout title="Projects" keywords={keywords}>
+  <Header slot="header" />
+  <div class="projects">
+    {projects.map(project => {
+      const projectLogoSrc = project.data.projectLogo ? `/projects/${project.slug}/${project.data.projectLogo.src.split('/').pop()}` : undefined;
+      return (
+        <Project
+          client:load
+          key={project.id}
+          description={project.data.description}
+          github={project.data.github}
+          technologies={project.data.technologies || []}
+          title={project.data.title}
+          demo={project.data.demo}
+          techLogos={techLogos}
+          projectLogo={projectLogoSrc}
+        />
+      );
+    })}
+  </div>
+</BaseLayout>

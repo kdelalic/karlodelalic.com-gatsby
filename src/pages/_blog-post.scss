@@ -1,0 +1,46 @@
+@use "../globals/base" as *;
+
+.post {
+  text-align: left;
+
+  &__date {
+    text-align: left;
+    color: rgba(0, 0, 0, 0.66);
+    font-weight: 400;
+    font-size: 20px;
+
+    .#{$dark-class} & {
+      color: white;
+    }
+  }
+
+  &__content {
+    color: black;
+
+    .#{$dark-class} & {
+      color: white;
+    }
+  }
+
+  h2 {
+    margin-top: 3rem;
+  }
+
+  p,
+  li {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 1.1rem;
+    line-height: 1.6em;
+  }
+
+  :not(h2) > a {
+    color: $primary-color;
+    border-bottom: 1px solid $primary-color;
+    padding-bottom: 1px;
+
+    &:hover {
+      color: $primary-color__hover;
+      border-bottom: 2px solid;
+    }
+  }
+}

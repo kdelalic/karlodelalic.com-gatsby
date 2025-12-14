@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import { FaRegFilePdf, FaLinkedinIn, FaTwitter, FaGithub } from 'react-icons/fa';
+import './_contact.scss';
+
+const keywords = ['karlo delalic', 'portfolio', 'distributed systems', 'software engineer', 'contact', 'linkedin', 'twitter', 'email'];
+---
+
+<BaseLayout title="Contact" keywords={keywords} centered={true}>
+  <Header slot="header" />
+  <div class="contact">
+    <a
+      class="contact__email"
+      href="mailto:karlo.delalic1@gmail.com"
+      target="_blank"
+      rel="nofollow noopener noreferrer"
+    >
+      karlo.delalic1@gmail.com
+    </a>
+    <div class="contact__buttons">
+      <a
+        class="link-button ghost"
+        href="https://linkedin.com/in/kdelalic/"
+        target="_blank"
+        rel="nofollow noopener noreferrer"
+      >
+        <FaLinkedinIn /> Linkedin
+      </a>
+      <a
+        class="link-button ghost"
+        href="https://twitter.com/karlodelalic/"
+        target="_blank"
+        rel="nofollow noopener noreferrer"
+      >
+        <FaTwitter /> Twitter
+      </a>
+      <a
+        class="link-button ghost"
+        href="https://github.com/kdelalic/"
+        target="_blank"
+        rel="nofollow noopener noreferrer"
+      >
+        <FaGithub /> Github
+      </a>
+    </div>
+    <a
+      class="link-button primary"
+      href="/resume.pdf"
+      target="_blank"
+      rel="nofollow noopener noreferrer"
+    >
+      <FaRegFilePdf />
+      Resume
+    </a>
+  </div>
+</BaseLayout>

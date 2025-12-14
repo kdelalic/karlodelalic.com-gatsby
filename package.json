@@ -5,9 +5,14 @@
   "version": "0.1.0",
   "author": "Karlo Delalic",
   "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/rss": "^4.0.14",
+    "@astrojs/sitemap": "^3.6.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^6.0.0",
+    "astro": "^5.16.5",
     "decap-cms-app": "^3.3.3",
     "fuse.js": "^7.0.0",
     "gatsby": "^5.12.4",
@@ -37,7 +42,7 @@
     "react-icons": "^5.0.0",
     "react-intersection-observer": "^9.16.0",
     "react-typography": "^0.16.23",
-    "sass": "^1.77.8",
+    "sass": "^1.96.0",
     "typography": "^0.16.24"
   },
   "devDependencies": {
@@ -48,17 +53,17 @@
   },
   "keywords": [
     "karlo delalic",
-    "gatsby",
+    "astro",
     "software engineer",
     "personal website"
   ],
   "license": "MIT",
   "scripts": {
-    "build": "./build.sh && gatsby build",
-    "dev": "./build.sh && gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx,scss,md}",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "build": "./build.sh && astro build",
+    "dev": "./build.sh && astro dev",
+    "format": "prettier --write src/**/*.{js,jsx,tsx,astro,scss,md}",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,scss}": [

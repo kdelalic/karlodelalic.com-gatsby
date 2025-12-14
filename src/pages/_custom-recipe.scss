@@ -1,0 +1,82 @@
+@use "../globals/base" as *;
+
+.custom-recipe {
+  article {
+    background-color: white;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    color: #333;
+    text-align: left;
+
+    .#{$dark-class} & {
+      background-color: #333;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    p {
+      font-size: 1rem;
+      color: rgba(0, 0, 0, 0.7);
+      margin-bottom: 1.5rem;
+
+      .#{$dark-class} & {
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    .gatsby-image-wrapper {
+      display: block;
+      margin: 0 auto 2rem;
+      border-radius: $border-radius;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      color: $primary-color;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid $divider-shadow;
+
+      .#{$dark-class} & {
+        color: white;
+        border-bottom-color: $divider-shadow-dark;
+      }
+    }
+
+    ul {
+      list-style: disc;
+      margin-bottom: 2rem;
+
+      li {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+
+        .#{$dark-class} & {
+          color: white;
+        }
+      }
+    }
+
+    .steps {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+
+      .#{$dark-class} & {
+        color: white;
+      }
+    }
+
+    .notes {
+      font-size: 1.1rem;
+      line-height: 1.6;
+
+      .#{$dark-class} & {
+        color: white;
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+---
+import '../globals/_base.scss';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  centered?: boolean;
+  date?: string;
+}
+
+const {
+  title = 'Karlo Delalic',
+  description = 'Karlo Delalic is a software engineer who is experienced with building highly reliable and performant distributed systems.',
+  keywords = ['karlo delalic', 'portfolio', 'distributed systems', 'software engineer'],
+  centered = false,
+  date,
+} = Astro.props;
+
+const siteUrl = 'https://karlodelalic.me';
+const author = '@karlodelalic';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/icon.png" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:creator" content={author} />
+
+    <script is:inline>
+      (function() {
+        function setTheme(theme) {
+          if (theme === 'dark') {
+            document.documentElement.className = 'dark';
+          } else {
+            document.documentElement.className = '';
+          }
+          window.__theme = theme;
+        }
+
+        window.__setPreferredTheme = function(theme) {
+          setTheme(theme);
+          try {
+            localStorage.setItem('preferred-theme', theme);
+          } catch (e) {}
+        };
+
+        let preferredTheme;
+        try {
+          preferredTheme = localStorage.getItem('preferred-theme');
+        } catch (e) {}
+
+        const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
+      })();
+    </script>
+
+    <style is:global>
+      @import url('../globals/_base.scss');
+
+      html {
+        font-family: 'Avenir Next', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        font-size: 18px;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 600;
+        font-family: 'Avenir Next', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+      }
+
+      strong, b {
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <slot name="header" />
+    <div class={centered ? 'content centered' : 'content'}>
+      {title && <h1 class="title">{title}</h1>}
+      {date && <p class="date">{date}</p>}
+      <main>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
