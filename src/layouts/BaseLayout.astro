@@ -1,5 +1,6 @@
 ---
 import '../globals/_base.scss';
+import '../components/layout.scss';
 
 interface Props {
   title?: string;
@@ -18,7 +19,6 @@ const {
 } = Astro.props;
 
 const siteUrl = 'https://karlodelalic.me';
-const author = '@karlodelalic';
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 ---
 
@@ -38,12 +38,6 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
-
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:url" content={canonicalURL} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:creator" content={author} />
 
     <script is:inline>
       (function() {
@@ -74,8 +68,6 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     </script>
 
     <style is:global>
-      @import url('../globals/_base.scss');
-
       html {
         font-family: 'Avenir Next', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
         -ms-text-size-adjust: 100%;

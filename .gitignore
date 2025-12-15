@@ -73,7 +73,3 @@ yarn-error.log
 
 # Resume
 static/resume.pdf
-
-.cache/
-
-public/

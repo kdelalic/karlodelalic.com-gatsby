@@ -29,7 +29,7 @@ export default defineConfig({
       extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json']
     },
     ssr: {
-      noExternal: ['@mui/material', '@mui/system', '@emotion/react', '@emotion/styled']
+      noExternal: ['@mui/material', '@mui/system', '@mui/utils', '@emotion/react', '@emotion/styled']
     }
   }
 });

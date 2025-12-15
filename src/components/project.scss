@@ -1,77 +1,85 @@
 @use "../globals/base" as *;
 
 .projects {
-  .project {
-    width: 50%;
-    padding: 15px;
-    text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: auto;
+  margin-left: -15px;
+  margin-right: -15px;
+  padding-bottom: 25px;
+}
 
-    @media all and (max-width: $width-max) {
-      width: 100%;
+.project {
+  width: 50%;
+  padding: 15px;
+  text-align: left;
+
+  @media all and (max-width: $width-max) {
+    width: 100%;
+  }
+
+  &__content {
+    .#{$dark-class} & {
+      background-color: #373737;
     }
 
-    &__content {
+    @media all and (min-width: ($width-small + 1)) {
+      padding-left: 150px;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    color: $primary-color;
+    margin-bottom: 10px;
+  }
+
+  &__body {
+    &__description {
+      margin-bottom: 15px;
+
       .#{$dark-class} & {
-        background-color: #373737;
-      }
-
-      @media all and (min-width: ($width-small + 1)) {
-        padding-left: 150px;
+        color: white;
       }
     }
 
-    &__title {
-      text-transform: uppercase;
-      color: $primary-color;
+    &__tech-logos {
+      display: flex;
+      margin-left: -5px;
       margin-bottom: 10px;
-    }
 
-    &__body {
-      &__description {
-        margin-bottom: 15px;
-
-        .#{$dark-class} & {
-          color: white;
-        }
+      img {
+        height: 30px;
+        margin: 0 5px;
       }
 
-      &__tech-logos {
-        display: flex;
-        margin-left: -5px;
-        margin-bottom: 10px;
+      &__logo {
+        position: relative;
 
-        img {
-          height: 30px;
-          margin: 0 5px;
+        &:hover .tooltip {
+          visibility: visible;
         }
-
-        &__logo {
-          position: relative;
-
-          &:hover .tooltip {
-            visibility: visible;
-          }
-        }
-      }
-
-      &__buttons {
-        display: flex;
-        margin-left: -10px;
-        margin-right: -10px;
       }
     }
 
-    &__logo {
-      max-width: 150px;
-      position: absolute;
-      left: -50px;
-      top: 50%;
-      transform: translateY(-50%);
-      margin-bottom: 0;
+    &__buttons {
+      display: flex;
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+  }
 
-      @media all and (max-width: $width-small) {
-        display: none;
-      }
+  &__logo {
+    max-width: 150px;
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-bottom: 0;
+
+    @media all and (max-width: $width-small) {
+      display: none;
     }
   }
 }

@@ -8,17 +8,17 @@ import RecipesClient from '../components/RecipesClient';
 const allRecipes = await getCollection('recipes');
 
 // Prepare recipes data for the client component
-const recipesData = await Promise.all(allRecipes.map(async (recipe) => {
+const recipesData = allRecipes.map((recipe) => {
   let imageSrc = null;
 
   if (recipe.data.image) {
-    // For custom recipes or recipes with local images
-    if (recipe.slug.includes('custom-recipes')) {
-      imageSrc = `/recipes/${recipe.slug.split('/')[1]}/${recipe.data.image.src.split('/').pop()}`;
-    } else {
-      // For regular recipes
-      imageSrc = `/recipes/${recipe.slug}/${recipe.data.image.src.split('/').pop()}`;
-    }
+    // Get the image filename - it's just a string like "image.webp"
+    const imageFilename = typeof recipe.data.image === 'string'
+      ? recipe.data.image
+      : recipe.data.image.src.split('/').pop();
+
+    // Build the path to the image in the public directory
+    imageSrc = `/recipes/${recipe.slug}/${imageFilename}`;
   }
 
   return {
@@ -31,7 +31,7 @@ const recipesData = await Promise.all(allRecipes.map(async (recipe) => {
     slug: recipe.slug.includes('custom-recipes') ? `/custom-recipes/${recipe.slug.split('/')[1]}` : null,
     image: imageSrc,
   };
-}));
+});
 
 const keywords = ['karlo delalic', 'portfolio', 'distributed systems', 'software engineer', 'recipes'];
 ---

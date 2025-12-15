@@ -83,4 +83,4 @@ For inspiration, check out the [Gatsby showcase](https://www.gatsbyjs.org/showca
 Additionally, you can explore how I built this website by visiting my [repository](https://github.com/kdelalic/karlodelalic-gatsby).
 
 ---
-__I hope you enjoyed this article and found it to be worthwhile. You can check out all of my projects on [GitHub](https://github.com/kdelalic) and don’t hesitate to reach out to me on [Twitter](https://twitter.com/karlodelalic)!__
+__I hope you enjoyed this article and found it to be worthwhile. You can check out all of my projects on [GitHub](https://github.com/kdelalic)!__

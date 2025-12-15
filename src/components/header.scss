@@ -28,7 +28,8 @@ header {
       height: $logo-dimension;
       transition: transform 0.15s ease-in-out;
 
-      svg {
+      svg,
+      img {
         height: $logo-dimension;
         width: $logo-dimension;
       }

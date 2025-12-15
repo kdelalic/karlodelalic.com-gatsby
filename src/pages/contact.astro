@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
-import { FaRegFilePdf, FaLinkedinIn, FaTwitter, FaGithub } from 'react-icons/fa';
+import { FaRegFilePdf, FaLinkedinIn, FaGithub } from 'react-icons/fa';
 import './_contact.scss';
 
-const keywords = ['karlo delalic', 'portfolio', 'distributed systems', 'software engineer', 'contact', 'linkedin', 'twitter', 'email'];
+const keywords = ['karlo delalic', 'portfolio', 'distributed systems', 'software engineer', 'contact', 'linkedin', 'email'];
 ---
 
 <BaseLayout title="Contact" keywords={keywords} centered={true}>
@@ -26,14 +26,6 @@ const keywords = ['karlo delalic', 'portfolio', 'distributed systems', 'software
         rel="nofollow noopener noreferrer"
       >
         <FaLinkedinIn /> Linkedin
-      </a>
-      <a
-        class="link-button ghost"
-        href="https://twitter.com/karlodelalic/"
-        target="_blank"
-        rel="nofollow noopener noreferrer"
-      >
-        <FaTwitter /> Twitter
       </a>
       <a
         class="link-button ghost"
