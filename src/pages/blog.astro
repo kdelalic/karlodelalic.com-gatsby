@@ -38,7 +38,7 @@ function getReadingTime(content: string) {
             </a>
           </h2>
           <p class="blog__post__excerpt">
-            {post.body.substring(0, 300)}...
+            {post.body.split('<!-- end -->')[0].trim()}
           </p>
           <h5 class="blog__post__info">
             {formattedDate}

@@ -1,15 +1,15 @@
 ---
-import DarkModeSwitch from './DarkModeSwitch';
-import './header.scss';
+import DarkModeSwitch from "./DarkModeSwitch"
+import "./header.scss"
 
 const pages = [
-  { name: 'blog', path: '/blog' },
-  { name: 'projects', path: '/projects' },
-  { name: 'recipes', path: '/recipes' },
-  { name: 'contact', path: '/contact' }
-];
+  { name: "blog", path: "/blog" },
+  { name: "contact", path: "/contact" },
+  { name: "projects", path: "/projects" },
+  { name: "recipes", path: "/recipes" },
+]
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname
 ---
 
 <header>
@@ -25,52 +25,54 @@ const currentPath = Astro.url.pathname;
     <span></span>
   </div>
   <nav class="navbar" id="navbar">
-    <a
-      href="/"
-      class:list={['navbar__item', { active: currentPath === '/' }]}
-    >
+    <a href="/" class:list={["navbar__item", { active: currentPath === "/" }]}>
       Home
     </a>
-    {pages.map(page => (
-      <a
-        href={page.path}
-        class:list={['navbar__item', { active: currentPath.startsWith(page.path) }]}
-      >
-        {page.name}
-      </a>
-    ))}
+    {
+      pages.map((page) => (
+        <a
+          href={page.path}
+          class:list={[
+            "navbar__item",
+            { active: currentPath.startsWith(page.path) },
+          ]}
+        >
+          {page.name}
+        </a>
+      ))
+    }
   </nav>
   <DarkModeSwitch client:load />
 </header>
 
 <script>
-  const burger = document.getElementById('navbar-burger');
-  const navbar = document.getElementById('navbar');
+  const burger = document.getElementById("navbar-burger")
+  const navbar = document.getElementById("navbar")
 
   if (burger && navbar) {
     const toggleNavbar = () => {
-      burger.classList.toggle('open');
-      navbar.classList.toggle('open');
-    };
+      burger.classList.toggle("open")
+      navbar.classList.toggle("open")
+    }
 
     const closeNavbar = () => {
-      burger.classList.remove('open');
-      navbar.classList.remove('open');
-    };
+      burger.classList.remove("open")
+      navbar.classList.remove("open")
+    }
 
-    burger.addEventListener('click', toggleNavbar);
-    burger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleNavbar();
+    burger.addEventListener("click", toggleNavbar)
+    burger.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault()
+        toggleNavbar()
       }
-    });
+    })
 
-    navbar.addEventListener('click', closeNavbar);
-    navbar.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        closeNavbar();
+    navbar.addEventListener("click", closeNavbar)
+    navbar.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        closeNavbar()
       }
-    });
+    })
   }
 </script>

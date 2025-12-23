@@ -55,7 +55,7 @@ const keywords = [
           <span class="tag">Latest writing</span>
         </h3>
         <p class="latest-post__excerpt">
-          {latestPost.body.substring(0, 200)}...
+          {latestPost.body.split('<!-- end -->')[0].trim()}
         </p>
       </div>
     )
