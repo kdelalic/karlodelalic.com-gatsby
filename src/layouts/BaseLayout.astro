@@ -8,6 +8,7 @@ interface Props {
   keywords?: string[];
   centered?: boolean;
   date?: string;
+  hidePageTitle?: boolean;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   keywords = ['karlo delalic', 'portfolio', 'distributed systems', 'software engineer'],
   centered = false,
   date,
+  hidePageTitle = false,
 } = Astro.props;
 
 const siteUrl = 'https://karlodelalic.me';
@@ -96,7 +98,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
   <body>
     <slot name="header" />
     <div class={centered ? 'content centered' : 'content'}>
-      {title && <h1 class="title">{title}</h1>}
+      {!hidePageTitle && title && <h1 class="title">{title}</h1>}
       {date && <p class="date">{date}</p>}
       <main>
         <slot />

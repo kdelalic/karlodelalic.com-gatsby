@@ -64,6 +64,7 @@
     height: 32px;
     padding: 0 14px;
     color: black;
+    font-family: 'Avenir Next', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
 
     .#{$dark-class} & {
       color: white;
@@ -73,6 +74,7 @@
   & .MuiInputLabel-outlined {
     line-height: 32px;
     transform: translate(14px, 0px) scale(1);
+    font-family: 'Avenir Next', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
 
     .#{$dark-class} & {
       color: white;
